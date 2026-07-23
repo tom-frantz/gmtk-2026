@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://cemsrqn8m8s70"]
 
+[ext_resource type="PackedScene" uid="uid://bjjtq2vw6hbve" path="res://Book.tscn" id="1_8rhwm"]
 [ext_resource type="PackedScene" uid="uid://xkt3hqqum811" path="res://scenes/common/hand.tscn" id="1_wbkop"]
 [ext_resource type="PackedScene" uid="uid://cko3vempsnu2i" path="res://scenes/common/clock.tscn" id="2_1sq20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sq20"]
 size = Vector2(100000, 100000)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8rhwm"]
+rough = true
 
 [node name="Node2D" type="Node2D" unique_id=231153001]
 
@@ -25,3 +29,7 @@ slide_on_ceiling = false
 position = Vector2(208, 105)
 linear_damp = 57.14
 angular_damp = 29.492
+
+[node name="Book" parent="." unique_id=1816116435 instance=ExtResource("1_8rhwm")]
+position = Vector2(500, 339)
+physics_material_override = SubResource("PhysicsMaterial_8rhwm")

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bjjtq2vw6hbve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us37y"]
+size = Vector2(100, 140)
+
+[sub_resource type="BoxMesh" id="BoxMesh_us37y"]
+size = Vector3(100, 140, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_us37y"]
+line_spacing = 0.1
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="Book" type="RigidBody2D" unique_id=1816116435]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1919489730]
+shape = SubResource("RectangleShape2D_us37y")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1962841174]
+mesh = SubResource("BoxMesh_us37y")
+
+[node name="Control" type="Control" parent="." unique_id=1314349585]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 5.0
+offset_bottom = 7.0
+
+[node name="Label" type="Label" parent="Control" unique_id=1935180209]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -28.0
+offset_right = 28.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "How to win 
+people and 
+influence 
+friends"
+label_settings = SubResource("LabelSettings_us37y")
