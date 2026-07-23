@@ -1,0 +1,3 @@
+- Gimmick: Black screen
+- Minor visual / audio feedback to guide a hand to click the button to turn off the alarm
+- 
