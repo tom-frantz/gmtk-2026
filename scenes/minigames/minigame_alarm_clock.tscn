@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cemsrqn8m8s70"]
+
+[ext_resource type="PackedScene" uid="uid://xkt3hqqum811" path="res://scenes/common/hand.tscn" id="1_wbkop"]
+[ext_resource type="PackedScene" uid="uid://cko3vempsnu2i" path="res://scenes/common/clock.tscn" id="2_1sq20"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sq20"]
+size = Vector2(100000, 100000)
+
+[node name="Node2D" type="Node2D" unique_id=231153001]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1640685590]
+gravity_space_override = 3
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=424607036]
+shape = SubResource("RectangleShape2D_1sq20")
+
+[node name="Hand" parent="." unique_id=313986736 instance=ExtResource("1_wbkop")]
+position = Vector2(367, 189)
+slide_on_ceiling = false
+
+[node name="Clock" parent="." unique_id=270724650 instance=ExtResource("2_1sq20")]
+position = Vector2(208, 105)
+linear_damp = 57.14
+angular_damp = 29.492
