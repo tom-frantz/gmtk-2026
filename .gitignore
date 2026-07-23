@@ -4,6 +4,10 @@
 
 # Build folder
 /result/
+!/result/mac/README.md
+!/result/windows/README.md
+!/result/web/README.md
+!/result/linux/README.md
 
 # Notes things
 .obsidian
