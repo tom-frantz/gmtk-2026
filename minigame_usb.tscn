@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://ba6adnn1mtrj7"]
+
+[ext_resource type="Script" uid="uid://coabvdwmtfgnm" path="res://minigame_usb.gd" id="1_7t23r"]
+[ext_resource type="Texture2D" uid="uid://cqwluyyhy44gc" path="res://usb_back.png" id="2_00j4y"]
+[ext_resource type="Script" uid="uid://d4j3mwydt5sxd" path="res://usb.gd" id="2_wnaiw"]
+[ext_resource type="Texture2D" uid="uid://bggdn55hoca50" path="res://usb_front.png" id="3_evmvr"]
+[ext_resource type="Texture2D" uid="uid://yfpoaqakchpu" path="res://usb_top.png" id="4_00j4y"]
+[ext_resource type="Texture2D" uid="uid://p5y1eeasbcdm" path="res://usb_computer.png" id="6_evmvr"]
+[ext_resource type="Texture2D" uid="uid://ca6pvncvfsmmp" path="res://usb_slot_horz.png" id="7_ukxef"]
+[ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://slot.gd" id="7_wnaiw"]
+[ext_resource type="Texture2D" uid="uid://d261cqhkhggxw" path="res://usb_slot_vert.png" id="8_wnaiw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kuy6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_evmvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_00j4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_00j4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_00j4y")
+}],
+"loop": 1,
+"name": &"usb",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuy6b"]
+size = Vector2(113, 32.000008)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ukxef")
+}],
+"loop": 1,
+"name": &"horz",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wnaiw")
+}],
+"loop": 1,
+"name": &"vert",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb0x2"]
+size = Vector2(68, 72)
+
+[node name="MinigameUsb" type="Node2D" unique_id=1410700175]
+script = ExtResource("1_7t23r")
+
+[node name="usb" type="Area2D" parent="." unique_id=802836530]
+position = Vector2(257.645, 499.77)
+script = ExtResource("2_wnaiw")
+
+[node name="usb_sprite" type="AnimatedSprite2D" parent="usb" unique_id=355312456]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_kuy6b")
+animation = &"usb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="usb" unique_id=1395177505]
+position = Vector2(-4.144989, -81.76999)
+shape = SubResource("RectangleShape2D_kuy6b")
+
+[node name="computah" type="Sprite2D" parent="." unique_id=1340533437]
+z_index = -10
+position = Vector2(589.12506, 182.625)
+scale = Vector2(5.85875, 1.9737501)
+texture = ExtResource("6_evmvr")
+
+[node name="slot" type="Area2D" parent="." unique_id=1065814965]
+position = Vector2(172.62, 150)
+script = ExtResource("7_wnaiw")
+
+[node name="slot_sprite" type="AnimatedSprite2D" parent="slot" unique_id=1948344066]
+sprite_frames = SubResource("SpriteFrames_gb0x2")
+animation = &"vert"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slot" unique_id=1232926878]
+position = Vector2(-0.6199951, 57)
+shape = SubResource("RectangleShape2D_gb0x2")
+
+[connection signal="area_entered" from="slot" to="usb" method="_on_slot_collision_area_area_entered" binds= [PackedVector2Array()]]
