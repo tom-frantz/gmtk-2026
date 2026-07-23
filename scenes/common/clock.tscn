@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cko3vempsnu2i"]
 
+[ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_e8s61"]
+
 [sub_resource type="QuadMesh" id="QuadMesh_dxuwh"]
 size = Vector2(100, 100)
 
@@ -8,7 +10,9 @@ size = Vector2(100, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hxnw"]
 size = Vector2(100, 100)
 
-[node name="Clock" type="RigidBody2D" unique_id=270724650]
+[node name="Clock" type="RigidBody2D" unique_id=2083303648]
+script = ExtResource("1_e8s61")
+metadata/_custom_type_script = "uid://beuy1i08e2uuk"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1441095892]
 
