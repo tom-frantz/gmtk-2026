@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://xkt3hqqum811"]
+
+[ext_resource type="Script" uid="uid://x5mcd8g8si0j" path="res://scenes/common/hand.gd" id="1_2kv6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kv6c"]
+size = Vector2(100, 100)
+
+[sub_resource type="QuadMesh" id="QuadMesh_2hxnw"]
+size = Vector2(100, 100)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_r8lm3"]
+
+[node name="Hand" type="CharacterBody2D" unique_id=313986736]
+script = ExtResource("1_2kv6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1652794015]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1870216944]
+shape = SubResource("RectangleShape2D_2kv6c")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1069319442]
+mesh = SubResource("QuadMesh_2hxnw")
+texture = SubResource("PlaceholderTexture2D_r8lm3")
