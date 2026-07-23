@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://efyqukual3b"]
+
+[ext_resource type="Script" uid="uid://c7y4yrlsgg4bb" path="res://scenes/common/hand_2.gd" id="1_7pxq6"]
+[ext_resource type="Texture2D" uid="uid://jq4vpux2yf5d" path="res://assets/hand.png" id="2_a8cjt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_en2hh"]
+radius = 25.0
+height = 72.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v7qgo"]
+radius = 46.0
+height = 106.0
+
+[node name="Hand" type="CharacterBody2D" unique_id=313986736]
+motion_mode = 1
+script = ExtResource("1_7pxq6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1652794015]
+texture = ExtResource("2_a8cjt")
+
+[node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=1870216944]
+position = Vector2(-4, 30)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_en2hh")
+
+[node name="GrabArea" type="Area2D" parent="." unique_id=570074616]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea" unique_id=444812402]
+position = Vector2(-4, 2)
+shape = SubResource("CapsuleShape2D_v7qgo")
