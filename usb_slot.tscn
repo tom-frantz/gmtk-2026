@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cf50qaiagfin1"]
+
+[ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://slot.gd" id="1_8fe3g"]
+[ext_resource type="Texture2D" uid="uid://ca6pvncvfsmmp" path="res://usb_slot_horz.png" id="2_qqjwv"]
+[ext_resource type="Texture2D" uid="uid://d261cqhkhggxw" path="res://usb_slot_vert.png" id="3_qm7u5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qqjwv")
+}],
+"loop": 1,
+"name": &"horz",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qm7u5")
+}],
+"loop": 1,
+"name": &"vert",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb0x2"]
+size = Vector2(68, 72)
+
+[node name="slot" type="Area2D" unique_id=706888658]
+script = ExtResource("1_8fe3g")
+
+[node name="slot_sprite" type="AnimatedSprite2D" parent="." unique_id=544163790]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_gb0x2")
+animation = &"vert"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1899309396]
+position = Vector2(-0.6199951, 57)
+shape = SubResource("RectangleShape2D_gb0x2")
