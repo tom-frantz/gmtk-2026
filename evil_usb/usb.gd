@@ -24,6 +24,9 @@ var slot_mask: Sprite2D = %computah_mask
 var incorrect_audio: AudioStreamPlayer = %incorrect_audio
 
 @onready
+var win_audio: AudioStreamPlayer = %win_audio
+
+@onready
 var status: UsbStatus = UsbStatus.FREE
 
 @onready
@@ -53,7 +56,8 @@ func _process(_delta: float) -> void:
 
 func check_won() -> void:
 	if status == UsbStatus.WON:
-		print("won!")
+		if !win_audio.playing:
+			win_audio.play()
 
 func update_collisions() -> void:
 	var free: int = 0b00000000_00000000_00000000_00000010
@@ -66,25 +70,25 @@ func update_collisions() -> void:
 			self.collision_mask |= entering
 
 func move_usb() -> void:
-	if status != UsbStatus.WON && status != UsbStatus.REJECT:
-		print(status)
+	if status != UsbStatus.WON:
 		var target_pos: Vector2 = lerp(self.global_position, get_viewport().get_mouse_position(), 0.5)
 		var displacement: Vector2 = target_pos - self.global_position
 		var collision: KinematicCollision2D  = move_and_collide(displacement)
 
-		if collision && !tween:
-			var obj: Node2D = collision.get_collider()
-			if obj.name == "slot_body":
-				bounce_away(collision)
+		if status != UsbStatus.REJECT:
+			if collision && !tween:
+				var obj: Node2D = collision.get_collider()
+				if obj.name == "slot_body":
+					bounce_away(collision)
 
 func bounce_away(collision: KinematicCollision2D) -> void:
 	status = UsbStatus.REJECT
 	tween = self.create_tween()
 	incorrect_audio.play()
-	tween.tween_property(self, "position", self.position + 30*collision.get_normal() , 0.2)
-	tween.tween_property(self, "rotation_degrees", self.rotation_degrees + 5, 0.2)
-	tween.tween_property(self, "rotation_degrees", self.rotation_degrees - 5, 0.2)
-	tween.tween_property(self, "rotation_degrees", self.rotation_degrees, 0.2)
+	tween.tween_property(self, "position", self.position + 30*collision.get_normal() , 0.1)
+	tween.tween_property(self, "rotation_degrees", self.rotation_degrees + 5, 0.1)
+	tween.tween_property(self, "rotation_degrees", self.rotation_degrees - 5, 0.1)
+	tween.tween_property(self, "rotation_degrees", self.rotation_degrees, 0.1)
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.play()
@@ -96,15 +100,16 @@ func _on_animation_completed() -> void:
 	status = UsbStatus.FREE
 
 func usb_flip() -> void:
-	match orient:
-		UsbOrient.A:
-			orient = UsbOrient.B
-		UsbOrient.B:
-			orient = UsbOrient.C
-		UsbOrient.C:
-			orient = UsbOrient.D
-		UsbOrient.D:
-			orient = UsbOrient.A
+	if status == UsbStatus.FREE:
+		match orient:
+			UsbOrient.A:
+				orient = UsbOrient.B
+			UsbOrient.B:
+				orient = UsbOrient.C
+			UsbOrient.C:
+				orient = UsbOrient.D
+			UsbOrient.D:
+				orient = UsbOrient.A
 
 func render_usb() -> void:
 	match orient:

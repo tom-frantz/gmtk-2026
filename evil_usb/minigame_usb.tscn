@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c1rw3qc8wfcl2" path="res://assets/usb02.png" id="5_d7qak"]
 [ext_resource type="Texture2D" uid="uid://c2g22a16e78qu" path="res://assets/usb_background.png" id="6_d7qak"]
 [ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://evil_usb/slot.gd" id="7_q7c0c"]
+[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="7_ss1jw"]
 [ext_resource type="Texture2D" uid="uid://6dasfij4djvm" path="res://assets/usb_port_h_base02.png" id="8_xamve"]
 [ext_resource type="Texture2D" uid="uid://du1brpv3863ob" path="res://assets/usb_port_v_base01.png" id="9_ss1jw"]
 [ext_resource type="Texture2D" uid="uid://dqgow3lsxd6t8" path="res://assets/usb_port_h_top01.png" id="10_nhjxt"]
@@ -190,12 +191,17 @@ z_index = 10
 position = Vector2(0.5, -88.88501)
 shape = SubResource("RectangleShape2D_kuy6b")
 
+[node name="win_audio" type="AudioStreamPlayer" parent="usb" unique_id=2101610096]
+unique_name_in_owner = true
+stream = ExtResource("7_ss1jw")
+
 [node name="computah" type="Sprite2D" parent="." unique_id=1340533437]
 z_index = -10
-position = Vector2(575, 380)
+position = Vector2(638, 479)
 texture = ExtResource("6_d7qak")
 
 [node name="slot_body" type="StaticBody2D" parent="." unique_id=1585106303]
+position = Vector2(70, 84)
 
 [node name="slot" type="Area2D" parent="slot_body" unique_id=706888658]
 position = Vector2(371.62, 361.5)
@@ -249,6 +255,7 @@ shape = SubResource("RectangleShape2D_q7c0c")
 debug_color = Color(0.6598893, 0.6550755, 0.114062555, 0.41960785)
 
 [node name="slot_channel" type="StaticBody2D" parent="." unique_id=1087578406]
+position = Vector2(70, 84)
 collision_layer = 4
 collision_mask = 7
 
