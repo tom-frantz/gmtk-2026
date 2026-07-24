@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dg6i4mlw8jcg4"]
+
+[ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_bmyjq"]
+
+[node name="SoftToy" type="RigidBody2D" unique_id=383912693]
+script = ExtResource("1_bmyjq")
+metadata/_custom_type_script = "uid://beuy1i08e2uuk"
+
+[node name="Collider" type="CollisionPolygon2D" parent="." unique_id=682270454]
+polygon = PackedVector2Array(-100, 63, -53, 68, -54, 33, 54, 32, 57, 72, 89, 72, 91, 34, 131, 31, 146, 23, 150, 2, 138, -10, 113, -10, 93, -10, 78, -45, 26, -75, -46, -79, -78, -59, -96, -35, -114, -4, -114, 8, -138, 22, -114, 18)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=958181576]
+color = Color(0.1764706, 0.72156864, 0.20392157, 1)
+polygon = PackedVector2Array(-100, 63, -53, 68, -54, 33, 54, 32, 57, 72, 89, 72, 91, 34, 131, 31, 146, 23, 150, 2, 138, -10, 113, -10, 93, -10, 78, -45, 26, -75, -46, -79, -78, -59, -96, -35, -114, -4, -114, 8, -138, 22, -114, 18)

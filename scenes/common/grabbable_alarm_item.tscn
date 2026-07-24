@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://brtiebamxfyxh"]
+
+[node name="GrabbableAlarmItem" type="RigidBody2D" unique_id=266171078]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=911718628]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=837084496]
