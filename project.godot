@@ -29,6 +29,10 @@ gdscript/warnings/unsafe_void_return=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[dotnet]
+
+project/assembly_name="gmtk_2026"
+
 [file_customization]
 
 folder_colors={
