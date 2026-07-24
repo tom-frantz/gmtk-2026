@@ -1,14 +1,12 @@
-extends Label
+extends Node2D
 
+@export var timer: Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	timer = %Timer
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var time: int = int(ceili($Timer.time_left))
-	var units = time % 10
-	var tens = (time / 10) % 10
-	
+	pass

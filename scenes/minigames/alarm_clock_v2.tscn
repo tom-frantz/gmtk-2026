@@ -63,6 +63,11 @@ rotation = 0.49392816
 [node name="FadeIn" parent="." unique_id=1555448231 instance=ExtResource("8_k7hma")]
 
 [node name="LevelTimer" parent="." unique_id=2132368197 instance=ExtResource("10_b5bgn")]
-wait_time = 20.380000000000003
+position = Vector2(163, 93)
+
+[node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
+wait_time = 11.758999999999999
 one_shot = true
 autostart = true
+
+[editable path="LevelTimer"]

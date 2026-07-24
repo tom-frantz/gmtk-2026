@@ -1,4 +1,4 @@
-extends Label
+extends Sprite2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var time: int = int(ceili($Timer.time_left))
+	var time: int = int(ceili(%Timer.time_left))
 	var units = time % 10
-	var tens = (time / 10) % 10
-	
+	print(time)
+	frame = units
