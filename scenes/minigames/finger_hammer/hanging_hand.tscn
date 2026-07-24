@@ -2,29 +2,57 @@
 
 [ext_resource type="Script" uid="uid://78anoryubi7u" path="res://scenes/minigames/finger_hammer/hanging_hand.gd" id="1_dstoi"]
 [ext_resource type="PackedScene" uid="uid://f1fkqbxrtxi2" path="res://scenes/minigames/finger_hammer/hanging_finger.tscn" id="1_xjuyq"]
+[ext_resource type="AudioStream" uid="uid://jarkyjt43sod" path="res://assets/sound/fx/yelpsexual.wav" id="3_ftd6l"]
 
 [node name="HangingHand" type="Node2D" unique_id=1067559394]
 script = ExtResource("1_dstoi")
 
 [node name="Pinky" parent="." unique_id=1510985001 instance=ExtResource("1_xjuyq")]
 unique_name_in_owner = true
-position = Vector2(-131, -10)
-rotation = -0.22784784
-scale = Vector2(0.7182019, 1)
+position = Vector2(-164, 0)
+
+[node name="FingerArea" parent="Pinky" index="2" unique_id=1510985001]
+position = Vector2(1, 9)
+rotation = -0.15734325
+scale = Vector2(0.84824216, 1.0062654)
 
 [node name="Ring" parent="." unique_id=1254633140 instance=ExtResource("1_xjuyq")]
 unique_name_in_owner = true
-position = Vector2(-54, -15)
-scale = Vector2(0.7963391, 1.2028621)
+position = Vector2(-57, 0)
+
+[node name="FingerArea" parent="Ring" index="2" unique_id=1510985001]
+rotation = -0.046337496
+scale = Vector2(0.91991454, 1.2819799)
 
 [node name="Middle" parent="." unique_id=1691560825 instance=ExtResource("1_xjuyq")]
 unique_name_in_owner = true
-position = Vector2(23.000002, -18.000002)
-rotation = 0.07344303
-scale = Vector2(0.8126276, 1.2440193)
+position = Vector2(58, 0)
+
+[node name="FingerArea" parent="Middle" index="2" unique_id=1510985001]
+rotation = 0.07560554
+scale = Vector2(0.9515851, 1.4212255)
 
 [node name="Index" parent="." unique_id=744114001 instance=ExtResource("1_xjuyq")]
 unique_name_in_owner = true
-position = Vector2(96.00001, -4.000002)
-rotation = 0.15713122
-scale = Vector2(0.78368896, 1.1787598)
+position = Vector2(167, 0)
+
+[node name="FingerArea" parent="Index" index="2" unique_id=1510985001]
+position = Vector2(-0.99999994, 3.9999998)
+rotation = 0.13106616
+scale = Vector2(0.92591065, 1.079313)
+
+[node name="HandSmashSFX" type="AudioStreamPlayer" parent="." unique_id=522189053]
+unique_name_in_owner = true
+stream = ExtResource("3_ftd6l")
+pitch_scale = 0.75
+
+[connection signal="finished" from="HandSmashSFX" to="." method="hand_smashed"]
+
+[editable path="Pinky"]
+[editable path="Pinky/SmashedTimer"]
+[editable path="Ring"]
+[editable path="Ring/SmashedTimer"]
+[editable path="Middle"]
+[editable path="Middle/SmashedTimer"]
+[editable path="Index"]
+[editable path="Index/SmashedTimer"]
