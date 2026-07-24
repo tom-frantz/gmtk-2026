@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c0f0u360hd6w8"]
+
+[ext_resource type="Script" uid="uid://du5262ia2uj0e" path="res://scenes/button.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=816447431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=12248581]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 193.0
+offset_right = 1190.0
+offset_bottom = 735.0
+theme_override_font_sizes/font_size = 300
+text = "START"
+script = ExtResource("1_l6cm7")
