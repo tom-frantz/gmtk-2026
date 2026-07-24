@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://n7qekrmfcxlj"]
+
+[ext_resource type="Script" uid="uid://d4j3mwydt5sxd" path="res://evil_usb/usb.gd" id="1_l72n3"]
+[ext_resource type="Texture2D" uid="uid://c12lfii0c06vh" path="res://assets/usb01.png" id="2_762xl"]
+[ext_resource type="Texture2D" uid="uid://charj018e68l3" path="res://assets/usb03.png" id="3_xojcq"]
+[ext_resource type="Texture2D" uid="uid://c1rw3qc8wfcl2" path="res://assets/usb02.png" id="4_kxtd0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kuy6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_762xl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xojcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kxtd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xojcq")
+}],
+"loop": 1,
+"name": &"usb",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuy6b"]
+size = Vector2(77, 48)
+
+[node name="usb" type="RigidBody2D" unique_id=168195153]
+linear_damp = 2.0
+angular_damp_mode = 1
+angular_damp = 100.0
+script = ExtResource("1_l72n3")
+
+[node name="usb_sprite" type="AnimatedSprite2D" parent="." unique_id=710929511]
+unique_name_in_owner = true
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_kuy6b")
+animation = &"usb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=590569158]
+position = Vector2(-0.14498901, -73.76999)
+shape = SubResource("RectangleShape2D_kuy6b")
