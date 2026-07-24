@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b5ul1fq7wxrrf"]
+
+[ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_sh54x"]
+
+[node name="DrinkBottle" type="RigidBody2D" unique_id=252755264]
+script = ExtResource("1_sh54x")
+metadata/_custom_type_script = "uid://beuy1i08e2uuk"
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1805049460]
+position = Vector2(29, 5)
+polygon = PackedVector2Array(-57, 81, -58, -95, -38, -111, -38, -133, -24, -133, -20, -112, 0, -96, 2, 81)
+
+[node name="Polygon2D2" type="CollisionPolygon2D" parent="." unique_id=1652756962]
+position = Vector2(29, 5)
+polygon = PackedVector2Array(-57, 81, -58, -95, -38, -111, -38, -133, -24, -133, -20, -112, 0, -96, 2, 81)

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d3qorbs0l4srn"]
+
+[ext_resource type="Texture2D" uid="uid://dg0psf2k1kxro" path="res://assets/timer_digits.png" id="2_qlxfu"]
+[ext_resource type="Script" uid="uid://dx6q4a7xnbels" path="res://scenes/common/timer/tens.gd" id="2_ylm82"]
+[ext_resource type="Script" uid="uid://br0okdjxw31ju" path="res://scenes/common/timer/units.gd" id="3_ylm82"]
+[ext_resource type="Texture2D" uid="uid://fui5xh8ers3j" path="res://assets/leading_zero.png" id="4_5temr"]
+
+[node name="LevelTimer" type="Node2D" unique_id=1923668992]
+
+[node name="Timer" type="Timer" parent="." unique_id=1572085082]
+unique_name_in_owner = true
+
+[node name="tens" type="Sprite2D" parent="." unique_id=208280519]
+position = Vector2(30, 0)
+texture = ExtResource("2_qlxfu")
+hframes = 10
+script = ExtResource("2_ylm82")
+
+[node name="units" type="Sprite2D" parent="." unique_id=2144084559]
+position = Vector2(84, 0)
+texture = ExtResource("2_qlxfu")
+hframes = 10
+frame = 5
+script = ExtResource("3_ylm82")
+
+[node name="Leading Zeros" type="Sprite2D" parent="." unique_id=1163552478]
+position = Vector2(-51, 0)
+texture = ExtResource("4_5temr")

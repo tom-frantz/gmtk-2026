@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dfsmjfq6108nn"]
+
+[ext_resource type="Script" uid="uid://78anoryubi7u" path="res://scenes/minigames/finger_hammer/hanging_hand.gd" id="1_dstoi"]
+[ext_resource type="PackedScene" uid="uid://f1fkqbxrtxi2" path="res://scenes/minigames/finger_hammer/hanging_finger.tscn" id="1_xjuyq"]
+
+[node name="HangingHand" type="Node2D" unique_id=1067559394]
+script = ExtResource("1_dstoi")
+
+[node name="Pinky" parent="." unique_id=1510985001 instance=ExtResource("1_xjuyq")]
+unique_name_in_owner = true
+position = Vector2(-131, -10)
+rotation = -0.22784784
+scale = Vector2(0.7182019, 1)
+
+[node name="Ring" parent="." unique_id=1254633140 instance=ExtResource("1_xjuyq")]
+unique_name_in_owner = true
+position = Vector2(-54, -15)
+scale = Vector2(0.7963391, 1.2028621)
+
+[node name="Middle" parent="." unique_id=1691560825 instance=ExtResource("1_xjuyq")]
+unique_name_in_owner = true
+position = Vector2(23.000002, -18.000002)
+rotation = 0.07344303
+scale = Vector2(0.8126276, 1.2440193)
+
+[node name="Index" parent="." unique_id=744114001 instance=ExtResource("1_xjuyq")]
+unique_name_in_owner = true
+position = Vector2(96.00001, -4.000002)
+rotation = 0.15713122
+scale = Vector2(0.78368896, 1.1787598)

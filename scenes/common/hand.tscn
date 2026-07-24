@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://xkt3hqqum811"]
+
+[ext_resource type="Script" uid="uid://x5mcd8g8si0j" path="res://scenes/common/hand.gd" id="1_2kv6c"]
+[ext_resource type="Texture2D" uid="uid://jq4vpux2yf5d" path="res://assets/hand.png" id="2_ofet3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_en2hh"]
+radius = 44.5
+height = 120.0
+
+[node name="Hand" type="CharacterBody2D" unique_id=313986736]
+script = ExtResource("1_2kv6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1652794015]
+texture = ExtResource("2_ofet3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1870216944]
+position = Vector2(-3.5, 0)
+shape = SubResource("CapsuleShape2D_en2hh")
