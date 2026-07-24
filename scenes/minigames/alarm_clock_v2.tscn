@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dg6i4mlw8jcg4" path="res://scenes/common/bedroom_items/soft_toy.tscn" id="5_8xncq"]
 [ext_resource type="PackedScene" uid="uid://cttt3tjrgn1ha" path="res://scenes/common/bedroom_items/lamp.tscn" id="7_d3c1w"]
 [ext_resource type="PackedScene" uid="uid://641f7qyvxmq6" path="res://scenes/common/black_fade/fade.tscn" id="8_k7hma"]
+[ext_resource type="PackedScene" uid="uid://efyqukual3b" path="res://scenes/common/hand2.tscn" id="8_n10jw"]
+[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="10_b5bgn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2hxnw"]
 
@@ -56,4 +58,11 @@ position = Vector2(428, 749)
 position = Vector2(562, 732)
 rotation = 0.49392816
 
+[node name="Hand" parent="." unique_id=1009129144 instance=ExtResource("8_n10jw")]
+
 [node name="FadeIn" parent="." unique_id=1555448231 instance=ExtResource("8_k7hma")]
+
+[node name="LevelTimer" parent="." unique_id=2132368197 instance=ExtResource("10_b5bgn")]
+wait_time = 20.380000000000003
+one_shot = true
+autostart = true
