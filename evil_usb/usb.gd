@@ -21,7 +21,7 @@ var usb_sprite: AnimatedSprite2D = %usb_sprite
 var slot_mask: Sprite2D = %computah_mask
 
 @onready
-var animation_player: AnimationPlayer= %AnimationPlayer
+var incorrect_audio: AudioStreamPlayer = %incorrect_audio
 
 @onready
 var status: UsbStatus = UsbStatus.FREE
@@ -29,14 +29,21 @@ var status: UsbStatus = UsbStatus.FREE
 @onready
 var orient: UsbOrient = UsbOrient.A
 
+@onready
+var tween: Tween
+
 const win_orient: UsbOrient = UsbOrient.C
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if !tween:
+		self.rotation_degrees = 0;
+		usb_sprite.rotation_degrees = 0;
+
 	check_won()
 	update_collisions()
 	move_usb()
@@ -59,9 +66,34 @@ func update_collisions() -> void:
 			self.collision_mask |= entering
 
 func move_usb() -> void:
-	if status != UsbStatus.WON:
-		var vector: Vector2 = Vector2(get_viewport().get_mouse_position()- position)
-		move_and_collide(vector)
+	if status != UsbStatus.WON && status != UsbStatus.REJECT:
+		print(status)
+		var target_pos: Vector2 = lerp(self.global_position, get_viewport().get_mouse_position(), 0.5)
+		var displacement: Vector2 = target_pos - self.global_position
+		var collision: KinematicCollision2D  = move_and_collide(displacement)
+
+		if collision && !tween:
+			var obj: Node2D = collision.get_collider()
+			if obj.name == "slot_body":
+				bounce_away(collision)
+
+func bounce_away(collision: KinematicCollision2D) -> void:
+	status = UsbStatus.REJECT
+	tween = self.create_tween()
+	incorrect_audio.play()
+	tween.tween_property(self, "position", self.position + 30*collision.get_normal() , 0.2)
+	tween.tween_property(self, "rotation_degrees", self.rotation_degrees + 5, 0.2)
+	tween.tween_property(self, "rotation_degrees", self.rotation_degrees - 5, 0.2)
+	tween.tween_property(self, "rotation_degrees", self.rotation_degrees, 0.2)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.play()
+	tween.finished.connect(_on_animation_completed)
+
+func _on_animation_completed() -> void:
+	tween.stop()
+	tween = null
+	status = UsbStatus.FREE
 
 func usb_flip() -> void:
 	match orient:

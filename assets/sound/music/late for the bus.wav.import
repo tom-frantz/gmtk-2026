@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://k18nqwv3wfdh"
+path="res://.godot/imported/late for the bus.wav-3391606267d994b8c50027988ad64127.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/late for the bus.wav"
+dest_files=["res://.godot/imported/late for the bus.wav-3391606267d994b8c50027988ad64127.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
