@@ -13,6 +13,8 @@ func _process(delta: float) -> void:
 
 func _handle_timeout() -> void:
 	lost = true
+	var lose_audio: AudioStreamPlayer = $lose_audio
+	lose_audio.play()
 	self.paused = true
 	var lose_banner: Label = self.get_child(0)
 	lose_banner.visible = true

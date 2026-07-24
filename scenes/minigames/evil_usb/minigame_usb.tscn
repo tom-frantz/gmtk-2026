@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="16_1obh5"]
 [ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scenes/minigames/evil_usb/timer.gd" id="17_bioy6"]
 [ext_resource type="AudioStream" uid="uid://k18nqwv3wfdh" path="res://assets/sound/music/late for the bus.wav" id="17_etcy7"]
+[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="17_kwyau"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kuy6b"]
 animations = [{
@@ -214,6 +215,10 @@ offset_right = 820.0
 offset_bottom = 466.0
 theme_override_font_sizes/font_size = 68
 text = "(click to go to menu)"
+
+[node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=184270103]
+unique_name_in_owner = true
+stream = ExtResource("17_kwyau")
 
 [node name="win_banner" type="Label" parent="." unique_id=1912632441]
 unique_name_in_owner = true
