@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 var current_collisions
 
@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
-	position = mouse_pos
+	%Node2D.position = mouse_pos
 	
 func _input(event: InputEvent) -> void:
 	var ga: Area2D = %GrabArea
@@ -19,5 +19,5 @@ func _input(event: InputEvent) -> void:
 			if ga.has_overlapping_bodies():
 				for ob in ga.get_overlapping_bodies():
 					if ob is Grabbable:
-						ob.try_grab(self)
+						ob.try_grab(%CharacterBody2D)
 			

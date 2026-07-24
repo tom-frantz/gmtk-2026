@@ -10,13 +10,13 @@ func _ready() -> void:
 	is_hovered = false
 	instances.append(self)
 	
-func create_joint(hand: CharacterBody2D):
+func create_joint(hand: Node2D):
 	joint = PinJoint2D.new()
 	joint.node_a = self.get_path()
 	joint.node_b = hand.get_path()
 	self.add_child(joint)
 	
-func try_grab(hand: CharacterBody2D):
+func try_grab(hand: Node2D):
 	print("Tried to grab", self.name)
 	if not joint:
 		create_joint(hand)

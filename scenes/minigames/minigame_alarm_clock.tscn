@@ -22,16 +22,55 @@ gravity_point_center = Vector2(0, 0)
 gravity_direction = Vector2(0, 0)
 gravity = 0.0
 linear_damp_space_override = 3
-linear_damp = 10.0
+linear_damp = 20.255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=424607036]
 shape = SubResource("RectangleShape2D_us37y")
 
 [node name="Clock" parent="." unique_id=270724650 instance=ExtResource("2_1sq20")]
 position = Vector2(208, 105)
+mass = 0.68
+physics_material_override = SubResource("PhysicsMaterial_ofet3")
+
+[node name="Clock2" parent="." unique_id=2083303648 instance=ExtResource("2_1sq20")]
+position = Vector2(582, 209)
+mass = 0.68
+physics_material_override = SubResource("PhysicsMaterial_ofet3")
+
+[node name="Clock3" parent="." unique_id=394900544 instance=ExtResource("2_1sq20")]
+position = Vector2(304, 259)
+mass = 0.68
+physics_material_override = SubResource("PhysicsMaterial_ofet3")
+
+[node name="Clock4" parent="." unique_id=655014476 instance=ExtResource("2_1sq20")]
+position = Vector2(466, 98)
+mass = 0.68
+physics_material_override = SubResource("PhysicsMaterial_ofet3")
+
+[node name="Clock5" parent="." unique_id=2119633254 instance=ExtResource("2_1sq20")]
+position = Vector2(118, 239)
+mass = 0.68
 physics_material_override = SubResource("PhysicsMaterial_ofet3")
 
 [node name="Book" parent="." unique_id=1816116435 instance=ExtResource("1_8rhwm")]
 position = Vector2(500, 339)
+mass = 3.337
+
+[node name="Book2" parent="." unique_id=211434881 instance=ExtResource("1_8rhwm")]
+position = Vector2(747, 318)
+mass = 3.337
+
+[node name="Book3" parent="." unique_id=1978142515 instance=ExtResource("1_8rhwm")]
+position = Vector2(390, 148)
+mass = 3.337
+
+[node name="Book4" parent="." unique_id=1837575513 instance=ExtResource("1_8rhwm")]
+position = Vector2(205, 360)
+mass = 3.337
+
+[node name="Book5" parent="." unique_id=2030651548 instance=ExtResource("1_8rhwm")]
+position = Vector2(100, 356)
+mass = 3.337
 
 [node name="Hand2" parent="." unique_id=313986736 instance=ExtResource("3_8rhwm")]
+position = Vector2(27, 15)

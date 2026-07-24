@@ -3,29 +3,50 @@
 [ext_resource type="Script" uid="uid://c7y4yrlsgg4bb" path="res://scenes/common/hand_2.gd" id="1_7pxq6"]
 [ext_resource type="Texture2D" uid="uid://jq4vpux2yf5d" path="res://assets/hand.png" id="2_a8cjt"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2hxnw"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_en2hh"]
 radius = 25.0
 height = 72.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v7qgo"]
 radius = 46.0
-height = 106.0
+height = 114.0
 
-[node name="Hand" type="CharacterBody2D" unique_id=313986736]
-motion_mode = 1
+[node name="Hand" type="Node2D" unique_id=1009129144]
 script = ExtResource("1_7pxq6")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1652794015]
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="." unique_id=2023294232]
+top_level = true
+node_a = NodePath("../Node2D")
+node_b = NodePath("../CharacterBody2D")
+length = 1.0
+stiffness = 64.0
+damping = 0.16
+
+[node name="Node2D" type="StaticBody2D" parent="." unique_id=290215047]
+unique_name_in_owner = true
+top_level = true
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D" unique_id=988157335]
+shape = SubResource("CircleShape2D_2hxnw")
+
+[node name="CharacterBody2D" type="RigidBody2D" parent="." unique_id=616371557]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1652794015]
 texture = ExtResource("2_a8cjt")
 
-[node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=1870216944]
+[node name="PhysicsCollider" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1870216944]
 position = Vector2(-4, 30)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_en2hh")
 
-[node name="GrabArea" type="Area2D" parent="." unique_id=570074616]
+[node name="GrabArea" type="Area2D" parent="CharacterBody2D" unique_id=570074616]
 unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea" unique_id=444812402]
-position = Vector2(-4, 2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/GrabArea" unique_id=444812402]
+position = Vector2(-3, -1)
 shape = SubResource("CapsuleShape2D_v7qgo")

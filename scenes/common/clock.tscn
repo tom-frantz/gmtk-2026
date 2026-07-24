@@ -2,10 +2,7 @@
 
 [ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_e8s61"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_dxuwh"]
-size = Vector2(100, 100)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fnse8"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7wvbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hxnw"]
 size = Vector2(100, 100)
@@ -16,9 +13,10 @@ metadata/_custom_type_script = "uid://beuy1i08e2uuk"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1441095892]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1567972738]
-mesh = SubResource("QuadMesh_dxuwh")
-texture = SubResource("PlaceholderTexture2D_fnse8")
+[node name="Shape" type="Polygon2D" parent="." unique_id=863184281]
+color = Color(0.14509805, 0.29803923, 0.49803922, 1)
+polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384230936]
+material = SubResource("CanvasItemMaterial_7wvbd")
 shape = SubResource("RectangleShape2D_2hxnw")
