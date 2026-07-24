@@ -164,5 +164,9 @@ unique_name_in_owner = true
 deterministic = true
 libraries/ = SubResource("AnimationLibrary_u4awx")
 
+[node name="SmashedTimer" type="Timer" parent="." unique_id=2000101401]
+unique_name_in_owner = true
+
 [connection signal="mouse_entered" from="." to="." method="start_hover"]
 [connection signal="mouse_exited" from="." to="." method="end_hover"]
+[connection signal="timeout" from="SmashedTimer" to="." method="recover"]

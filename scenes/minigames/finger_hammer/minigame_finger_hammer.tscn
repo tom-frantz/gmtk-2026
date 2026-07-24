@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dq7lh25bpwk60"]
 
 [ext_resource type="PackedScene" uid="uid://dfsmjfq6108nn" path="res://scenes/minigames/finger_hammer/hanging_hand.tscn" id="1_6wff3"]
+[ext_resource type="PackedScene" uid="uid://cnt83k4b2un1u" path="res://scenes/minigames/finger_hammer/hammer.tscn" id="2_wf0d3"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_s8w7s"]
 size = Vector2(1280, 500)
@@ -29,3 +30,6 @@ position = Vector2(338, 376)
 [node name="HangingHand2" parent="." unique_id=2017700433 instance=ExtResource("1_6wff3")]
 position = Vector2(873, 369)
 scale = Vector2(-1, 1)
+
+[node name="Hammer" parent="." unique_id=641361467 instance=ExtResource("2_wf0d3")]
+position = Vector2(729, 718)
