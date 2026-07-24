@@ -25,6 +25,7 @@ linear_damp_space_override = 3
 linear_damp = 20.255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=424607036]
+visible = false
 shape = SubResource("RectangleShape2D_us37y")
 
 [node name="Clock" parent="." unique_id=270724650 instance=ExtResource("2_1sq20")]
@@ -74,3 +75,7 @@ mass = 3.337
 
 [node name="Hand2" parent="." unique_id=313986736 instance=ExtResource("3_8rhwm")]
 position = Vector2(27, 15)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=642977121]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=658171749]
