@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://f1fkqbxrtxi2"]
 
 [ext_resource type="Script" uid="uid://kpl1s6uq75fh" path="res://scenes/minigames/finger_hammer/hanging_finger.gd" id="1_5hh8l"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_us37y"]
-radius = 30.0
-height = 100.0
+[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="2_ux67n"]
+[ext_resource type="AudioStream" uid="uid://crq4uoly53l74" path="res://assets/sound/fx/yelp1.wav" id="3_jd36g"]
+[ext_resource type="AudioStream" uid="uid://cxaclbi3dut68" path="res://assets/sound/fx/yelp2.wav" id="4_2efa6"]
+[ext_resource type="AudioStream" uid="uid://bwdgoqcnm2jb1" path="res://assets/sound/fx/yelp3.wav" id="5_0rpii"]
+[ext_resource type="AudioStream" uid="uid://b0n8qqh4iqhr0" path="res://assets/sound/fx/yelp4.wav" id="6_kbqcc"]
+[ext_resource type="AudioStream" uid="uid://bo71ry4f4wj7q" path="res://assets/sound/fx/yelp5.wav" id="7_u0yoy"]
+[ext_resource type="AudioStream" uid="uid://ba7bqyx618juh" path="res://assets/sound/fx/yelp6.wav" id="8_lhkax"]
+[ext_resource type="AudioStream" uid="uid://gghcbcaedbbv" path="res://assets/sound/fx/yelp7.wav" id="9_uk8i1"]
+[ext_resource type="AudioStream" uid="uid://civnbg5ac755x" path="res://assets/sound/fx/yelp8.wav" id="10_ee0fu"]
+[ext_resource type="AudioStream" uid="uid://6rcbcahipvbc" path="res://assets/sound/fx/yelpshort.wav" id="11_wjl8l"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v7qgo"]
 radius = 30.0
@@ -12,26 +18,12 @@ height = 100.0
 radial_segments = 45
 rings = 10
 
-[sub_resource type="Gradient" id="Gradient_otdpp"]
-colors = PackedColorArray(0.7133827, 0.5770507, 0.3291013, 1, 0.8437291, 0.7376026, 0.6913125, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_8udrf"]
-noise_type = 4
-frequency = 0.0355
-offset = Vector3(-27.52, 0, 0)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4s3g"]
-height = 530
-noise = SubResource("FastNoiseLite_8udrf")
-color_ramp = SubResource("Gradient_otdpp")
-normalize = false
-
 [sub_resource type="Animation" id="Animation_5hh8l"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("%FingerHolding:position")
+tracks/0/path = NodePath("FingerHolding:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,7 +42,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.108210415]
+"values": [0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -136,7 +128,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75000006, 0.87500006, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.108210415, 0.0, -0.11170107212763669, 0.0, 0.108210415, 0.0, -0.11170107212763669, 0.0]
+"values": [0.0, 0.108210415, 0.0, -0.11170107212763668, 0.0, 0.108210415, 0.0, -0.11170107212763668, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4awx"]
@@ -146,27 +138,72 @@ _data = {
 &"shaking": SubResource("Animation_fmnn8")
 }
 
-[node name="Finger" type="Area2D" unique_id=1510985001]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_us37y"]
+radius = 30.0
+height = 100.0
+
+[sub_resource type="Gradient" id="Gradient_otdpp"]
+colors = PackedColorArray(0.7133827, 0.5770507, 0.3291013, 1, 0.8437291, 0.7376026, 0.6913125, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8udrf"]
+noise_type = 4
+frequency = 0.0355
+offset = Vector3(-27.52, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4s3g"]
+height = 530
+noise = SubResource("FastNoiseLite_8udrf")
+color_ramp = SubResource("Gradient_otdpp")
+normalize = false
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_363s0"]
+random_pitch = 1.0346073
+streams_count = 9
+stream_0/stream = ExtResource("3_jd36g")
+stream_1/stream = ExtResource("4_2efa6")
+stream_2/stream = ExtResource("5_0rpii")
+stream_3/stream = ExtResource("6_kbqcc")
+stream_4/stream = ExtResource("7_u0yoy")
+stream_5/stream = ExtResource("8_lhkax")
+stream_6/stream = ExtResource("9_uk8i1")
+stream_7/stream = ExtResource("10_ee0fu")
+stream_8/stream = ExtResource("11_wjl8l")
+
+[node name="Finger" type="Node2D" unique_id=683855000]
 script = ExtResource("1_5hh8l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1558834543]
-shape = SubResource("CapsuleShape2D_us37y")
-debug_color = Color(9.62615e-07, 0.5975621, 0.7157372, 0.41960785)
-
-[node name="FingerHolding" type="MeshInstance2D" parent="." unique_id=795391792]
+[node name="SmashedTimer" parent="." unique_id=1923668992 instance=ExtResource("2_ux67n")]
 unique_name_in_owner = true
-rotation = 0.108210415
-mesh = SubResource("CapsuleMesh_v7qgo")
-texture = SubResource("NoiseTexture2D_k4s3g")
+visible = false
+position = Vector2(0, -147)
+scale = Vector2(0.4, 0.4)
 
 [node name="FingerAnimations" type="AnimationPlayer" parent="." unique_id=409710190]
 unique_name_in_owner = true
 deterministic = true
+root_node = NodePath("../FingerArea")
 libraries/ = SubResource("AnimationLibrary_u4awx")
 
-[node name="SmashedTimer" type="Timer" parent="." unique_id=2000101401]
-unique_name_in_owner = true
+[node name="FingerArea" type="Area2D" parent="." unique_id=1510985001]
 
-[connection signal="mouse_entered" from="." to="." method="start_hover"]
-[connection signal="mouse_exited" from="." to="." method="end_hover"]
-[connection signal="timeout" from="SmashedTimer" to="." method="recover"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FingerArea" unique_id=1558834543]
+shape = SubResource("CapsuleShape2D_us37y")
+debug_color = Color(9.62615e-07, 0.5975621, 0.7157372, 0.41960785)
+
+[node name="FingerHolding" type="MeshInstance2D" parent="FingerArea" unique_id=795391792]
+unique_name_in_owner = true
+mesh = SubResource("CapsuleMesh_v7qgo")
+texture = SubResource("NoiseTexture2D_k4s3g")
+
+[node name="YelpSFX" type="AudioStreamPlayer" parent="." unique_id=1052729476]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_363s0")
+volume_db = -0.836
+pitch_scale = 1.5
+playback_type = 2
+
+[connection signal="timeout" from="SmashedTimer/Timer" to="." method="recover"]
+[connection signal="mouse_entered" from="FingerArea" to="." method="start_hover"]
+[connection signal="mouse_exited" from="FingerArea" to="." method="end_hover"]
+
+[editable path="SmashedTimer"]
