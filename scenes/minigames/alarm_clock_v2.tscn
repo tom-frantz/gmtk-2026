@@ -66,7 +66,7 @@ rotation = 0.49392816
 position = Vector2(163, 93)
 
 [node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
-wait_time = 11.758999999999999
+wait_time = 11.759
 one_shot = true
 autostart = true
 

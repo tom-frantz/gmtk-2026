@@ -8,6 +8,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var time: int = int(ceili(%Timer.time_left))
-	var tens = (time / 10) % 10
+	var time: int = int(ceili((%Timer as Timer).time_left))
+	var tens: int = (time / 10) % 10
 	frame = tens
