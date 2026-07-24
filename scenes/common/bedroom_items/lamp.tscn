@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cttt3tjrgn1ha"]
+
+[ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_gsm3e"]
+
+[node name="Lamp" type="RigidBody2D" unique_id=708644396]
+center_of_mass_mode = 1
+center_of_mass = Vector2(-40, 280)
+script = ExtResource("1_gsm3e")
+metadata/_custom_type_script = "uid://beuy1i08e2uuk"
+
+[node name="Collision" type="CollisionPolygon2D" parent="." unique_id=1881542929]
+position = Vector2(-1, -54)
+scale = Vector2(0.4, 0.4)
+polygon = PackedVector2Array(-70, 264, -68, -164, -358, -28, -400, -70, 492, -490, 514, -450, 614, -460, 692, -436, 706, -404, 920, -454, 1100, -414, 1192, -322, 437, 145, 376, -20, 373, -170, 461, -265, 450, -332, 476, -372, 486, -424, -6, -186, -20, 256, 48, 300, 296, 296, 290, 366, -380, 360, -384, 296, -120, 296)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=321772739]
+position = Vector2(-1, -54)
+scale = Vector2(0.4, 0.4)
+color = Color(1, 1, 0.46666667, 1)
+polygon = PackedVector2Array(-70, 264, -68, -164, -358, -28, -400, -70, 492, -490, 514, -450, 614, -460, 692, -436, 706, -404, 920, -454, 1100, -414, 1192, -322, 437, 145, 376, -20, 373, -170, 461, -265, 450, -332, 476, -372, 486, -424, -6, -186, -20, 256, 48, 300, 296, 296, 290, 366, -380, 360, -384, 296, -120, 296)
