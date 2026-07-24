@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cnt83k4b2un1u"]
 
 [ext_resource type="Script" uid="uid://c810xpmbm2yp0" path="res://scenes/minigames/finger_hammer/hammer.gd" id="1_mheix"]
+[ext_resource type="AudioStream" uid="uid://cx3tb71nbqdj8" path="res://assets/sound/fx/hammer hit.wav" id="2_jsm4g"]
+[ext_resource type="AudioStream" uid="uid://bouhhls1sbljd" path="res://assets/sound/fx/hammer hit2.wav" id="3_syc5e"]
+[ext_resource type="AudioStream" uid="uid://dlx8ontsfwdl4" path="res://assets/sound/fx/hammer hit3.wav" id="4_hisfn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7tylt"]
 size = Vector3(60, 400, 1)
@@ -14,6 +17,13 @@ colors = PackedColorArray(0.8675319, 0.68598944, 0.6298464, 1, 0.8628777, 0.6403
 noise = SubResource("FastNoiseLite_r1ynv")
 color_ramp = SubResource("Gradient_0jjch")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kmm6x"]
+random_pitch = 1.3548814
+streams_count = 3
+stream_0/stream = ExtResource("2_jsm4g")
+stream_1/stream = ExtResource("3_syc5e")
+stream_2/stream = ExtResource("4_hisfn")
+
 [node name="Hammer" type="Node2D" unique_id=641361467]
 script = ExtResource("1_mheix")
 
@@ -22,3 +32,9 @@ position = Vector2(43.999996, 195.99998)
 rotation = -0.22853473
 mesh = SubResource("BoxMesh_7tylt")
 texture = SubResource("NoiseTexture2D_7tylt")
+
+[node name="HammerHitSFX" type="AudioStreamPlayer" parent="." unique_id=881723576]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_kmm6x")
+volume_db = -0.145
+playback_type = 1
