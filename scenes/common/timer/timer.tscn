@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d3qorbs0l4srn"]
+
+[ext_resource type="Script" uid="uid://clwwlvit48hqu" path="res://scenes/common/timer/label.gd" id="1_4ggtl"]
+
+[node name="LevelTimer" type="Timer" unique_id=2132368197]
+
+[node name="Label" type="Label" parent="." unique_id=1949317050]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_4ggtl")
