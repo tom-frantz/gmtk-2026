@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cf50qaiagfin1"]
 
-[ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://evil_usb/slot.gd" id="1_8fe3g"]
+[ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://scenes/minigames/evil_usb/slot.gd" id="1_8fe3g"]
 [ext_resource type="Texture2D" uid="uid://6dasfij4djvm" path="res://assets/usb_port_h_base02.png" id="2_8fe3g"]
 [ext_resource type="Texture2D" uid="uid://du1brpv3863ob" path="res://assets/usb_port_v_base01.png" id="3_qqjwv"]
 

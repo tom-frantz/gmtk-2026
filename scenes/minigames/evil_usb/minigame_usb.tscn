@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://ba6adnn1mtrj7"]
 
-[ext_resource type="Script" uid="uid://coabvdwmtfgnm" path="res://evil_usb/minigame_usb.gd" id="1_t67bh"]
-[ext_resource type="Script" uid="uid://d4j3mwydt5sxd" path="res://evil_usb/usb.gd" id="2_rg415"]
-[ext_resource type="AudioStream" uid="uid://bjhlol41y8xp8" path="res://assets/sound/fx/incorrect.wav" id="3_xamve"]
-[ext_resource type="Texture2D" uid="uid://c12lfii0c06vh" path="res://assets/usb01.png" id="3_xvaoi"]
-[ext_resource type="Texture2D" uid="uid://charj018e68l3" path="res://assets/usb03.png" id="4_nhjxt"]
-[ext_resource type="Texture2D" uid="uid://c1rw3qc8wfcl2" path="res://assets/usb02.png" id="5_d7qak"]
-[ext_resource type="Texture2D" uid="uid://c2g22a16e78qu" path="res://assets/usb_background.png" id="6_d7qak"]
-[ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://evil_usb/slot.gd" id="7_q7c0c"]
-[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="7_ss1jw"]
-[ext_resource type="Texture2D" uid="uid://6dasfij4djvm" path="res://assets/usb_port_h_base02.png" id="8_xamve"]
-[ext_resource type="Texture2D" uid="uid://du1brpv3863ob" path="res://assets/usb_port_v_base01.png" id="9_ss1jw"]
-[ext_resource type="Texture2D" uid="uid://dqgow3lsxd6t8" path="res://assets/usb_port_h_top01.png" id="10_nhjxt"]
-[ext_resource type="Texture2D" uid="uid://cxpp300xkf4m6" path="res://assets/usb_port_v_top02.png" id="11_d7qak"]
-[ext_resource type="Script" uid="uid://bn2annvln0tr7" path="res://evil_usb/computah_mask.gd" id="12_d7qak"]
-[ext_resource type="Texture2D" uid="uid://up165tpy12so" path="res://assets/usb_hider.png" id="12_q7c0c"]
+[ext_resource type="Script" uid="uid://coabvdwmtfgnm" path="res://scenes/minigames/evil_usb/minigame_usb.gd" id="1_iafxi"]
+[ext_resource type="Script" uid="uid://d4j3mwydt5sxd" path="res://scenes/minigames/evil_usb/usb.gd" id="2_bioy6"]
+[ext_resource type="AudioStream" uid="uid://bjhlol41y8xp8" path="res://assets/sound/fx/incorrect.wav" id="3_etcy7"]
+[ext_resource type="Texture2D" uid="uid://c12lfii0c06vh" path="res://assets/usb01.png" id="4_kwyau"]
+[ext_resource type="Texture2D" uid="uid://charj018e68l3" path="res://assets/usb03.png" id="5_bxuw3"]
+[ext_resource type="Texture2D" uid="uid://c1rw3qc8wfcl2" path="res://assets/usb02.png" id="6_qh7jt"]
+[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="7_kuiiv"]
+[ext_resource type="Texture2D" uid="uid://c2g22a16e78qu" path="res://assets/usb_background.png" id="8_kg4k4"]
+[ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://scenes/minigames/evil_usb/slot.gd" id="9_4r5xp"]
+[ext_resource type="Texture2D" uid="uid://6dasfij4djvm" path="res://assets/usb_port_h_base02.png" id="10_7lwxb"]
+[ext_resource type="Texture2D" uid="uid://du1brpv3863ob" path="res://assets/usb_port_v_base01.png" id="11_h6xv6"]
+[ext_resource type="Texture2D" uid="uid://up165tpy12so" path="res://assets/usb_hider.png" id="12_yg08o"]
+[ext_resource type="Script" uid="uid://bn2annvln0tr7" path="res://scenes/minigames/evil_usb/computah_mask.gd" id="13_fyruv"]
+[ext_resource type="Texture2D" uid="uid://dqgow3lsxd6t8" path="res://assets/usb_port_h_top01.png" id="14_k407p"]
+[ext_resource type="Texture2D" uid="uid://cxpp300xkf4m6" path="res://assets/usb_port_v_top02.png" id="15_q3uec"]
+[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="16_1obh5"]
+[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scenes/minigames/evil_usb/timer.gd" id="17_bioy6"]
 
 [sub_resource type="Animation" id="Animation_wnaiw"]
 length = 0.001
@@ -93,16 +95,16 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_xvaoi")
+"texture": ExtResource("4_kwyau")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nhjxt")
+"texture": ExtResource("5_bxuw3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_d7qak")
+"texture": ExtResource("6_qh7jt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nhjxt")
+"texture": ExtResource("5_bxuw3")
 }],
 "loop": 1,
 "name": &"usb",
@@ -116,7 +118,7 @@ size = Vector2(51, 19.769989)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_xamve")
+"texture": ExtResource("10_7lwxb")
 }],
 "loop": 1,
 "name": &"horz",
@@ -124,7 +126,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_ss1jw")
+"texture": ExtResource("11_h6xv6")
 }],
 "loop": 1,
 "name": &"vert",
@@ -138,7 +140,7 @@ size = Vector2(20, 18.5)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_nhjxt")
+"texture": ExtResource("14_k407p")
 }],
 "loop": 1,
 "name": &"top01",
@@ -146,7 +148,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_d7qak")
+"texture": ExtResource("15_q3uec")
 }],
 "loop": 1,
 "name": &"top02",
@@ -163,7 +165,7 @@ size = Vector2(14, 69.5)
 size = Vector2(14, 11.5)
 
 [node name="MinigameUsb" type="Node2D" unique_id=1410700175]
-script = ExtResource("1_t67bh")
+script = ExtResource("1_iafxi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=268573150]
 unique_name_in_owner = true
@@ -174,11 +176,11 @@ position = Vector2(170, 383)
 linear_damp = 2.0
 angular_damp_mode = 1
 angular_damp = 100.0
-script = ExtResource("2_rg415")
+script = ExtResource("2_bioy6")
 
 [node name="incorrect_audio" type="AudioStreamPlayer" parent="usb" unique_id=1134178908]
 unique_name_in_owner = true
-stream = ExtResource("3_xamve")
+stream = ExtResource("3_etcy7")
 
 [node name="usb_sprite" type="AnimatedSprite2D" parent="usb" unique_id=710929511]
 unique_name_in_owner = true
@@ -193,12 +195,12 @@ shape = SubResource("RectangleShape2D_kuy6b")
 
 [node name="win_audio" type="AudioStreamPlayer" parent="usb" unique_id=2101610096]
 unique_name_in_owner = true
-stream = ExtResource("7_ss1jw")
+stream = ExtResource("7_kuiiv")
 
 [node name="computah" type="Sprite2D" parent="." unique_id=1340533437]
 z_index = -10
 position = Vector2(638, 479)
-texture = ExtResource("6_d7qak")
+texture = ExtResource("8_kg4k4")
 
 [node name="slot_body" type="StaticBody2D" parent="." unique_id=1585106303]
 position = Vector2(70, 84)
@@ -207,7 +209,7 @@ position = Vector2(70, 84)
 position = Vector2(371.62, 361.5)
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("7_q7c0c")
+script = ExtResource("9_4r5xp")
 
 [node name="slot_sprite" type="AnimatedSprite2D" parent="slot_body/slot" unique_id=544163790]
 unique_name_in_owner = true
@@ -225,8 +227,8 @@ z_index = -1
 z_as_relative = false
 position = Vector2(-1.6199894, -42.99999)
 scale = Vector2(1.2399997, 0.70999986)
-texture = ExtResource("12_q7c0c")
-script = ExtResource("12_d7qak")
+texture = ExtResource("12_yg08o")
+script = ExtResource("13_fyruv")
 
 [node name="slot_mask" type="AnimatedSprite2D" parent="slot_body/slot/computah_mask" unique_id=1752111834]
 position = Vector2(0.815, 54.46)
@@ -262,7 +264,41 @@ collision_mask = 7
 [node name="slot_channel_shape" type="CollisionPolygon2D" parent="slot_channel" unique_id=202917394]
 polygon = PackedVector2Array(287, 377, 339, 372, 338, 289, 404, 289, 407, 372, 571, 371, 584, 21, 182, 17, 188, 374)
 
+[node name="LevelTimer" parent="." unique_id=1923668992 instance=ExtResource("16_1obh5")]
+position = Vector2(1000, 427)
+
+[node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
+wait_time = 9.0
+autostart = true
+script = ExtResource("17_bioy6")
+
+[node name="fail_banner" type="Label" parent="LevelTimer/Timer" index="0" unique_id=169344778]
+visible = false
+z_index = 100
+offset_left = 28.0
+offset_top = 265.0
+offset_right = 1270.0
+offset_bottom = 674.0
+theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
+theme_override_font_sizes/font_size = 300
+text = "LOOSER!"
+
+[node name="win_banner" type="Label" parent="." unique_id=1912632441]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+z_as_relative = false
+offset_left = 6.0
+offset_top = 275.0
+offset_right = 1293.0
+offset_bottom = 684.0
+theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
+theme_override_font_sizes/font_size = 300
+text = "WINNER!"
+
 [connection signal="area_entered" from="slot_body/slot" to="usb" method="_on_slot_area_entered" flags=18]
 [connection signal="body_entered" from="slot_body/slot" to="usb" method="_on_slot_body_entered"]
 [connection signal="body_exited" from="slot_body/slot_entered_collision" to="usb" method="_on_slot_entered_collision_body_exited"]
 [connection signal="body_entered" from="slot_body/slot_entered_collision2" to="usb" method="_on_slot_entered_collision_body_entered"]
+
+[editable path="LevelTimer"]

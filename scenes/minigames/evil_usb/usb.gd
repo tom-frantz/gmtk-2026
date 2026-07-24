@@ -56,6 +56,10 @@ func _process(_delta: float) -> void:
 
 func check_won() -> void:
 	if status == UsbStatus.WON:
+		var win_banner: Label = %win_banner
+		win_banner.visible = true
+		var timer: Timer = get_node("/root/MinigameUsb/LevelTimer/Timer")
+		timer.paused = true
 		if !win_audio.playing:
 			win_audio.play()
 
