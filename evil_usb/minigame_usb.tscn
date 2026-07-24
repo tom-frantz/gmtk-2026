@@ -2,16 +2,17 @@
 
 [ext_resource type="Script" uid="uid://coabvdwmtfgnm" path="res://evil_usb/minigame_usb.gd" id="1_t67bh"]
 [ext_resource type="Script" uid="uid://d4j3mwydt5sxd" path="res://evil_usb/usb.gd" id="2_rg415"]
-[ext_resource type="Texture2D" uid="uid://p5y1eeasbcdm" path="res://usb_computer.png" id="3_tv1b0"]
 [ext_resource type="Texture2D" uid="uid://c12lfii0c06vh" path="res://assets/usb01.png" id="3_xvaoi"]
 [ext_resource type="Texture2D" uid="uid://charj018e68l3" path="res://assets/usb03.png" id="4_nhjxt"]
 [ext_resource type="Texture2D" uid="uid://c1rw3qc8wfcl2" path="res://assets/usb02.png" id="5_d7qak"]
+[ext_resource type="Texture2D" uid="uid://c2g22a16e78qu" path="res://assets/usb_background.png" id="6_d7qak"]
 [ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://evil_usb/slot.gd" id="7_q7c0c"]
 [ext_resource type="Texture2D" uid="uid://6dasfij4djvm" path="res://assets/usb_port_h_base02.png" id="8_xamve"]
 [ext_resource type="Texture2D" uid="uid://du1brpv3863ob" path="res://assets/usb_port_v_base01.png" id="9_ss1jw"]
 [ext_resource type="Texture2D" uid="uid://dqgow3lsxd6t8" path="res://assets/usb_port_h_top01.png" id="10_nhjxt"]
 [ext_resource type="Texture2D" uid="uid://cxpp300xkf4m6" path="res://assets/usb_port_v_top02.png" id="11_d7qak"]
 [ext_resource type="Script" uid="uid://bn2annvln0tr7" path="res://evil_usb/computah_mask.gd" id="12_d7qak"]
+[ext_resource type="Texture2D" uid="uid://up165tpy12so" path="res://assets/usb_hider.png" id="12_q7c0c"]
 
 [sub_resource type="Animation" id="Animation_wnaiw"]
 length = 0.001
@@ -107,7 +108,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuy6b"]
-size = Vector2(25.644989, 19.769989)
+size = Vector2(51, 19.769989)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
 animations = [{
@@ -150,13 +151,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kuy6b"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ob04f"]
 size = Vector2(62, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6ccs"]
-size = Vector2(14, 29)
+size = Vector2(14, 69.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7c0c"]
+size = Vector2(14, 11.5)
 
 [node name="MinigameUsb" type="Node2D" unique_id=1410700175]
 script = ExtResource("1_t67bh")
@@ -180,19 +182,18 @@ animation = &"usb"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="usb" unique_id=590569158]
 z_index = 10
-position = Vector2(0.1775055, -88.88501)
+position = Vector2(0.5, -88.88501)
 shape = SubResource("RectangleShape2D_kuy6b")
 
 [node name="computah" type="Sprite2D" parent="." unique_id=1340533437]
 z_index = -10
-position = Vector2(583.99994, 177.00002)
-scale = Vector2(5.85875, 1.9737501)
-texture = ExtResource("3_tv1b0")
+position = Vector2(575, 380)
+texture = ExtResource("6_d7qak")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1585106303]
 
 [node name="slot" type="Area2D" parent="StaticBody2D" unique_id=706888658]
-position = Vector2(172.62, 150)
+position = Vector2(371.62, 361.5)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("7_q7c0c")
@@ -203,26 +204,26 @@ sprite_frames = SubResource("SpriteFrames_gb0x2")
 animation = &"horz"
 
 [node name="won_collision_area" type="CollisionShape2D" parent="StaticBody2D/slot" unique_id=1899309396]
-position = Vector2(-0.6199951, -32)
+position = Vector2(-0.6199951, -59)
 shape = SubResource("RectangleShape2D_gb0x2")
 one_way_collision_direction = Vector2(0, -1)
-
-[node name="slot_mask" type="AnimatedSprite2D" parent="StaticBody2D/slot" unique_id=1752111834]
-z_index = 2
-sprite_frames = SubResource("SpriteFrames_ob04f")
-animation = &"top01"
 
 [node name="computah_mask" type="Sprite2D" parent="StaticBody2D/slot" unique_id=375737093]
 unique_name_in_owner = true
 z_index = -1
 z_as_relative = false
-position = Vector2(1.3800049, -33.625)
-scale = Vector2(77.99997, 48.749996)
-texture = SubResource("PlaceholderTexture2D_kuy6b")
+position = Vector2(-1.6199894, -42.99999)
+scale = Vector2(1.2399997, 0.70999986)
+texture = ExtResource("12_q7c0c")
 script = ExtResource("12_d7qak")
 
+[node name="slot_mask" type="AnimatedSprite2D" parent="StaticBody2D/slot/computah_mask" unique_id=1752111834]
+position = Vector2(0.815, 54.46)
+sprite_frames = SubResource("SpriteFrames_ob04f")
+animation = &"top01"
+
 [node name="slot_block_collision" type="CollisionShape2D" parent="StaticBody2D" unique_id=664689050]
-position = Vector2(172, 145)
+position = Vector2(371, 356.5)
 shape = SubResource("RectangleShape2D_ob04f")
 one_way_collision = true
 one_way_collision_direction = Vector2(0, -1)
@@ -230,12 +231,26 @@ debug_color = Color(0.8826473, 0.03916457, 0.44000304, 0.41960785)
 
 [node name="slot_entered_collision" type="Area2D" parent="StaticBody2D" unique_id=587794472]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/slot_entered_collision" unique_id=120360652]
-position = Vector2(172, 139.5)
+[node name="entered_shape" type="CollisionShape2D" parent="StaticBody2D/slot_entered_collision" unique_id=120360652]
+position = Vector2(371, 330.75)
 shape = SubResource("RectangleShape2D_m6ccs")
 debug_color = Color(0.34766665, 0.7383306, 0.05044779, 0.41960785)
 
+[node name="slot_entered_collision2" type="Area2D" parent="StaticBody2D" unique_id=1990204666]
+
+[node name="entered_shape2" type="CollisionShape2D" parent="StaticBody2D/slot_entered_collision2" unique_id=819967197]
+position = Vector2(371, 359.75)
+shape = SubResource("RectangleShape2D_q7c0c")
+debug_color = Color(0.6598893, 0.6550755, 0.114062555, 0.41960785)
+
+[node name="slot_channel" type="StaticBody2D" parent="." unique_id=1087578406]
+collision_layer = 4
+collision_mask = 7
+
+[node name="slot_channel_shape" type="CollisionPolygon2D" parent="slot_channel" unique_id=202917394]
+polygon = PackedVector2Array(287, 377, 339, 372, 338, 289, 404, 289, 407, 372, 571, 371, 584, 21, 182, 17, 188, 374)
+
 [connection signal="area_entered" from="StaticBody2D/slot" to="usb" method="_on_slot_area_entered" flags=18]
 [connection signal="body_entered" from="StaticBody2D/slot" to="usb" method="_on_slot_body_entered"]
-[connection signal="body_entered" from="StaticBody2D/slot_entered_collision" to="usb" method="_on_slot_entered_collision_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/slot_entered_collision" to="usb" method="_on_slot_entered_collision_body_exited"]
+[connection signal="body_entered" from="StaticBody2D/slot_entered_collision2" to="usb" method="_on_slot_entered_collision_body_entered"]

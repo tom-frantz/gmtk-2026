@@ -48,14 +48,19 @@ func check_won() -> void:
 		print("won!")
 
 func update_collisions() -> void:
-	if orient != win_orient:
-		self.collision_mask = 0b00000000_00000000_00000000_00000001
-	else:
-		self.collision_mask = 0b00000000_00000000_00000000_00000010
+	var free: int = 0b00000000_00000000_00000000_00000010
+	var blocked: int = 0b00000000_00000000_00000000_00000001
+	var entering: int = 0b00000000_00000000_00000000_00000100
+	self.collision_mask = blocked
+	if orient == win_orient:
+		self.collision_mask = free
+		if status == UsbStatus.ENTERING:
+			self.collision_mask |= entering
 
 func move_usb() -> void:
-	var vector: Vector2 = Vector2(get_viewport().get_mouse_position()- position)
-	move_and_collide(vector)
+	if status != UsbStatus.WON:
+		var vector: Vector2 = Vector2(get_viewport().get_mouse_position()- position)
+		move_and_collide(vector)
 
 func usb_flip() -> void:
 	match orient:
@@ -83,8 +88,6 @@ func render_usb() -> void:
 func _on_slot_body_entered(_body: Node2D) -> void:
 	if (status == UsbStatus.ENTERING && orient == win_orient):
 		status = UsbStatus.WON
-		# animation_player.play("w2")
-		print("correct")
 
 # When entering
 func _on_slot_entered_collision_body_entered(_body: Node2D) -> void:
