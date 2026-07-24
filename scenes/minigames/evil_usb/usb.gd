@@ -60,6 +60,8 @@ func check_won() -> void:
 		win_banner.visible = true
 		var timer: Timer = get_node("/root/MinigameUsb/LevelTimer/Timer")
 		timer.paused = true
+		var background_music: AudioStreamPlayer = %background_music
+		background_music.stop()
 		if !win_audio.playing:
 			win_audio.play()
 
