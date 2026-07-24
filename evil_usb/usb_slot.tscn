@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cf50qaiagfin1"]
 
-[ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://slot.gd" id="1_8fe3g"]
-[ext_resource type="Texture2D" uid="uid://ca6pvncvfsmmp" path="res://usb_slot_horz.png" id="2_qqjwv"]
-[ext_resource type="Texture2D" uid="uid://d261cqhkhggxw" path="res://usb_slot_vert.png" id="3_qm7u5"]
+[ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://evil_usb/slot.gd" id="1_8fe3g"]
+[ext_resource type="Texture2D" uid="uid://6dasfij4djvm" path="res://assets/usb_port_h_base02.png" id="2_8fe3g"]
+[ext_resource type="Texture2D" uid="uid://du1brpv3863ob" path="res://assets/usb_port_v_base01.png" id="3_qqjwv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_qqjwv")
+"texture": ExtResource("2_8fe3g")
 }],
 "loop": 1,
 "name": &"horz",
@@ -16,7 +16,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_qm7u5")
+"texture": ExtResource("3_qqjwv")
 }],
 "loop": 1,
 "name": &"vert",

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca6pvncvfsmmp"
-path="res://.godot/imported/usb_slot_horz.png-f0f9046f597dbd4d1d1fdadd4df3b3e9.ctex"
+uid="uid://bo1w0x2rmct4b"
+path="res://.godot/imported/usb_port_v_top01.png-bb4996fe5f9894f7bcbfdd00cd6b296b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://usb_slot_horz.png"
-dest_files=["res://.godot/imported/usb_slot_horz.png-f0f9046f597dbd4d1d1fdadd4df3b3e9.ctex"]
+source_file="res://assets/usb_port_v_top01.png"
+dest_files=["res://.godot/imported/usb_port_v_top01.png-bb4996fe5f9894f7bcbfdd00cd6b296b.ctex"]
 
 [params]
 

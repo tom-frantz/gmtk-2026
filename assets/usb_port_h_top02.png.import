@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqwluyyhy44gc"
-path="res://.godot/imported/usb_back.png-4855014441a4dcce86460c4157ef1700.ctex"
+uid="uid://cuc1sa1uq80ca"
+path="res://.godot/imported/usb_port_h_top02.png-f07a5e5eab6986527fc23984c72f7845.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://usb_back.png"
-dest_files=["res://.godot/imported/usb_back.png-4855014441a4dcce86460c4157ef1700.ctex"]
+source_file="res://assets/usb_port_h_top02.png"
+dest_files=["res://.godot/imported/usb_port_h_top02.png-f07a5e5eab6986527fc23984c72f7845.ctex"]
 
 [params]
 
