@@ -28,3 +28,4 @@ position = Vector2(338, 376)
 
 [node name="HangingHand2" parent="." unique_id=2017700433 instance=ExtResource("1_6wff3")]
 position = Vector2(873, 369)
+scale = Vector2(-1, 1)
