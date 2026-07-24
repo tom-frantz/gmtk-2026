@@ -1,35 +1,22 @@
 [gd_scene format=3 uid="uid://dq7lh25bpwk60"]
 
 [ext_resource type="PackedScene" uid="uid://dfsmjfq6108nn" path="res://scenes/minigames/finger_hammer/hanging_hand.tscn" id="1_6wff3"]
+[ext_resource type="Texture2D" uid="uid://ccxmbg44wp45p" path="res://assets/hanging_finger_background.png" id="1_nwhn8"]
 [ext_resource type="PackedScene" uid="uid://cnt83k4b2un1u" path="res://scenes/minigames/finger_hammer/hammer.tscn" id="2_wf0d3"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_s8w7s"]
-size = Vector2(1280, 500)
+[node name="Node2D" type="Node2D" unique_id=536377200]
 
-[sub_resource type="Gradient" id="Gradient_ftd6l"]
-offsets = PackedFloat32Array(0, 0.17746913, 0.20987654, 0.77623457, 0.80864197, 0.8441358, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.22189473, 0.22189473, 0.22189473, 1, 0.24080622, 0.24080622, 0.24080622, 1, 0.58171594, 0.58171594, 0.5817158, 1, 0.601223, 0.601223, 0.60122293, 1, 0.4255713, 0.42557135, 0.4255712, 1, 0.38734567, 0.38734567, 0.38734567, 1)
+[node name="MinigameFingerHammer" type="Sprite2D" parent="." unique_id=1289208709]
+position = Vector2(635.45636, 493)
+scale = Vector2(1.4389534, 1.4389535)
+texture = ExtResource("1_nwhn8")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_dstoi"]
+[node name="LeftHand" parent="." unique_id=1067559394 instance=ExtResource("1_6wff3")]
+position = Vector2(349, 584)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xjuyq"]
-width = 1024
-noise = SubResource("FastNoiseLite_dstoi")
-color_ramp = SubResource("Gradient_ftd6l")
-
-[node name="MinigameFingerHammer" type="Node2D" unique_id=1467852755]
-
-[node name="BridgeFloor" type="MeshInstance2D" parent="." unique_id=1258715771]
-position = Vector2(592, 611)
-mesh = SubResource("QuadMesh_s8w7s")
-texture = SubResource("NoiseTexture2D_xjuyq")
-
-[node name="HangingHand" parent="." unique_id=1067559394 instance=ExtResource("1_6wff3")]
-position = Vector2(338, 376)
-
-[node name="HangingHand2" parent="." unique_id=2017700433 instance=ExtResource("1_6wff3")]
-position = Vector2(873, 369)
-scale = Vector2(-1, 1)
+[node name="RightHand" parent="." unique_id=2017700433 instance=ExtResource("1_6wff3")]
+position = Vector2(836, 583)
+is_right = true
 
 [node name="Hammer" parent="." unique_id=641361467 instance=ExtResource("2_wf0d3")]
 position = Vector2(729, 718)
