@@ -7,6 +7,7 @@ var joint: PinJoint2D
 var is_hovered: bool
 
 func _ready() -> void:
+	print('running ready in grabbable')
 	is_hovered = false
 	instances.append(self)
 	

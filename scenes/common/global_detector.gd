@@ -28,9 +28,9 @@ func _process(delta: float) -> void:
 		return
 	
 	var debug: bool = get_parent().name == "DrinkBottle"
+	debug = false;
 	var current_log_mask = log_mask(collision_mask(self))
 	var largest_log_mask: int = -1;
-	print(get_overlapping_areas())
 	for overlapping in get_overlapping_areas():
 		# Get the log 2 of the collision mask
 		var log_mask = log_mask(collision_mask(overlapping)) 
@@ -49,6 +49,7 @@ func _process(delta: float) -> void:
 	if current_log_mask > largest_log_mask + 1:
 		self.get_parent().collision_layer = 1 << (largest_log_mask + 1)
 		self.get_parent().collision_mask = 1 << (largest_log_mask + 1)
-		print("bringing forwards")
+		if debug:
+			print("bringing forwards")
 			
 	

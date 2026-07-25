@@ -12,7 +12,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var mouse_pos: Vector2 = get_viewport().get_mouse_position()
-	(%CharacterBody2D).position  = (%CharacterBody2D).position.lerp(mouse_pos, delta * FOLLOW_SPEED)
+	position  = position.lerp(mouse_pos, delta * FOLLOW_SPEED)
 
 	
 func _input(event: InputEvent) -> void:
@@ -24,5 +24,11 @@ func _input(event: InputEvent) -> void:
 			if ga.has_overlapping_bodies():
 				for ob in ga.get_overlapping_bodies():
 					if ob is Grabbable:
-						ob.try_grab(%CharacterBody2D)
+						ob.try_grab(self)
 			
+
+func _on_alarm_clock_my_fuckin_ace_signal(body: Node2D) -> void:
+	print("Receieieved instructions")
+	print(body)
+	if body.get_instance_id() == self.get_instance_id():
+		print("noice garrryyyyyyy")

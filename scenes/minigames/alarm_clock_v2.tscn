@@ -26,7 +26,7 @@ shape = SubResource("WorldBoundaryShape2D_2hxnw")
 debug_color = Color(0, 0.6, 0.69803923, 0.7137255)
 
 [node name="AlarmClock" parent="." unique_id=2083303648 instance=ExtResource("2_b4a7q")]
-position = Vector2(695, 803)
+position = Vector2(1053, 732)
 disable_mode = 1
 collision_layer = 4
 collision_mask = 4
@@ -38,23 +38,23 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="Potplant" parent="." unique_id=941695830 instance=ExtResource("2_pmya3")]
-position = Vector2(532, 740)
+position = Vector2(532, 733)
 collision_layer = 2
 collision_mask = 2
 
 [node name="DrinkBottle" parent="." unique_id=252755264 instance=ExtResource("4_i0qkf")]
-position = Vector2(736, 723)
+position = Vector2(736, 715)
 collision_layer = 2
 collision_mask = 2
 
 [node name="Book" parent="." unique_id=211434881 instance=ExtResource("1_osom8")]
-position = Vector2(324, 749)
+position = Vector2(324, 737)
 
 [node name="SoftToy" parent="." unique_id=383912693 instance=ExtResource("5_8xncq")]
 position = Vector2(721, 729)
 
 [node name="Book3" parent="." unique_id=360374397 instance=ExtResource("1_osom8")]
-position = Vector2(428, 749)
+position = Vector2(428, 737)
 
 [node name="Book4" parent="." unique_id=409632918 instance=ExtResource("1_osom8")]
 position = Vector2(562, 732)
@@ -72,5 +72,7 @@ position = Vector2(163, 93)
 wait_time = 11.759
 one_shot = true
 autostart = true
+
+[connection signal="my_fuckin_ace_signal" from="AlarmClock" to="Hand" method="_on_alarm_clock_my_fuckin_ace_signal"]
 
 [editable path="LevelTimer"]
