@@ -48,7 +48,7 @@ func update_minute_visibility() -> void:
         var left_x: float = (%second_tens as Node2D).position.x
         var right_x: float = (%deciseconds as Node2D).position.x
         var offset_x: float = (right_x + left_x + DIGIT_WIDTH) / 2
-        (%visuals as Node2D).position.x -= offset_x
+        (%visuals as Node2D).position.x = -offset_x
 
 
 func _on_timer_timeout() -> void:
