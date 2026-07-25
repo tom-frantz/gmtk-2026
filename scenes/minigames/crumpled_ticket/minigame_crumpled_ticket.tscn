@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ygnnutno1elj" path="res://scenes/minigames/crumpled_ticket/minigame_crumpled_ticket.gd" id="1_8u4w2"]
 [ext_resource type="PackedScene" uid="uid://ixxk6kfb35xk" path="res://scenes/minigames/crumpled_ticket/crumpled_ticket.tscn" id="1_744sh"]
 [ext_resource type="Texture2D" uid="uid://hevq3jirl5f0" path="res://assets/finger_hammer_finger02.png" id="1_yhmhs"]
+[ext_resource type="Texture2D" uid="uid://b3uemvr3fun0n" path="res://assets/crumpled_ticket_background.png" id="2_mtd4c"]
 [ext_resource type="Texture2D" uid="uid://b10ge32ceayao" path="res://assets/finger_hammer_finger01.png" id="3_wou8l"]
 [ext_resource type="PackedScene" uid="uid://cbftkdqiqa54g" path="res://scenes/minigames/crumpled_ticket/move_up_hint.tscn" id="4_wou8l"]
 [ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="5_0l6b4"]
@@ -33,8 +34,34 @@ stream_3/stream = ExtResource("16_dnbhw")
 [node name="MinigameCrumpledTicket" type="Node2D" unique_id=750537635]
 script = ExtResource("1_8u4w2")
 
+[node name="bg" type="Sprite2D" parent="." unique_id=711662324]
+texture_filter = 1
+position = Vector2(586, 444)
+scale = Vector2(1.9286225, 1.9286225)
+texture = ExtResource("2_mtd4c")
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=879324900]
+position = Vector2(726, -416)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D2" unique_id=693029069]
+texture_filter = 1
+position = Vector2(283, 692)
+scale = Vector2(8, 8)
+texture = ExtResource("11_0i0rq")
+
+[node name="Label" type="Label" parent="Node2D2" unique_id=1586655960]
+offset_left = 66.75
+offset_top = 467.75
+offset_right = 556.75
+offset_bottom = 816.75
+text = "Dangflorbit ! 
+My ticket got 
+crumpled in 
+my pocket !"
+label_settings = SubResource("LabelSettings_r1ynv")
+
 [node name="Node2D" type="Node2D" parent="." unique_id=1640025491]
-position = Vector2(462, 506)
+position = Vector2(260, 488)
 scale = Vector2(0.45, 0.45)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=333318607]
@@ -68,32 +95,32 @@ texture = ExtResource("1_yhmhs")
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1626651155]
 modulate = Color(0.45323175, 0.45323175, 0.45323175, 1)
 texture_filter = 1
-position = Vector2(835, 1091)
+position = Vector2(633, 1073)
 rotation = -0.12124562
 scale = Vector2(5.3147554, 1.4707383)
 texture = ExtResource("3_wou8l")
 offset = Vector2(-1.4993896, -39.25226)
 
 [node name="CrumpledTicket" parent="." unique_id=1650048893 instance=ExtResource("1_744sh")]
-position = Vector2(810, 608)
+position = Vector2(608, 590)
 rotation = -0.10471976
 scale = Vector2(8, 8)
 drag_distance = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1964559488]
 texture_filter = 1
-position = Vector2(549, 394.00006)
+position = Vector2(347, 376.00006)
 rotation = 2.949634
 scale = Vector2(1.5794761, 1.6117032)
 texture = ExtResource("3_wou8l")
 offset = Vector2(-146.35669, -355.17096)
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1988860470]
-position = Vector2(252, 311)
+position = Vector2(50, 293)
 offset = Vector2(-288, -304)
 
 [node name="MoveUpHint" parent="." unique_id=802615480 instance=ExtResource("4_wou8l")]
-position = Vector2(1067, 689)
+position = Vector2(796, 753.00006)
 rotation = -0.10471976
 scale = Vector2(8, 8)
 
@@ -142,23 +169,6 @@ stream = ExtResource("9_3o7x3")
 [node name="win_audio" type="AudioStreamPlayer" parent="." unique_id=1255576016]
 unique_name_in_owner = true
 stream = ExtResource("10_u7sap")
-
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=693029069]
-texture_filter = 1
-position = Vector2(283, 692)
-scale = Vector2(8, 8)
-texture = ExtResource("11_0i0rq")
-
-[node name="Label" type="Label" parent="." unique_id=1586655960]
-offset_left = 66.75
-offset_top = 467.75
-offset_right = 556.75
-offset_bottom = 816.75
-text = "Dangflorbit ! 
-My ticket got 
-crumpled in 
-my pocket !"
-label_settings = SubResource("LabelSettings_r1ynv")
 
 [node name="CrinkleSound" type="AudioStreamPlayer" parent="." unique_id=1746694283]
 unique_name_in_owner = true
