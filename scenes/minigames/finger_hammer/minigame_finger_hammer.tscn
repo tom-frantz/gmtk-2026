@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dq7lh25bpwk60"]
 
 [ext_resource type="PackedScene" uid="uid://dfsmjfq6108nn" path="res://scenes/minigames/finger_hammer/hanging_hand.tscn" id="1_6wff3"]
-[ext_resource type="Texture2D" uid="uid://dhjahxyuk25pc" path="res://assets/finger_hammer_background.png" id="1_msbi8"]
-[ext_resource type="Texture2D" uid="uid://dx4nmvdlbs465" path="res://assets/finger_hammer_background_shelf.png" id="2_msbi8"]
+[ext_resource type="Texture2D" uid="uid://byy7sroakihg1" path="res://assets/finger_hammer_background.png" id="1_msbi8"]
+[ext_resource type="Texture2D" uid="uid://27tgp1878k0a" path="res://assets/finger_hammer_background_shelf.png" id="2_msbi8"]
 [ext_resource type="PackedScene" uid="uid://cnt83k4b2un1u" path="res://scenes/minigames/finger_hammer/hammer.tscn" id="2_wf0d3"]
 
 [node name="Node2D" type="Node2D" unique_id=536377200]
@@ -29,4 +29,6 @@ is_right = true
 finger_timeouts = Array[float]([2.0, 1.0, 1.0, 0.5])
 
 [node name="Hammer" parent="." unique_id=641361467 instance=ExtResource("2_wf0d3")]
+z_index = 10
 position = Vector2(729, 718)
+scale = Vector2(0.9, 0.9)
