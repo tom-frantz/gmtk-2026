@@ -172,11 +172,12 @@ stream_8/stream = ExtResource("11_wjl8l")
 [node name="Finger" type="Node2D" unique_id=683855000]
 script = ExtResource("1_5hh8l")
 
-[node name="SmashedTimer" parent="." unique_id=1923668992 instance=ExtResource("2_ux67n")]
+[node name="SmashedTimer" parent="." unique_id=887145100 instance=ExtResource("2_ux67n")]
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, -147)
 scale = Vector2(0.4, 0.4)
+show_minutes = false
 
 [node name="FingerAnimations" type="AnimationPlayer" parent="." unique_id=409710190]
 unique_name_in_owner = true
@@ -202,8 +203,6 @@ volume_db = -0.836
 pitch_scale = 1.5
 playback_type = 2
 
-[connection signal="timeout" from="SmashedTimer/Timer" to="." method="recover"]
+[connection signal="timeout" from="SmashedTimer" to="." method="recover"]
 [connection signal="mouse_entered" from="FingerArea" to="." method="start_hover"]
 [connection signal="mouse_exited" from="FingerArea" to="." method="end_hover"]
-
-[editable path="SmashedTimer"]
