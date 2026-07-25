@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ixxk6kfb35xk"]
+
+[ext_resource type="Texture2D" uid="uid://cgmuko4tne0fy" path="res://assets/crumpled_ticket.png" id="1_073ah"]
+[ext_resource type="Script" uid="uid://b5uaew1efjgkj" path="res://scenes/minigames/crumpled_ticket/crumpled_ticket.gd" id="1_c0o2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0o2q"]
+size = Vector2(30, 31)
+
+[node name="CrumpledTicket" type="Area2D" unique_id=1650048893]
+script = ExtResource("1_c0o2q")
+
+[node name="TicketHover" type="CollisionShape2D" parent="." unique_id=987406000]
+unique_name_in_owner = true
+position = Vector2(0, 15.5)
+shape = SubResource("RectangleShape2D_c0o2q")
+one_way_collision_direction = Vector2(0, -1)
+
+[node name="TicketSprite" type="Sprite2D" parent="." unique_id=1776078581]
+unique_name_in_owner = true
+texture_filter = 1
+texture = ExtResource("1_073ah")
+hframes = 8
+
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
