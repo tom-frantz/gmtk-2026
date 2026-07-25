@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://dwlopyjkkrhwa"]
+
+[ext_resource type="Script" uid="uid://bspfhp6bagput" path="res://scenes/minigames/keypad/target_code.gd" id="1_702ew"]
+[ext_resource type="Script" uid="uid://b6gc7ne04xl1p" path="res://scenes/minigames/keypad/keypad_input.gd" id="2_5nv2i"]
+[ext_resource type="Texture2D" uid="uid://bahiswroyi7ed" path="res://assets/pillow.png" id="3_013d1"]
+[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="4_gwdo1"]
+[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="5_3v8wq"]
+[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="6_kc2wq"]
+[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="7_3v8wq"]
+
+[node name="MinigameKeypad" type="Node2D" unique_id=230989082]
+
+[node name="target_code" type="Label" parent="." unique_id=1339195271]
+unique_name_in_owner = true
+offset_left = 483.0
+offset_top = 199.0
+offset_right = 683.0
+offset_bottom = 278.0
+theme_override_font_sizes/font_size = 58
+text = "TARGET CODE"
+script = ExtResource("1_702ew")
+
+[node name="keypad_input_1" type="TextureButton" parent="." unique_id=2069179718]
+z_index = -1
+offset_left = 57.0
+offset_top = 365.0
+offset_right = 290.0
+offset_bottom = 548.0
+texture_normal = ExtResource("3_013d1")
+
+[node name="keypad_input_1" type="Label" parent="keypad_input_1" unique_id=76820590]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 45.0
+offset_right = 129.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 50
+text = "1"
+script = ExtResource("2_5nv2i")
+
+[node name="keypad_input_2" type="TextureButton" parent="." unique_id=1443517244]
+z_index = -1
+offset_left = 343.0
+offset_top = 374.0
+offset_right = 576.0
+offset_bottom = 557.0
+texture_normal = ExtResource("3_013d1")
+
+[node name="keypad_input_2" type="Label" parent="keypad_input_2" unique_id=1844358983]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 45.0
+offset_right = 129.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 50
+text = "1"
+script = ExtResource("2_5nv2i")
+
+[node name="keypad_input_3" type="TextureButton" parent="." unique_id=1998484694]
+z_index = -1
+offset_left = 605.0
+offset_top = 361.0
+offset_right = 838.0
+offset_bottom = 544.0
+texture_normal = ExtResource("3_013d1")
+
+[node name="keypad_input_3" type="Label" parent="keypad_input_3" unique_id=394205542]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 45.0
+offset_right = 129.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 50
+text = "1"
+script = ExtResource("2_5nv2i")
+
+[node name="keypad_input_4" type="TextureButton" parent="." unique_id=2093141585]
+z_index = -1
+offset_left = 929.0
+offset_top = 377.0
+offset_right = 1162.0
+offset_bottom = 560.0
+texture_normal = ExtResource("3_013d1")
+
+[node name="keypad_input_4" type="Label" parent="keypad_input_4" unique_id=277790865]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 45.0
+offset_right = 129.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 50
+text = "1"
+script = ExtResource("2_5nv2i")
+
+[node name="LevelTimer" parent="." unique_id=1923668992 instance=ExtResource("4_gwdo1")]
+process_mode = 3
+position = Vector2(1050, 200)
+
+[node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
+wait_time = 35.0
+autostart = true
+script = ExtResource("5_3v8wq")
+
+[node name="fail_banner" type="Label" parent="LevelTimer/Timer" index="0" unique_id=1090927563]
+visible = false
+z_index = 100
+offset_left = 136.0
+offset_top = 194.0
+offset_right = 1192.0
+offset_bottom = 603.0
+theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
+theme_override_font_sizes/font_size = 300
+text = "LOSER!"
+
+[node name="Label" type="Label" parent="LevelTimer/Timer/fail_banner" unique_id=892362477]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 373.0
+offset_right = 820.0
+offset_bottom = 466.0
+theme_override_font_sizes/font_size = 68
+text = "(click to go to menu)"
+
+[node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=22918695]
+unique_name_in_owner = true
+stream = ExtResource("6_kc2wq")
+
+[node name="win_banner" type="Label" parent="." unique_id=888915218]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+z_as_relative = false
+offset_left = 6.0
+offset_top = 275.0
+offset_right = 1293.0
+offset_bottom = 684.0
+theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
+theme_override_font_sizes/font_size = 300
+text = "WINNER!"
+
+[node name="win_audio" type="AudioStreamPlayer" parent="." unique_id=228063531]
+unique_name_in_owner = true
+stream = ExtResource("7_3v8wq")
+
+[connection signal="pressed" from="keypad_input_1" to="keypad_input_1/keypad_input_1" method="_on_keypad_input_1_pressed"]
+[connection signal="pressed" from="keypad_input_2" to="keypad_input_2/keypad_input_2" method="_on_keypad_input_2_pressed"]
+[connection signal="pressed" from="keypad_input_3" to="keypad_input_3/keypad_input_3" method="_on_keypad_input_3_pressed"]
+[connection signal="pressed" from="keypad_input_4" to="keypad_input_4/keypad_input_4" method="_on_keypad_input_4_pressed"]
+
+[editable path="LevelTimer"]
