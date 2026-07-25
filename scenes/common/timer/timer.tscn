@@ -1,28 +1,64 @@
 [gd_scene format=3 uid="uid://d3qorbs0l4srn"]
 
-[ext_resource type="Texture2D" uid="uid://dg0psf2k1kxro" path="res://assets/timer_digits.png" id="2_qlxfu"]
-[ext_resource type="Script" uid="uid://dx6q4a7xnbels" path="res://scenes/common/timer/tens.gd" id="2_ylm82"]
-[ext_resource type="Script" uid="uid://br0okdjxw31ju" path="res://scenes/common/timer/units.gd" id="3_ylm82"]
-[ext_resource type="Texture2D" uid="uid://fui5xh8ers3j" path="res://assets/leading_zero.png" id="4_5temr"]
+[ext_resource type="Script" uid="uid://djeru3aiinl3g" path="res://scenes/common/timer/timer.gd" id="1_5temr"]
+[ext_resource type="Texture2D" uid="uid://buusmgexmt42s" path="res://assets/timer/dot.png" id="4_0qftu"]
+[ext_resource type="PackedScene" uid="uid://b0bh54yy5l5pj" path="res://scenes/common/timer/timer_digit.tscn" id="5_0qftu"]
+[ext_resource type="Texture2D" uid="uid://qf0ygdda5aoc" path="res://assets/timer/doubt_dot.png" id="5_43sp2"]
 
-[node name="LevelTimer" type="Node2D" unique_id=1923668992]
+[node name="DigitalTimer2D" type="Node2D" unique_id=1923668992 node_paths=PackedStringArray("timer")]
+script = ExtResource("1_5temr")
+timer = NodePath("Timer")
+show_minutes = false
 
 [node name="Timer" type="Timer" parent="." unique_id=1572085082]
 unique_name_in_owner = true
+wait_time = 1800.0
+autostart = true
 
-[node name="tens" type="Sprite2D" parent="." unique_id=208280519]
-position = Vector2(30, 0)
-texture = ExtResource("2_qlxfu")
-hframes = 10
-script = ExtResource("2_ylm82")
+[node name="visuals" type="Node2D" parent="." unique_id=105458210]
+unique_name_in_owner = true
+position = Vector2(-69, 0)
 
-[node name="units" type="Sprite2D" parent="." unique_id=2144084559]
-position = Vector2(84, 0)
-texture = ExtResource("2_qlxfu")
-hframes = 10
-frame = 5
-script = ExtResource("3_ylm82")
+[node name="minutes" type="Node2D" parent="visuals" unique_id=569355507]
+position = Vector2(-92, 0)
 
-[node name="Leading Zeros" type="Sprite2D" parent="." unique_id=1163552478]
-position = Vector2(-51, 0)
-texture = ExtResource("4_5temr")
+[node name="minute_tens" parent="visuals/minutes" unique_id=232087592 instance=ExtResource("5_0qftu")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-28, 0)
+divisor = 6000
+
+[node name="minute_digits" parent="visuals/minutes" unique_id=1633300735 instance=ExtResource("5_0qftu")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(28, 0)
+divisor = 600
+
+[node name="double_dots" type="Sprite2D" parent="visuals" unique_id=987181446]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-32, 0)
+texture = ExtResource("5_43sp2")
+
+[node name="seconds" type="Node2D" parent="visuals" unique_id=1028206895]
+position = Vector2(27, 0)
+
+[node name="second_tens" parent="visuals/seconds" unique_id=1424551376 instance=ExtResource("5_0qftu")]
+unique_name_in_owner = true
+position = Vector2(-28, 0)
+divisor = 100
+
+[node name="second_digits" parent="visuals/seconds" unique_id=483831177 instance=ExtResource("5_0qftu")]
+unique_name_in_owner = true
+position = Vector2(28, 0)
+divisor = 10
+
+[node name="dc_dot" type="Sprite2D" parent="visuals" unique_id=735734705]
+position = Vector2(86.5, 46.5)
+texture = ExtResource("4_0qftu")
+
+[node name="deciseconds" parent="visuals" unique_id=1889481378 instance=ExtResource("5_0qftu")]
+unique_name_in_owner = true
+position = Vector2(116, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
