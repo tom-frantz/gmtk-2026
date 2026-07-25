@@ -13,5 +13,8 @@ godot --export-debug Web result/web/gmtk_2026.html
 mv result/web/gmtk_2026.html result/web/index.html
 zip -r result/web/web.zip result/web/gmtk_2026* result/web/index.html
 echo "Final build at: $(pwd)/result/web/web.zip"
+which butler || exit 0
+butler push result/web/web.zip tom-frantz/late-to-the-big-one:web
+echo "Pushed to itch.io"
 
 popd
