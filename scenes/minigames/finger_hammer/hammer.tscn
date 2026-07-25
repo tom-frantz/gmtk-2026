@@ -4,18 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://cx3tb71nbqdj8" path="res://assets/sound/fx/hammer hit.wav" id="2_jsm4g"]
 [ext_resource type="AudioStream" uid="uid://bouhhls1sbljd" path="res://assets/sound/fx/hammer hit2.wav" id="3_syc5e"]
 [ext_resource type="AudioStream" uid="uid://dlx8ontsfwdl4" path="res://assets/sound/fx/hammer hit3.wav" id="4_hisfn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_7tylt"]
-size = Vector3(60, 400, 1)
-
-[sub_resource type="Gradient" id="Gradient_0jjch"]
-colors = PackedColorArray(0.8675319, 0.68598944, 0.6298464, 1, 0.8628777, 0.64031297, 0.48082602, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_r1ynv"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7tylt"]
-noise = SubResource("FastNoiseLite_r1ynv")
-color_ramp = SubResource("Gradient_0jjch")
+[ext_resource type="Texture2D" uid="uid://b2s35iq4s6211" path="res://assets/finger_hammer_hammer01.png" id="6_kmm6x"]
+[ext_resource type="Texture2D" uid="uid://dd206drdjycm3" path="res://assets/finger_hammer_hammer02.png" id="7_kmm6x"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kmm6x"]
 random_pitch = 1.3548814
@@ -24,17 +14,121 @@ stream_0/stream = ExtResource("2_jsm4g")
 stream_1/stream = ExtResource("3_syc5e")
 stream_2/stream = ExtResource("4_hisfn")
 
+[sub_resource type="Animation" id="Animation_hisfn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_kmm6x")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(97, -69.99999)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kmm6x"]
+resource_name = "hit"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_kmm6x"), ExtResource("7_kmm6x")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.03351175),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(129, -117.00001), Vector2(52, -37), Vector2(82, -72)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03333333, 0.03351175),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.20769419, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3auuh"]
+_data = {
+&"RESET": SubResource("Animation_hisfn"),
+&"hit": SubResource("Animation_kmm6x")
+}
+
 [node name="Hammer" type="Node2D" unique_id=641361467]
 script = ExtResource("1_mheix")
-
-[node name="Handle" type="MeshInstance2D" parent="." unique_id=1693229933]
-position = Vector2(43.999996, 195.99998)
-rotation = -0.22853473
-mesh = SubResource("BoxMesh_7tylt")
-texture = SubResource("NoiseTexture2D_7tylt")
 
 [node name="HammerHitSFX" type="AudioStreamPlayer" parent="." unique_id=881723576]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_kmm6x")
 volume_db = -0.145
 playback_type = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=425111447]
+unique_name_in_owner = true
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_3auuh")
+
+[node name="FingerHammerHammer01" type="Sprite2D" parent="." unique_id=2082369279]
+visible = false
+position = Vector2(96, -71)
+scale = Vector2(1.87, 1.87)
+texture = ExtResource("6_kmm6x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1973525843]
+texture_filter = 1
+position = Vector2(97, -69.99999)
+scale = Vector2(1.8740118, 1.8740118)
+texture = ExtResource("6_kmm6x")
+
+[node name="Timer" type="Timer" parent="." unique_id=1594066219]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[connection signal="finished" from="HammerHitSFX" to="." method="_on_hammer_hit_sfx_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
