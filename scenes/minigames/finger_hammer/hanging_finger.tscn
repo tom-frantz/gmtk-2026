@@ -177,6 +177,7 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(0, -147)
 scale = Vector2(0.4, 0.4)
+show_minutes = false
 
 [node name="FingerAnimations" type="AnimationPlayer" parent="." unique_id=409710190]
 unique_name_in_owner = true

@@ -4,21 +4,21 @@ extends Node2D
 class_name DigitalTimer2D
 
 const DIGIT_WIDTH = 50
+const MIN_UNIT_IN_SECONDS = 10
 
 signal timeout
 
-@export var timer: Timer
 @export var show_minutes: bool = true:
     set(value):
         show_minutes = value
         if Engine.is_editor_hint():
             update_minute_visibility()
 
-@export var min_unit_in_seconds: int = 10
-
+var timer: Timer
 var digits: Array[TimerDigit2D]
 
 func _ready() -> void:
+    timer = %Timer
     digits = [
         %minute_tens,
         %minute_digits,
@@ -26,10 +26,11 @@ func _ready() -> void:
         %second_digits,
         %deciseconds
     ]
+    update_minute_visibility()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-    var time_left: int = int(timer.time_left * min_unit_in_seconds)
+    var time_left: int = int(timer.time_left * MIN_UNIT_IN_SECONDS)
     for d in digits:
         time_left = d.update_time(time_left)
 
