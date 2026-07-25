@@ -89,15 +89,6 @@ theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
 theme_override_font_sizes/font_size = 300
 text = "LOSER!"
 
-[node name="Label" parent="LevelTimer/Timer/fail_banner" index="0"]
-layout_mode = 0
-offset_left = 155.0
-offset_top = 373.0
-offset_right = 820.0
-offset_bottom = 466.0
-theme_override_font_sizes/font_size = 68
-text = "(click to go to menu)"
-
 [node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=279698726]
 unique_name_in_owner = true
 stream = ExtResource("13_5faxw")

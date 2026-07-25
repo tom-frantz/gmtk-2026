@@ -64,6 +64,9 @@ func check_won() -> void:
 		background_music.stop()
 		if !win_audio.playing:
 			win_audio.play()
+		await get_tree().create_timer(2.0).timeout
+		get_tree().change_scene_to_file("res://scenes/minigames/finger_hammer/minigame_finger_hammer.tscn")
+
 
 func update_collisions() -> void:
 	var free: int = 0b00000000_00000000_00000000_00000010

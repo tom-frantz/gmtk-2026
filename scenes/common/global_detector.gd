@@ -13,7 +13,7 @@ func log_mask(mask: int) -> int:
 	return log(mask) / log(2)
 
 
-var first_frame: bool = true;
+var frame_count: int = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,8 +23,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Areas aren't initialised properly on first frame, simply skip calcs for it.
-	if first_frame:
-		first_frame = false;
+	if frame_count < 2:
+		frame_count += 1;
 		return
 	
 	var debug: bool = get_parent().name == "DrinkBottle"
