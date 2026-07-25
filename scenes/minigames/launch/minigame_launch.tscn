@@ -45,7 +45,7 @@ process_mode = 3
 position = Vector2(987.385, 100)
 
 [node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
-wait_time = 7.0
+wait_time = 9.5
 autostart = true
 script = ExtResource("3_4yjdq")
 

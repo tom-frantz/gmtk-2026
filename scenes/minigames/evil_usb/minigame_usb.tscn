@@ -7,13 +7,16 @@
 [ext_resource type="Texture2D" uid="uid://charj018e68l3" path="res://assets/usb03.png" id="5_bxuw3"]
 [ext_resource type="Texture2D" uid="uid://c1rw3qc8wfcl2" path="res://assets/usb02.png" id="6_qh7jt"]
 [ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="7_kuiiv"]
+[ext_resource type="Script" uid="uid://cwlt6lpaia7xk" path="res://scenes/minigames/evil_usb/usb_slot.gd" id="8_bxuw3"]
 [ext_resource type="Texture2D" uid="uid://c2g22a16e78qu" path="res://assets/usb_background.png" id="8_kg4k4"]
-[ext_resource type="Script" uid="uid://btjfcc6ohl2xt" path="res://scenes/minigames/evil_usb/slot.gd" id="9_4r5xp"]
+[ext_resource type="Texture2D" uid="uid://bbyipnugqnccy" path="res://assets/usb_port_h_base01.png" id="9_bxuw3"]
 [ext_resource type="Texture2D" uid="uid://6dasfij4djvm" path="res://assets/usb_port_h_base02.png" id="10_7lwxb"]
+[ext_resource type="Texture2D" uid="uid://dt3sbaqjahlq2" path="res://assets/usb_port_v_base02.png" id="10_qh7jt"]
 [ext_resource type="Texture2D" uid="uid://du1brpv3863ob" path="res://assets/usb_port_v_base01.png" id="11_h6xv6"]
 [ext_resource type="Texture2D" uid="uid://up165tpy12so" path="res://assets/usb_hider.png" id="12_yg08o"]
 [ext_resource type="Texture2D" uid="uid://dqgow3lsxd6t8" path="res://assets/usb_port_h_top01.png" id="14_k407p"]
-[ext_resource type="Texture2D" uid="uid://cxpp300xkf4m6" path="res://assets/usb_port_v_top02.png" id="15_q3uec"]
+[ext_resource type="Texture2D" uid="uid://cuc1sa1uq80ca" path="res://assets/usb_port_h_top02.png" id="14_kuiiv"]
+[ext_resource type="Texture2D" uid="uid://bo1w0x2rmct4b" path="res://assets/usb_port_v_top01.png" id="15_kg4k4"]
 [ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="16_1obh5"]
 [ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="17_bioy6"]
 [ext_resource type="AudioStream" uid="uid://k18nqwv3wfdh" path="res://assets/sound/music/late for the bus.wav" id="17_etcy7"]
@@ -46,18 +49,19 @@ size = Vector2(51, 19.769989)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_7lwxb")
-}],
-"loop": 1,
-"name": &"horz",
-"speed": 5.0
+"texture": ExtResource("9_bxuw3")
 }, {
-"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qh7jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7lwxb")
+}, {
 "duration": 1.0,
 "texture": ExtResource("11_h6xv6")
 }],
 "loop": 1,
-"name": &"vert",
+"name": &"slot",
 "speed": 5.0
 }]
 
@@ -68,18 +72,19 @@ size = Vector2(20, 18.5)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("14_k407p")
-}],
-"loop": 1,
-"name": &"top01",
-"speed": 5.0
+"texture": ExtResource("14_kuiiv")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_q3uec")
+"texture": ExtResource("15_kg4k4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_k407p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_kg4k4")
 }],
 "loop": 1,
-"name": &"top02",
+"name": &"A",
 "speed": 5.0
 }]
 
@@ -96,7 +101,8 @@ size = Vector2(14, 11.5)
 script = ExtResource("1_iafxi")
 
 [node name="usb" type="RigidBody2D" parent="." unique_id=939992453]
-position = Vector2(170, 383)
+unique_name_in_owner = true
+position = Vector2(170, 800)
 linear_damp = 2.0
 angular_damp_mode = 1
 angular_damp = 100.0
@@ -121,78 +127,83 @@ shape = SubResource("RectangleShape2D_kuy6b")
 unique_name_in_owner = true
 stream = ExtResource("7_kuiiv")
 
-[node name="computah" type="Sprite2D" parent="." unique_id=1340533437]
-z_index = -10
-position = Vector2(638, 479)
-texture = ExtResource("8_kg4k4")
+[node name="usb_slot" type="Node2D" parent="." unique_id=851984207]
+script = ExtResource("8_bxuw3")
 
-[node name="slot_body" type="StaticBody2D" parent="." unique_id=1585106303]
+[node name="slot_body" type="StaticBody2D" parent="usb_slot" unique_id=1585106303]
 position = Vector2(70, 84)
 
-[node name="slot" type="Area2D" parent="slot_body" unique_id=706888658]
+[node name="slot" type="Area2D" parent="usb_slot/slot_body" unique_id=706888658]
 position = Vector2(371.62, 361.5)
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("9_4r5xp")
 
-[node name="slot_sprite" type="AnimatedSprite2D" parent="slot_body/slot" unique_id=544163790]
+[node name="slot_sprite" type="AnimatedSprite2D" parent="usb_slot/slot_body/slot" unique_id=544163790]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_gb0x2")
-animation = &"horz"
+animation = &"slot"
 
-[node name="won_collision_area" type="CollisionShape2D" parent="slot_body/slot" unique_id=1899309396]
+[node name="won_collision_area" type="CollisionShape2D" parent="usb_slot/slot_body/slot" unique_id=1899309396]
 position = Vector2(-0.6199951, -59)
 shape = SubResource("RectangleShape2D_gb0x2")
 one_way_collision_direction = Vector2(0, -1)
 
-[node name="computah_mask" type="Sprite2D" parent="slot_body/slot" unique_id=375737093]
+[node name="computah_mask" type="Sprite2D" parent="usb_slot/slot_body/slot" unique_id=375737093]
 unique_name_in_owner = true
 z_index = -1
 z_as_relative = false
-position = Vector2(-1.6199894, -42.99999)
-scale = Vector2(1.2399997, 0.70999986)
+position = Vector2(1.8800049, -57.499992)
+scale = Vector2(1.7900003, 0.9599999)
 texture = ExtResource("12_yg08o")
 
-[node name="slot_mask" type="AnimatedSprite2D" parent="slot_body/slot/computah_mask" unique_id=1752111834]
-position = Vector2(0.815, 54.46)
+[node name="slot_mask" type="AnimatedSprite2D" parent="usb_slot/slot_body/slot/computah_mask" unique_id=1752111834]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(-0.86094666, 59.46295)
+scale = Vector2(0.55865914, 1.0416667)
 sprite_frames = SubResource("SpriteFrames_ob04f")
-animation = &"top01"
+animation = &"A"
 
-[node name="slot_block_collision" type="CollisionShape2D" parent="slot_body" unique_id=664689050]
+[node name="slot_block_collision" type="CollisionShape2D" parent="usb_slot/slot_body" unique_id=664689050]
 position = Vector2(371, 356.5)
 shape = SubResource("RectangleShape2D_ob04f")
 one_way_collision = true
 one_way_collision_direction = Vector2(0, -1)
 debug_color = Color(0.8826473, 0.03916457, 0.44000304, 0.41960785)
 
-[node name="slot_entered_collision" type="Area2D" parent="slot_body" unique_id=587794472]
+[node name="slot_entered_collision" type="Area2D" parent="usb_slot/slot_body" unique_id=587794472]
 
-[node name="entered_shape" type="CollisionShape2D" parent="slot_body/slot_entered_collision" unique_id=120360652]
+[node name="entered_shape" type="CollisionShape2D" parent="usb_slot/slot_body/slot_entered_collision" unique_id=120360652]
 position = Vector2(371, 330.75)
 shape = SubResource("RectangleShape2D_m6ccs")
 debug_color = Color(0.34766665, 0.7383306, 0.05044779, 0.41960785)
 
-[node name="slot_entered_collision2" type="Area2D" parent="slot_body" unique_id=1990204666]
+[node name="slot_entered_collision2" type="Area2D" parent="usb_slot/slot_body" unique_id=1990204666]
 
-[node name="entered_shape2" type="CollisionShape2D" parent="slot_body/slot_entered_collision2" unique_id=819967197]
+[node name="entered_shape2" type="CollisionShape2D" parent="usb_slot/slot_body/slot_entered_collision2" unique_id=819967197]
 position = Vector2(371, 359.75)
 shape = SubResource("RectangleShape2D_q7c0c")
 debug_color = Color(0.6598893, 0.6550755, 0.114062555, 0.41960785)
 
-[node name="slot_channel" type="StaticBody2D" parent="." unique_id=1087578406]
+[node name="slot_channel" type="StaticBody2D" parent="usb_slot" unique_id=1087578406]
 position = Vector2(70, 84)
 collision_layer = 4
 collision_mask = 7
 
-[node name="slot_channel_shape" type="CollisionPolygon2D" parent="slot_channel" unique_id=202917394]
-polygon = PackedVector2Array(287, 377, 339, 372, 338, 289, 404, 289, 407, 372, 571, 371, 584, 21, 182, 17, 188, 374)
+[node name="slot_channel_shape" type="CollisionPolygon2D" parent="usb_slot/slot_channel" unique_id=202917394]
+polygon = PackedVector2Array(287, 377, 337, 374, 338, 289, 404, 289, 406, 374, 571, 371, 584, 21, 182, 17, 188, 374)
+
+[node name="computah" type="Sprite2D" parent="." unique_id=1340533437]
+z_index = -10
+position = Vector2(640, 480)
+texture = ExtResource("8_kg4k4")
 
 [node name="LevelTimer" parent="." unique_id=1923668992 instance=ExtResource("16_1obh5")]
 process_mode = 3
 position = Vector2(1000, 427)
 
 [node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
-wait_time = 7.0
+wait_time = 7.5
 autostart = true
 script = ExtResource("17_bioy6")
 
@@ -237,9 +248,9 @@ text = "WINNER!"
 unique_name_in_owner = true
 stream = ExtResource("17_etcy7")
 
-[connection signal="area_entered" from="slot_body/slot" to="usb" method="_on_slot_area_entered" flags=18]
-[connection signal="body_entered" from="slot_body/slot" to="usb" method="_on_slot_body_entered"]
-[connection signal="body_exited" from="slot_body/slot_entered_collision" to="usb" method="_on_slot_entered_collision_body_exited"]
-[connection signal="body_entered" from="slot_body/slot_entered_collision2" to="usb" method="_on_slot_entered_collision_body_entered"]
+[connection signal="area_entered" from="usb_slot/slot_body/slot" to="usb" method="_on_slot_area_entered" flags=18]
+[connection signal="body_entered" from="usb_slot/slot_body/slot" to="usb" method="_on_slot_body_entered"]
+[connection signal="body_exited" from="usb_slot/slot_body/slot_entered_collision" to="usb" method="_on_slot_entered_collision_body_exited"]
+[connection signal="body_entered" from="usb_slot/slot_body/slot_entered_collision2" to="usb" method="_on_slot_entered_collision_body_entered"]
 
 [editable path="LevelTimer"]
