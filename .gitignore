@@ -7,6 +7,8 @@
 !/result/mac/README.md
 !/result/windows/README.md
 !/result/web/README.md
+!/result/web/.gitignore
+!/result/web/export.sh
 !/result/linux/README.md
 
 # Notes things
