@@ -11,12 +11,12 @@ var poly: Polygon2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	poly = %Polygon2D
+    poly = %Polygon2D
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	current_time += delta
-	var lerp: float = clamp(current_time / DURATION, 0.0, 1.0)
-	var opacity: float = OPACITY_START + (lerp * (OPACITY_END - OPACITY_START)) 
-	poly.color.a = opacity
+    current_time += delta
+    var lerp: float = clamp(current_time / DURATION, 0.0, 1.0)
+    var opacity: float = OPACITY_START + (lerp * (OPACITY_END - OPACITY_START)) 
+    poly.color.a = opacity
