@@ -7,30 +7,33 @@
 
 [node name="DigitalTimer2D" type="Node2D" unique_id=1923668992]
 script = ExtResource("1_5temr")
+show_minutes = false
 
 [node name="Timer" type="Timer" parent="." unique_id=1572085082]
 unique_name_in_owner = true
-wait_time = 1800.0
-autostart = true
 
 [node name="visuals" type="Node2D" parent="." unique_id=105458210]
 unique_name_in_owner = true
+position = Vector2(-69, 0)
 
 [node name="minutes" type="Node2D" parent="visuals" unique_id=569355507]
 position = Vector2(-92, 0)
 
 [node name="minute_tens" parent="visuals/minutes" unique_id=232087592 instance=ExtResource("5_0qftu")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-28, 0)
 divisor = 6000
 
 [node name="minute_digits" parent="visuals/minutes" unique_id=1633300735 instance=ExtResource("5_0qftu")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(28, 0)
 divisor = 600
 
 [node name="double_dots" type="Sprite2D" parent="visuals" unique_id=987181446]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-32, 0)
 texture = ExtResource("5_43sp2")
 
