@@ -6,7 +6,7 @@ class_name HangingFinger2D
 var is_smashed: bool = false
 var is_hovered: bool = false
 var finger_animations: AnimationPlayer 
-var smashed_timer: Node2D
+var smashed_timer: DigitalTimer2D
 
 func _ready() -> void:
     finger_animations = %FingerAnimations
@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 func smash() -> void:
     finger_animations.play("hit")
     smashed_timer.show()
-    (smashed_timer.get_node("Timer") as Timer).start(smash_timeout)
+    smashed_timer.timer.start(smash_timeout)
     is_smashed = true
     is_hovered = false
     emit_signal("smashed", self)
@@ -30,7 +30,7 @@ func smash() -> void:
 
 func recover() -> void:
     smashed_timer.hide()    
-    (smashed_timer.get_node("Timer") as Timer).stop()
+    smashed_timer.timer.start(smash_timeout)
     is_smashed = false
     finger_animations.play_backwards("hit")
     
@@ -47,4 +47,4 @@ func end_hover() -> void:
 
 func hand_smashed() -> void:
     smashed_timer.hide()    
-    (smashed_timer.get_node("Timer") as Timer).stop()
+    smashed_timer.timer.stop()
