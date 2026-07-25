@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://kpl1s6uq75fh" path="res://scenes/minigames/finger_hammer/hanging_finger.gd" id="1_5hh8l"]
 [ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="2_ux67n"]
+[ext_resource type="Texture2D" uid="uid://dcp2vro8tkug" path="res://assets/finger_hammer_finger01.png" id="3_2efa6"]
 [ext_resource type="AudioStream" uid="uid://crq4uoly53l74" path="res://assets/sound/fx/yelp1.wav" id="3_jd36g"]
+[ext_resource type="Texture2D" uid="uid://ddi04crx6ug8s" path="res://assets/finger_hammer_finger02.png" id="4_0rpii"]
 [ext_resource type="AudioStream" uid="uid://cxaclbi3dut68" path="res://assets/sound/fx/yelp2.wav" id="4_2efa6"]
 [ext_resource type="AudioStream" uid="uid://bwdgoqcnm2jb1" path="res://assets/sound/fx/yelp3.wav" id="5_0rpii"]
 [ext_resource type="AudioStream" uid="uid://b0n8qqh4iqhr0" path="res://assets/sound/fx/yelp4.wav" id="6_kbqcc"]
@@ -12,66 +14,50 @@
 [ext_resource type="AudioStream" uid="uid://civnbg5ac755x" path="res://assets/sound/fx/yelp8.wav" id="10_ee0fu"]
 [ext_resource type="AudioStream" uid="uid://6rcbcahipvbc" path="res://assets/sound/fx/yelpshort.wav" id="11_wjl8l"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_v7qgo"]
-radius = 30.0
-height = 100.0
-radial_segments = 45
-rings = 10
+[sub_resource type="BoxMesh" id="BoxMesh_7tylt"]
+size = Vector3(90, 56, 1)
+
+[sub_resource type="Gradient" id="Gradient_u0yoy"]
+offsets = PackedFloat32Array(0, 0.8518519, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.12772058, 0.04088587, 0.04410418, 1, 0.23234275, 0.074377485, 0.08023208, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kbqcc"]
+noise_type = 0
+frequency = 0.4395
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0rpii"]
+width = 300
+height = 165
+noise = SubResource("FastNoiseLite_kbqcc")
+color_ramp = SubResource("Gradient_u0yoy")
+normalize = false
 
 [sub_resource type="Animation" id="Animation_5hh8l"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FingerHolding:position")
+tracks/0/path = NodePath("%FingerHolding:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FingerHolding:rotation")
+tracks/1/path = NodePath("%FingerHolding:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(0, -41)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FingerHolding:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FingerHolding:mesh")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("CapsuleMesh_v7qgo")]
-}
-
-[sub_resource type="SphereMesh" id="SphereMesh_fmnn8"]
-radius = 25.0
-height = 39.0
 
 [sub_resource type="Animation" id="Animation_ux67n"]
 resource_name = "hit"
@@ -80,26 +66,14 @@ step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FingerHolding:position")
+tracks/0/path = NodePath("%FingerHolding:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.175, 0.225),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -32), Vector2(0, -60)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FingerHolding:mesh")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.225),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [SubResource("CapsuleMesh_v7qgo"), SubResource("CapsuleMesh_v7qgo"), SubResource("SphereMesh_fmnn8")]
+"values": [Vector2(0, -32), Vector2(0, -64), Vector2(0, -90)]
 }
 
 [sub_resource type="Animation" id="Animation_fmnn8"]
@@ -109,19 +83,19 @@ step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FingerHolding:position")
+tracks/0/path = NodePath("%FingerHolding:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3024767, 0.35247672, 0.4024767, 0.4524767, 0.5024767, 0.5524767, 0.59897226, 0.6489723, 0.6989722, 0.7489723, 0.79897225, 0.84897226, 0.9, 0.95, 0.99999994),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-3, 3), Vector2(3, -2), Vector2(-5, 0), Vector2(9, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-3, 3), Vector2(3, -2), Vector2(-5, 0), Vector2(9, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-3, 3), Vector2(3, -2), Vector2(-5, 0), Vector2(9, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-3, 3)]
+"values": [Vector2(0, -40), Vector2(0, -40), Vector2(-1, -37), Vector2(1, -42), Vector2(-3, -40), Vector2(3, -40), Vector2(0, -40), Vector2(0, -40), Vector2(-3, -37), Vector2(3, -42), Vector2(-1, -40), Vector2(3, -40), Vector2(0, -40), Vector2(0, -40), Vector2(-1, -37), Vector2(3, -42), Vector2(-2, -40), Vector2(2, -40), Vector2(0, -40), Vector2(0, -40), Vector2(-3, -37)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FingerHolding:rotation")
+tracks/1/path = NodePath("%FingerHolding:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -139,22 +113,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_us37y"]
-radius = 30.0
-height = 100.0
-
-[sub_resource type="Gradient" id="Gradient_otdpp"]
-colors = PackedColorArray(0.7133827, 0.5770507, 0.3291013, 1, 0.8437291, 0.7376026, 0.6913125, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_8udrf"]
-noise_type = 4
-frequency = 0.0355
-offset = Vector3(-27.52, 0, 0)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4s3g"]
-height = 530
-noise = SubResource("FastNoiseLite_8udrf")
-color_ramp = SubResource("Gradient_otdpp")
-normalize = false
+radius = 24.0
+height = 124.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_363s0"]
 random_pitch = 1.0346073
@@ -172,12 +132,20 @@ stream_8/stream = ExtResource("11_wjl8l")
 [node name="Finger" type="Node2D" unique_id=683855000]
 script = ExtResource("1_5hh8l")
 
-[node name="SmashedTimer" parent="." unique_id=887145100 instance=ExtResource("2_ux67n")]
+[node name="TimerContainer" type="Node2D" parent="." unique_id=81879323]
 unique_name_in_owner = true
-visible = false
+position = Vector2(3, 2)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="TimerContainer" unique_id=1837973827]
+texture_filter = 1
+position = Vector2(-5.5, -147)
+mesh = SubResource("BoxMesh_7tylt")
+texture = SubResource("NoiseTexture2D_0rpii")
+
+[node name="SmashedTimer" parent="TimerContainer" unique_id=887145100 instance=ExtResource("2_ux67n")]
+unique_name_in_owner = true
 position = Vector2(0, -147)
-scale = Vector2(0.4, 0.4)
-show_minutes = false
+scale = Vector2(0.5, 0.5)
 
 [node name="FingerAnimations" type="AnimationPlayer" parent="." unique_id=409710190]
 unique_name_in_owner = true
@@ -186,15 +154,30 @@ root_node = NodePath("../FingerArea")
 libraries/ = SubResource("AnimationLibrary_u4awx")
 
 [node name="FingerArea" type="Area2D" parent="." unique_id=1510985001]
+unique_name_in_owner = true
+scale = Vector2(1.4399993, 1.1999981)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FingerArea" unique_id=1558834543]
+visible = false
 shape = SubResource("CapsuleShape2D_us37y")
 debug_color = Color(9.62615e-07, 0.5975621, 0.7157372, 0.41960785)
 
-[node name="FingerHolding" type="MeshInstance2D" parent="FingerArea" unique_id=795391792]
+[node name="FingerLetGo" type="Sprite2D" parent="FingerArea" unique_id=570753771]
 unique_name_in_owner = true
-mesh = SubResource("CapsuleMesh_v7qgo")
-texture = SubResource("NoiseTexture2D_k4s3g")
+modulate = Color(0.88403213, 0.60071236, 0.5490394, 1)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 7)
+scale = Vector2(0.9769318, 0.9769318)
+texture = ExtResource("4_0rpii")
+
+[node name="FingerHolding" type="Sprite2D" parent="FingerArea" unique_id=1711813875]
+unique_name_in_owner = true
+z_index = 3
+texture_filter = 1
+position = Vector2(0, -41)
+texture = ExtResource("3_2efa6")
+offset = Vector2(0, 41)
 
 [node name="YelpSFX" type="AudioStreamPlayer" parent="." unique_id=1052729476]
 unique_name_in_owner = true
@@ -203,6 +186,6 @@ volume_db = -0.836
 pitch_scale = 1.5
 playback_type = 2
 
-[connection signal="timeout" from="SmashedTimer" to="." method="recover"]
+[connection signal="timeout" from="TimerContainer/SmashedTimer" to="." method="recover"]
 [connection signal="mouse_entered" from="FingerArea" to="." method="start_hover"]
 [connection signal="mouse_exited" from="FingerArea" to="." method="end_hover"]
