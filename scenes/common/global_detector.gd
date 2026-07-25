@@ -13,6 +13,8 @@ func log_mask(mask: int) -> int:
 	return log(mask) / log(2)
 
 
+var first_frame: bool = true;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -20,9 +22,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# Areas aren't initialised properly on first frame, simply skip calcs for it.
+	if first_frame:
+		first_frame = false;
+		return
+	
 	var debug: bool = get_parent().name == "DrinkBottle"
 	var current_log_mask = log_mask(collision_mask(self))
 	var largest_log_mask: int = -1;
+	print(get_overlapping_areas())
 	for overlapping in get_overlapping_areas():
 		# Get the log 2 of the collision mask
 		var log_mask = log_mask(collision_mask(overlapping)) 
