@@ -11,6 +11,7 @@ show_minutes = false
 
 [node name="Timer" type="Timer" parent="." unique_id=1572085082]
 unique_name_in_owner = true
+wait_time = 10.0
 
 [node name="visuals" type="Node2D" parent="." unique_id=105458210]
 unique_name_in_owner = true
