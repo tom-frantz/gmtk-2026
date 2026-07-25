@@ -8,3 +8,8 @@ func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.is_pressed():
         if (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
             (%HammerHitSFX as AudioStreamPlayer).play()
+            (%AnimationPlayer as AnimationPlayer).play("hit")
+            (%Timer as Timer).start()
+
+func _on_timer_timeout() -> void:
+    (%AnimationPlayer as AnimationPlayer).play("RESET")
