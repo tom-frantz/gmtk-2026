@@ -1,22 +1,32 @@
 [gd_scene format=3 uid="uid://dq7lh25bpwk60"]
 
 [ext_resource type="PackedScene" uid="uid://dfsmjfq6108nn" path="res://scenes/minigames/finger_hammer/hanging_hand.tscn" id="1_6wff3"]
-[ext_resource type="Texture2D" uid="uid://ccxmbg44wp45p" path="res://assets/hanging_finger_background.png" id="1_nwhn8"]
+[ext_resource type="Texture2D" uid="uid://dhjahxyuk25pc" path="res://assets/finger_hammer_background.png" id="1_msbi8"]
+[ext_resource type="Texture2D" uid="uid://dx4nmvdlbs465" path="res://assets/finger_hammer_background_shelf.png" id="2_msbi8"]
 [ext_resource type="PackedScene" uid="uid://cnt83k4b2un1u" path="res://scenes/minigames/finger_hammer/hammer.tscn" id="2_wf0d3"]
 
 [node name="Node2D" type="Node2D" unique_id=536377200]
 
 [node name="MinigameFingerHammer" type="Sprite2D" parent="." unique_id=1289208709]
-position = Vector2(635.45636, 493)
-scale = Vector2(1.4389534, 1.4389535)
-texture = ExtResource("1_nwhn8")
+z_index = -10
+texture_filter = 1
+position = Vector2(639.0349, 483.22388)
+scale = Vector2(0.9983829, 0.99838305)
+texture = ExtResource("1_msbi8")
+
+[node name="Bridge" type="Sprite2D" parent="." unique_id=2115578076]
+position = Vector2(635, 482)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("2_msbi8")
 
 [node name="LeftHand" parent="." unique_id=1067559394 instance=ExtResource("1_6wff3")]
-position = Vector2(349, 584)
+position = Vector2(391, 574)
+finger_timeouts = Array[float]([5.0, 3.0, 2.0, 1.0])
 
 [node name="RightHand" parent="." unique_id=2017700433 instance=ExtResource("1_6wff3")]
-position = Vector2(836, 583)
+position = Vector2(856, 574)
 is_right = true
+finger_timeouts = Array[float]([2.0, 1.0, 1.0, 0.5])
 
 [node name="Hammer" parent="." unique_id=641361467 instance=ExtResource("2_wf0d3")]
 position = Vector2(729, 718)
