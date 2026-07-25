@@ -12,11 +12,23 @@
 [ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="10_u7sap"]
 [ext_resource type="Texture2D" uid="uid://cnfu80rkpy6h2" path="res://assets/thought_bubble.png" id="11_0i0rq"]
 [ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="11_pymaf"]
+[ext_resource type="AudioStream" uid="uid://c1q6u336lgi3q" path="res://assets/sound/fx/crinkle_1.wav" id="13_uokl8"]
+[ext_resource type="AudioStream" uid="uid://bxyxtq1bnu8h8" path="res://assets/sound/fx/crinkle_2.wav" id="14_dnbhw"]
+[ext_resource type="AudioStream" uid="uid://cs33rn8dq62gy" path="res://assets/sound/fx/crinkle_3.wav" id="15_mtd4c"]
+[ext_resource type="AudioStream" uid="uid://baj4dpptio0em" path="res://assets/sound/fx/crinkle_4.wav" id="16_dnbhw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r1ynv"]
 font = ExtResource("11_pymaf")
 font_size = 64
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7tylt"]
+random_pitch = 1.2425753
+streams_count = 4
+stream_0/stream = ExtResource("13_uokl8")
+stream_1/stream = ExtResource("14_dnbhw")
+stream_2/stream = ExtResource("15_mtd4c")
+stream_3/stream = ExtResource("16_dnbhw")
 
 [node name="MinigameCrumpledTicket" type="Node2D" unique_id=750537635]
 script = ExtResource("1_8u4w2")
@@ -70,8 +82,8 @@ drag_distance = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1964559488]
 texture_filter = 1
-position = Vector2(447, 472.99994)
-rotation = 2.7089183
+position = Vector2(549, 394.00006)
+rotation = 2.949634
 scale = Vector2(1.5794761, 1.6117032)
 texture = ExtResource("3_wou8l")
 offset = Vector2(-146.35669, -355.17096)
@@ -147,6 +159,12 @@ My ticket got
 crumpled in 
 my pocket !"
 label_settings = SubResource("LabelSettings_r1ynv")
+
+[node name="CrinkleSound" type="AudioStreamPlayer" parent="." unique_id=1746694283]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_7tylt")
+volume_db = -4.0
+pitch_scale = 3.0
 
 [connection signal="fully_uncrumpled" from="CrumpledTicket" to="." method="_on_crumpled_ticket_fully_uncrumpled"]
 

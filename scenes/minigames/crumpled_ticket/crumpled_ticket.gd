@@ -13,6 +13,7 @@ var dragged: float = 0
 var mouse_last: Vector2 = Vector2.INF
 var ticket_sprite: Sprite2D
 var ticket_collider: CollisionShape2D
+var crinkle_sound: AudioStreamPlayer
 
 const HOVER_HEIGHTS: Array[float] = [   31, 36, 36, 42, 48, 58, 62, 62 ]
 const HOVER_Y: Array[float]       = [ 15.5, 13, 13, 10,  7,  2,  0,  0 ]
@@ -20,6 +21,7 @@ const HOVER_Y: Array[float]       = [ 15.5, 13, 13, 10,  7,  2,  0,  0 ]
 func _ready() -> void:
     ticket_sprite = %TicketSprite
     ticket_collider = %TicketHover
+    crinkle_sound = %CrinkleSound
 
 func _process(_delta: float) -> void:
     var mouse_current: Vector2 = get_local_mouse_position()
@@ -34,6 +36,7 @@ func _process(_delta: float) -> void:
     mouse_last = mouse_current
 
 func uncrumple() -> void:
+    crinkle_sound.play()
     ticket_sprite.frame += 1
     var tc_shape: RectangleShape2D = ticket_collider.shape
     tc_shape.size.y = HOVER_HEIGHTS[ticket_sprite.frame]
