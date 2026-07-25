@@ -35,7 +35,9 @@ var orient: UsbOrient = UsbOrient.A
 @onready
 var tween: Tween
 
-const win_orient: UsbOrient = UsbOrient.C
+var win_orient: UsbOrient
+
+var initial_block: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -73,7 +75,7 @@ func update_collisions() -> void:
     var blocked: int = 0b00000000_00000000_00000000_00000001
     var entering: int = 0b00000000_00000000_00000000_00000100
     self.collision_mask = blocked
-    if orient == win_orient:
+    if orient == win_orient && !initial_block:
         self.collision_mask = free
         if status == UsbStatus.ENTERING:
             self.collision_mask |= entering
@@ -109,6 +111,8 @@ func _on_animation_completed() -> void:
     status = UsbStatus.FREE
 
 func usb_flip() -> void:
+    if orient == win_orient && initial_block:
+        initial_block = false
     if status == UsbStatus.FREE:
         match orient:
             UsbOrient.A:
