@@ -22,40 +22,48 @@ position = Vector2(-92, 0)
 [node name="minute_tens" parent="visuals/minutes" unique_id=232087592 instance=ExtResource("5_0qftu")]
 unique_name_in_owner = true
 visible = false
+texture_filter = 1
 position = Vector2(-28, 0)
 divisor = 6000
 
 [node name="minute_digits" parent="visuals/minutes" unique_id=1633300735 instance=ExtResource("5_0qftu")]
 unique_name_in_owner = true
 visible = false
+texture_filter = 1
 position = Vector2(28, 0)
 divisor = 600
 
 [node name="double_dots" type="Sprite2D" parent="visuals" unique_id=987181446]
 unique_name_in_owner = true
 visible = false
+texture_filter = 1
 position = Vector2(-32, 0)
 texture = ExtResource("5_43sp2")
 
 [node name="seconds" type="Node2D" parent="visuals" unique_id=1028206895]
+texture_filter = 1
 position = Vector2(27, 0)
 
 [node name="second_tens" parent="visuals/seconds" unique_id=1424551376 instance=ExtResource("5_0qftu")]
 unique_name_in_owner = true
+texture_filter = 1
 position = Vector2(-28, 0)
 divisor = 100
 
 [node name="second_digits" parent="visuals/seconds" unique_id=483831177 instance=ExtResource("5_0qftu")]
 unique_name_in_owner = true
+texture_filter = 1
 position = Vector2(28, 0)
 divisor = 10
 
 [node name="dc_dot" type="Sprite2D" parent="visuals" unique_id=735734705]
+texture_filter = 1
 position = Vector2(86.5, 46.5)
 texture = ExtResource("4_0qftu")
 
 [node name="deciseconds" parent="visuals" unique_id=1889481378 instance=ExtResource("5_0qftu")]
 unique_name_in_owner = true
+texture_filter = 1
 position = Vector2(116, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
