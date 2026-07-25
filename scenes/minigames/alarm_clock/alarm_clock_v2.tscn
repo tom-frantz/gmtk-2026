@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://efyqukual3b" path="res://scenes/common/hand/hand2.tscn" id="8_mmqdm"]
 [ext_resource type="PackedScene" uid="uid://641f7qyvxmq6" path="res://scenes/common/black_fade/fade.tscn" id="9_l8c76"]
 [ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="10_5swjb"]
+[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="12_ebl0x"]
+[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="13_5faxw"]
+[ext_resource type="AudioStream" uid="uid://cqf8u3pcac7wt" path="res://assets/sound/music/wake up.wav" id="14_i802a"]
+[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="15_i802a"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2hxnw"]
 
@@ -64,7 +68,6 @@ rotation = 0.49392816
 [node name="Hand" parent="." unique_id=1812154284 instance=ExtResource("8_mmqdm")]
 
 [node name="FadeIn" parent="." unique_id=1555448231 instance=ExtResource("9_l8c76")]
-visible = false
 
 [node name="LevelTimer" parent="." unique_id=2132368197 instance=ExtResource("10_5swjb")]
 position = Vector2(163, 93)
@@ -73,7 +76,54 @@ position = Vector2(163, 93)
 wait_time = 11.759
 one_shot = true
 autostart = true
+script = ExtResource("12_ebl0x")
 
+[node name="fail_banner" type="Label" parent="LevelTimer/Timer" index="0" unique_id=1539534156]
+visible = false
+z_index = 100
+offset_left = 136.0
+offset_top = 194.0
+offset_right = 1192.0
+offset_bottom = 603.0
+theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
+theme_override_font_sizes/font_size = 300
+text = "LOSER!"
+
+[node name="Label" parent="LevelTimer/Timer/fail_banner" index="0"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 373.0
+offset_right = 820.0
+offset_bottom = 466.0
+theme_override_font_sizes/font_size = 68
+text = "(click to go to menu)"
+
+[node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=279698726]
+unique_name_in_owner = true
+stream = ExtResource("13_5faxw")
+
+[node name="win_banner" type="Label" parent="." unique_id=438359993]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+z_as_relative = false
+offset_left = 6.0
+offset_top = 275.0
+offset_right = 1293.0
+offset_bottom = 684.0
+theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
+theme_override_font_sizes/font_size = 300
+text = "WINNER!"
+
+[node name="background_music" type="AudioStreamPlayer" parent="." unique_id=221275075]
+unique_name_in_owner = true
+stream = ExtResource("14_i802a")
+
+[node name="win_audio" type="AudioStreamPlayer" parent="." unique_id=870470174]
+unique_name_in_owner = true
+stream = ExtResource("15_i802a")
+
+[connection signal="my_fuckin_ace_signal" from="AlarmClock" to="." method="_on_alarm_clock_my_fuckin_ace_signal"]
 [connection signal="my_fuckin_ace_signal" from="AlarmClock" to="Hand" method="_on_alarm_clock_my_fuckin_ace_signal"]
 
 [editable path="LevelTimer"]
