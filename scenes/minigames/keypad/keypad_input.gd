@@ -1,14 +1,15 @@
 extends Label
 
 @onready
-var keypad_output: Label = %keypad_output
+var target_code: Label = %target_code
 
-var current_digit := 0
+var current_digit: int
 var tween: Tween
 var start_pos: Vector2
 var spinning: bool = true
 
 func _ready():
+    current_digit = randi_range(0,9)
     start_pos = position
     text = str(current_digit)
 
@@ -36,10 +37,65 @@ func render_digit() -> void:
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_OUT)
 
-func _on_texture_button_pressed() -> void:
+func _on_keypad_input_1_pressed() -> void:
+    toggle_spin()
+    if !spinning:
+        if tween && tween.is_valid():
+            tween.stop()
+            tween.tween_callback(func():
+                target_code.output_code[0] = current_digit
+            )
+            tween.play()
+        else:
+            target_code.output_code[0] = current_digit
+    else:
+        target_code.output_code[0] = -1
+
+func _on_keypad_input_2_pressed() -> void:
+    toggle_spin()
+    if !spinning:
+        if tween && tween.is_valid():
+            tween.stop()
+            tween.tween_callback(func():
+                target_code.output_code[1] = current_digit
+            )
+            tween.play()
+        else:
+            target_code.output_code[1] = current_digit
+    else:
+        target_code.output_code[1] = -1
+
+func _on_keypad_input_3_pressed() -> void:
+    toggle_spin()
+    if !spinning:
+        if tween && tween.is_valid():
+            tween.stop()
+            tween.tween_callback(func():
+                target_code.output_code[2] = current_digit
+            )
+            tween.play()
+        else:
+            target_code.output_code[2] = current_digit
+    else:
+        target_code.output_code[2] = -1
+
+func _on_keypad_input_4_pressed() -> void:
+    toggle_spin()
+    if !spinning:
+        if tween && tween.is_valid():
+            tween.stop()
+            tween.tween_callback(func():
+                target_code.output_code[3] = current_digit
+            )
+            tween.play()
+        else:
+            target_code.output_code[3] = current_digit
+    else:
+        target_code.output_code[3] = -1
+
+func toggle_spin() -> void:
     if spinning:
         self.position = start_pos
         spinning = false
-        keypad_output.output_code.append(current_digit)
     else:
         spinning = true
