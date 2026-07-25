@@ -10,5 +10,4 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var time: int = int(ceili((%Timer as Timer).time_left))
 	var units: int = time % 10
-	print(time)
 	frame = units

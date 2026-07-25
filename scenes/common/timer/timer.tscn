@@ -9,6 +9,7 @@
 
 [node name="Timer" type="Timer" parent="." unique_id=1572085082]
 unique_name_in_owner = true
+wait_time = 10.0
 
 [node name="tens" type="Sprite2D" parent="." unique_id=208280519]
 position = Vector2(30, 0)
