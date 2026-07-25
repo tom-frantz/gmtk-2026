@@ -9,4 +9,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _go_to_scene() -> void:
-	get_tree().change_scene_to_file("res://scenes/minigames/evil_usb/minigame_usb.tscn")
+	get_tree().change_scene_to_file("res://scenes/minigames/alarm_clock/alarm_clock_v2.tscn")

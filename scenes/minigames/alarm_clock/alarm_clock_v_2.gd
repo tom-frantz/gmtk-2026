@@ -2,6 +2,7 @@ extends Node2D
 
 var timer: Timer
 var background_music: AudioStreamPlayer
+var has_won: bool = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,3 +27,5 @@ func _on_alarm_clock_my_fuckin_ace_signal(body: Node2D) -> void:
 	background_music.stop()
 	if !%win_audio.playing:
 		%win_audio.play()
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://scenes/minigames/evil_usb/minigame_usb.tscn")
