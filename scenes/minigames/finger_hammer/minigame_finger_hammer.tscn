@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://dq7lh25bpwk60"]
 
 [ext_resource type="PackedScene" uid="uid://dfsmjfq6108nn" path="res://scenes/minigames/finger_hammer/hanging_hand.tscn" id="1_6wff3"]
+[ext_resource type="Script" uid="uid://cqg8pd34ni2wi" path="res://scenes/minigames/finger_hammer/minigame_finger_hammer.gd" id="1_j2gof"]
 [ext_resource type="Texture2D" uid="uid://byy7sroakihg1" path="res://assets/finger_hammer_background.png" id="1_msbi8"]
 [ext_resource type="Texture2D" uid="uid://27tgp1878k0a" path="res://assets/finger_hammer_background_shelf.png" id="2_msbi8"]
 [ext_resource type="PackedScene" uid="uid://cnt83k4b2un1u" path="res://scenes/minigames/finger_hammer/hammer.tscn" id="2_wf0d3"]
+[ext_resource type="AudioStream" uid="uid://dj4w7fkj15g6x" path="res://assets/sound/music/the end of the world.wav" id="6_ch35p"]
+[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="7_o5iem"]
+[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="8_h81ry"]
+[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="9_qusw8"]
+[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="10_8cdcs"]
 
 [node name="Node2D" type="Node2D" unique_id=536377200]
+script = ExtResource("1_j2gof")
 
 [node name="MinigameFingerHammer" type="Sprite2D" parent="." unique_id=1289208709]
 z_index = -10
@@ -32,3 +39,58 @@ finger_timeouts = Array[float]([2.0, 1.0, 1.0, 0.5])
 z_index = 10
 position = Vector2(729, 718)
 scale = Vector2(0.9, 0.9)
+
+[node name="win_banner" type="Label" parent="." unique_id=1771778331]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+z_as_relative = false
+offset_left = 6.0
+offset_top = 275.0
+offset_right = 1293.0
+offset_bottom = 684.0
+theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
+theme_override_font_sizes/font_size = 300
+text = "WINNER!"
+
+[node name="background_music" type="AudioStreamPlayer" parent="." unique_id=315423458]
+unique_name_in_owner = true
+stream = ExtResource("6_ch35p")
+
+[node name="LevelTimer" parent="." unique_id=1923668992 instance=ExtResource("7_o5iem")]
+process_mode = 3
+position = Vector2(200, 200)
+
+[node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
+autostart = true
+script = ExtResource("8_h81ry")
+
+[node name="fail_banner" type="Label" parent="LevelTimer/Timer" index="0" unique_id=646985933]
+visible = false
+z_index = 100
+offset_left = 136.0
+offset_top = 194.0
+offset_right = 1192.0
+offset_bottom = 603.0
+theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
+theme_override_font_sizes/font_size = 300
+text = "LOSER!"
+
+[node name="Label" type="Label" parent="LevelTimer/Timer/fail_banner" unique_id=536105690]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 373.0
+offset_right = 820.0
+offset_bottom = 466.0
+theme_override_font_sizes/font_size = 68
+text = "(click to go to menu)"
+
+[node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=1155569987]
+unique_name_in_owner = true
+stream = ExtResource("9_qusw8")
+
+[node name="win_audio" type="AudioStreamPlayer" parent="." unique_id=30690235]
+unique_name_in_owner = true
+stream = ExtResource("10_8cdcs")
+
+[editable path="LevelTimer"]
