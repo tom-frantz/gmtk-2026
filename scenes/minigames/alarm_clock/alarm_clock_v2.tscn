@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://bjshllulgdm5w"]
+
+[ext_resource type="Script" uid="uid://dhu2fprfu1gr2" path="res://scenes/minigames/alarm_clock/alarm_clock_v_2.gd" id="1_mmqdm"]
+[ext_resource type="PackedScene" uid="uid://cko3vempsnu2i" path="res://scenes/common/alarm_clock/clock.tscn" id="2_mmqdm"]
+[ext_resource type="Texture2D" uid="uid://crbq4qawmb2jd" path="res://assets/alarm_background.png" id="2_rhkgd"]
+[ext_resource type="PackedScene" uid="uid://cttt3tjrgn1ha" path="res://scenes/common/bedroom_items/lamp.tscn" id="3_8y2u0"]
+[ext_resource type="PackedScene" uid="uid://3gnqde2xu428" path="res://scenes/common/bedroom_items/potplant.tscn" id="4_ebl0x"]
+[ext_resource type="PackedScene" uid="uid://b5ul1fq7wxrrf" path="res://scenes/common/bedroom_items/drink_bottle.tscn" id="5_5faxw"]
+[ext_resource type="PackedScene" uid="uid://bjjtq2vw6hbve" path="res://scenes/common/book.tscn" id="6_i802a"]
+[ext_resource type="PackedScene" uid="uid://dg6i4mlw8jcg4" path="res://scenes/common/bedroom_items/soft_toy.tscn" id="7_e7emu"]
+[ext_resource type="PackedScene" uid="uid://efyqukual3b" path="res://scenes/common/hand/hand2.tscn" id="8_mmqdm"]
+[ext_resource type="PackedScene" uid="uid://641f7qyvxmq6" path="res://scenes/common/black_fade/fade.tscn" id="9_l8c76"]
+[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="10_5swjb"]
+[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="12_ebl0x"]
+[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="13_5faxw"]
+[ext_resource type="AudioStream" uid="uid://cqf8u3pcac7wt" path="res://assets/sound/music/wake up.wav" id="14_i802a"]
+[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="15_i802a"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2hxnw"]
+
+[node name="AlarmClockV2" type="Node2D" unique_id=1372677269]
+script = ExtResource("1_mmqdm")
+
+[node name="AlarmBackground" type="Sprite2D" parent="." unique_id=613061977]
+position = Vector2(640, 480)
+texture = ExtResource("2_rhkgd")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1738527874]
+position = Vector2(603, 673)
+collision_layer = 16777215
+collision_mask = 16777215
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=302233046]
+shape = SubResource("WorldBoundaryShape2D_2hxnw")
+debug_color = Color(0, 0.6, 0.69803923, 0.7137255)
+
+[node name="AlarmClock" parent="." unique_id=2083303648 instance=ExtResource("2_mmqdm")]
+position = Vector2(818, 619)
+
+[node name="Lamp" parent="." unique_id=708644396 instance=ExtResource("3_8y2u0")]
+position = Vector2(477, 581)
+collision_layer = 4
+collision_mask = 4
+
+[node name="Potplant" parent="." unique_id=941695830 instance=ExtResource("4_ebl0x")]
+position = Vector2(635, 605)
+collision_layer = 2
+collision_mask = 2
+
+[node name="DrinkBottle" parent="." unique_id=252755264 instance=ExtResource("5_5faxw")]
+position = Vector2(839, 587)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Book" parent="." unique_id=211434881 instance=ExtResource("6_i802a")]
+position = Vector2(427, 609)
+
+[node name="SoftToy" parent="." unique_id=383912693 instance=ExtResource("7_e7emu")]
+position = Vector2(824, 601)
+
+[node name="Book3" parent="." unique_id=360374397 instance=ExtResource("6_i802a")]
+position = Vector2(531, 609)
+
+[node name="Book4" parent="." unique_id=409632918 instance=ExtResource("6_i802a")]
+position = Vector2(665, 604)
+rotation = 0.49392816
+
+[node name="Hand" parent="." unique_id=1812154284 instance=ExtResource("8_mmqdm")]
+
+[node name="FadeIn" parent="." unique_id=1555448231 instance=ExtResource("9_l8c76")]
+
+[node name="LevelTimer" parent="." unique_id=2132368197 instance=ExtResource("10_5swjb")]
+position = Vector2(163, 93)
+
+[node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
+wait_time = 11.759
+one_shot = true
+autostart = true
+script = ExtResource("12_ebl0x")
+
+[node name="fail_banner" type="Label" parent="LevelTimer/Timer" index="0" unique_id=1539534156]
+visible = false
+z_index = 100
+offset_left = 136.0
+offset_top = 194.0
+offset_right = 1192.0
+offset_bottom = 603.0
+theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
+theme_override_font_sizes/font_size = 300
+text = "LOSER!"
+
+[node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=279698726]
+unique_name_in_owner = true
+stream = ExtResource("13_5faxw")
+
+[node name="win_banner" type="Label" parent="." unique_id=438359993]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+z_as_relative = false
+offset_left = 6.0
+offset_top = 275.0
+offset_right = 1293.0
+offset_bottom = 684.0
+theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
+theme_override_font_sizes/font_size = 300
+text = "WINNER!"
+
+[node name="background_music" type="AudioStreamPlayer" parent="." unique_id=221275075]
+unique_name_in_owner = true
+stream = ExtResource("14_i802a")
+
+[node name="win_audio" type="AudioStreamPlayer" parent="." unique_id=870470174]
+unique_name_in_owner = true
+stream = ExtResource("15_i802a")
+
+[connection signal="my_fuckin_ace_signal" from="AlarmClock" to="." method="_on_alarm_clock_my_fuckin_ace_signal"]
+[connection signal="my_fuckin_ace_signal" from="AlarmClock" to="Hand" method="_on_alarm_clock_my_fuckin_ace_signal"]
+
+[editable path="LevelTimer"]
