@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cemsrqn8m8s70"]
 
 [ext_resource type="PackedScene" uid="uid://bjjtq2vw6hbve" path="res://scenes/common/book.tscn" id="1_8rhwm"]
-[ext_resource type="PackedScene" uid="uid://cko3vempsnu2i" path="res://scenes/common/clock.tscn" id="2_1sq20"]
-[ext_resource type="PackedScene" uid="uid://efyqukual3b" path="res://scenes/common/hand2.tscn" id="3_8rhwm"]
+[ext_resource type="PackedScene" uid="uid://cko3vempsnu2i" path="res://scenes/common/alarm_clock/clock.tscn" id="2_1sq20"]
+[ext_resource type="PackedScene" uid="uid://efyqukual3b" path="res://scenes/common/hand/hand2.tscn" id="3_8rhwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us37y"]
 size = Vector2(10000, 10000)

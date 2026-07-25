@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://efyqukual3b"]
 
-[ext_resource type="Script" uid="uid://c7y4yrlsgg4bb" path="res://scenes/common/hand_2.gd" id="1_7pxq6"]
+[ext_resource type="Script" uid="uid://c7y4yrlsgg4bb" path="res://scenes/common/hand/hand_2.gd" id="1_7pxq6"]
 [ext_resource type="Texture2D" uid="uid://jq4vpux2yf5d" path="res://assets/hand.png" id="2_a8cjt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_en2hh"]
