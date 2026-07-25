@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cko3vempsnu2i"]
 
 [ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_e8s61"]
+[ext_resource type="Script" uid="uid://djads264m1r0g" path="res://scenes/common/global_detector.gd" id="2_k4bvy"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7wvbd"]
 
@@ -8,6 +9,7 @@
 size = Vector2(200, 100)
 
 [node name="AlarmClock" type="RigidBody2D" unique_id=2083303648]
+sleeping = true
 script = ExtResource("1_e8s61")
 metadata/_custom_type_script = "uid://beuy1i08e2uuk"
 
@@ -27,3 +29,13 @@ offset_top = -23.0
 offset_right = 38.0
 theme_override_font_sizes/font_size = 23
 text = "Alarm clock"
+
+[node name="GlobalDetector" type="Area2D" parent="." unique_id=436525382]
+material = SubResource("CanvasItemMaterial_7wvbd")
+collision_layer = 16777215
+collision_mask = 16777215
+script = ExtResource("2_k4bvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GlobalDetector" unique_id=420354501]
+material = SubResource("CanvasItemMaterial_7wvbd")
+shape = SubResource("RectangleShape2D_2hxnw")

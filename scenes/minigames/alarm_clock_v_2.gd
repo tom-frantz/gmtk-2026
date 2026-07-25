@@ -10,4 +10,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var children = find_children('*', 'Area2D') as Array[Grabbable]
+	for child in children: 
+		var colliding = child.get_overlapping_areas()
+		for collision in colliding:
+			# Check if all the things we're clipping with are in front of us
+			
+			pass
+		#if child.

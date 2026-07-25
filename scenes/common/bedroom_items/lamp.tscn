@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cttt3tjrgn1ha"]
 
 [ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_gsm3e"]
+[ext_resource type="Script" uid="uid://djads264m1r0g" path="res://scenes/common/global_detector.gd" id="2_mq7qs"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o5ci0"]
 
 [node name="Lamp" type="RigidBody2D" unique_id=708644396]
 center_of_mass_mode = 1
@@ -17,4 +20,15 @@ polygon = PackedVector2Array(-70, 264, -68, -164, -358, -28, -400, -70, 492, -49
 position = Vector2(-1, -54)
 scale = Vector2(0.4, 0.4)
 color = Color(1, 1, 0.46666667, 1)
+polygon = PackedVector2Array(-70, 264, -68, -164, -358, -28, -400, -70, 492, -490, 514, -450, 614, -460, 692, -436, 706, -404, 920, -454, 1100, -414, 1192, -322, 437, 145, 376, -20, 373, -170, 461, -265, 450, -332, 476, -372, 486, -424, -6, -186, -20, 256, 48, 300, 296, 296, 290, 366, -380, 360, -384, 296, -120, 296)
+
+[node name="GlobalDetector" type="Area2D" parent="." unique_id=1130504044]
+material = SubResource("CanvasItemMaterial_o5ci0")
+collision_layer = 16777215
+collision_mask = 16777215
+script = ExtResource("2_mq7qs")
+
+[node name="Collision" type="CollisionPolygon2D" parent="GlobalDetector" unique_id=862967590]
+position = Vector2(-1, -54)
+scale = Vector2(0.4, 0.4)
 polygon = PackedVector2Array(-70, 264, -68, -164, -358, -28, -400, -70, 492, -490, 514, -450, 614, -460, 692, -436, 706, -404, 920, -454, 1100, -414, 1192, -322, 437, 145, 376, -20, 373, -170, 461, -265, 450, -332, 476, -372, 486, -424, -6, -186, -20, 256, 48, 300, 296, 296, 290, 366, -380, 360, -384, 296, -120, 296)

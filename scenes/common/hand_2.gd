@@ -24,5 +24,5 @@ func _input(event: InputEvent) -> void:
 			if ga.has_overlapping_bodies():
 				for ob in ga.get_overlapping_bodies():
 					if ob is Grabbable:
-						(ob as Grabbable).try_grab((%CharacterBody2D as CharacterBody2D))
+						ob.try_grab(%CharacterBody2D)
 			
