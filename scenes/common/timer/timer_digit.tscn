@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b0bh54yy5l5pj"]
+
+[ext_resource type="Texture2D" uid="uid://b3lkbm44tttap" path="res://assets/timer/timer_digits.png" id="1_452ho"]
+[ext_resource type="Script" uid="uid://r02gf33n8anp" path="res://scenes/common/timer/timer_digit.gd" id="2_yu2km"]
+
+[node name="TimerDigit" type="Sprite2D" unique_id=483831177]
+position = Vector2(-1, 0)
+texture = ExtResource("1_452ho")
+hframes = 10
+script = ExtResource("2_yu2km")
