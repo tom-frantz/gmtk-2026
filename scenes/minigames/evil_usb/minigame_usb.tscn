@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dqgow3lsxd6t8" path="res://assets/usb_port_h_top01.png" id="14_k407p"]
 [ext_resource type="Texture2D" uid="uid://cxpp300xkf4m6" path="res://assets/usb_port_v_top02.png" id="15_q3uec"]
 [ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="16_1obh5"]
-[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scenes/minigames/evil_usb/timer.gd" id="17_bioy6"]
+[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="17_bioy6"]
 [ext_resource type="AudioStream" uid="uid://k18nqwv3wfdh" path="res://assets/sound/music/late for the bus.wav" id="17_etcy7"]
 [ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="17_kwyau"]
 

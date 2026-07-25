@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://3gnqde2xu428"]
 
 [ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_vyb2t"]
+[ext_resource type="Script" uid="uid://djads264m1r0g" path="res://scenes/common/global_detector.gd" id="2_8vha5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y7bsu"]
 
 [node name="Potplant" type="RigidBody2D" unique_id=1338718467]
 script = ExtResource("1_vyb2t")
@@ -13,3 +16,12 @@ polygon = PackedVector2Array(47, 65, -52, 68, -82, -59, 87, -60)
 color = Color(0.5568628, 0.37254903, 0.57254905, 1)
 polygon = PackedVector2Array(-82, -61, -53, 69, 47, 68, 89, -60)
 uv = PackedVector2Array(-96.75, -55.5, -47.25, 22.5, 24.75, 23, 47.75, -59)
+
+[node name="GlobalDetector" type="Area2D" parent="." unique_id=209581282]
+material = SubResource("CanvasItemMaterial_y7bsu")
+collision_layer = 16777215
+collision_mask = 16777215
+script = ExtResource("2_8vha5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GlobalDetector" unique_id=1966208718]
+polygon = PackedVector2Array(47, 65, -52, 68, -82, -59, 87, -60)
