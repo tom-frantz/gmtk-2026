@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dq7lh25bpwk60"]
 
 [ext_resource type="PackedScene" uid="uid://dfsmjfq6108nn" path="res://scenes/minigames/finger_hammer/hanging_hand.tscn" id="1_6wff3"]
+[ext_resource type="Script" uid="uid://tamny150jaqi" path="res://scenes/minigames/finger_hammer/minigame_finger_hammer.gd" id="1_j2gof"]
 [ext_resource type="Texture2D" uid="uid://byy7sroakihg1" path="res://assets/finger_hammer_background.png" id="1_msbi8"]
 [ext_resource type="Texture2D" uid="uid://27tgp1878k0a" path="res://assets/finger_hammer_background_shelf.png" id="2_msbi8"]
 [ext_resource type="PackedScene" uid="uid://cnt83k4b2un1u" path="res://scenes/minigames/finger_hammer/hammer.tscn" id="2_wf0d3"]
 
 [node name="Node2D" type="Node2D" unique_id=536377200]
+script = ExtResource("1_j2gof")
 
 [node name="MinigameFingerHammer" type="Sprite2D" parent="." unique_id=1289208709]
 z_index = -10
@@ -20,10 +22,12 @@ scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_msbi8")
 
 [node name="LeftHand" parent="." unique_id=1067559394 instance=ExtResource("1_6wff3")]
+unique_name_in_owner = true
 position = Vector2(391, 574)
 finger_timeouts = Array[float]([5.0, 3.0, 2.0, 1.0])
 
 [node name="RightHand" parent="." unique_id=2017700433 instance=ExtResource("1_6wff3")]
+unique_name_in_owner = true
 position = Vector2(856, 574)
 is_right = true
 finger_timeouts = Array[float]([2.0, 1.0, 1.0, 0.5])

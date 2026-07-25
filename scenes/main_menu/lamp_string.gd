@@ -51,5 +51,5 @@ func _on_start_area_area_entered(area: Area2D) -> void:
         var click: AudioStreamPlayer = %lamp_click
         click.play()
         %light.enabled = false
-        await get_tree().create_timer(2.0).timeout
+        await get_tree().create_timer(0.5).timeout
         get_tree().change_scene_to_file("res://scenes/minigames/alarm_clock/alarm_clock_v2.tscn")

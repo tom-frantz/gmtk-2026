@@ -26,4 +26,4 @@ func win() -> void:
     if !win_audio.playing:
         win_audio.play()
     await get_tree().create_timer(2.0).timeout
-    get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+    get_tree().change_scene_to_file("res://scenes/minigames/evil_usb/minigame_usb.tscn")

@@ -9,7 +9,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     if lost && Input.is_action_just_pressed("left_click"):
         get_tree().paused = false
-        get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+        get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 
 func _handle_timeout() -> void:
     lost = true

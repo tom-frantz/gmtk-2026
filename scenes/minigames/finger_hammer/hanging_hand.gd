@@ -3,6 +3,7 @@ extends Node2D
 @export var is_right: bool = false
 @export var finger_timeouts: Array[float] = [2,2,2, 2]
 
+var is_hand_smashed: bool = false
 var fingers: Array[HangingFinger2D] 
 
 func _ready() -> void:
@@ -35,5 +36,6 @@ func finger_smashed(_finger: HangingFinger2D) -> void:
     (%HandSmashSFX as AudioStreamPlayer).play()
 
 func hand_smashed() -> void:
+    is_hand_smashed = true
     print("Hand Smashed")
-    self.queue_free()
+    #self.queue_free()
