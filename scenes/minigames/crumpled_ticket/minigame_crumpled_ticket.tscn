@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://b3uemvr3fun0n" path="res://assets/crumpled_ticket_background.png" id="2_mtd4c"]
 [ext_resource type="Texture2D" uid="uid://b10ge32ceayao" path="res://assets/finger_hammer_finger01.png" id="3_wou8l"]
 [ext_resource type="PackedScene" uid="uid://cbftkdqiqa54g" path="res://scenes/minigames/crumpled_ticket/move_up_hint.tscn" id="4_wou8l"]
-[ext_resource type="AudioStream" uid="uid://k18nqwv3wfdh" path="res://assets/sound/music/late for the bus.wav" id="9_3o7x3"]
 [ext_resource type="PackedScene" uid="uid://dwlopyjkkrhwa" path="res://scenes/minigames/keypad/minigame_keypad.tscn" id="9_qi0dl"]
 [ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="9_uokl8"]
+[ext_resource type="AudioStream" uid="uid://bds1u5jgf5r2" path="res://assets/sound/music/bus ticket.wav" id="10_qi0dl"]
 [ext_resource type="Texture2D" uid="uid://cnfu80rkpy6h2" path="res://assets/thought_bubble.png" id="11_0i0rq"]
 [ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="11_pymaf"]
 [ext_resource type="AudioStream" uid="uid://c1q6u336lgi3q" path="res://assets/sound/fx/crinkle_1.wav" id="13_uokl8"]
@@ -127,7 +127,7 @@ lose_timeout = 15.0
 transition_hand_angle = 15.0
 transition_text = "Ugh they've changed the combination again"
 next_minigame = ExtResource("9_qi0dl")
-background_music = ExtResource("9_3o7x3")
+background_music = ExtResource("10_qi0dl")
 
 [node name="CrinkleSound" type="AudioStreamPlayer" parent="." unique_id=1746694283]
 unique_name_in_owner = true
