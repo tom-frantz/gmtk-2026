@@ -5,7 +5,42 @@
 [ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="3_4yjdq"]
 [ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="4_1r2tj"]
 [ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="4_63xpa"]
+[ext_resource type="Texture2D" uid="uid://b5q5m1ntte3xw" path="res://assets/l0_sprite_1.png" id="4_ymt5q"]
+[ext_resource type="Texture2D" uid="uid://b6mirjkvwbiy2" path="res://assets/l0_sprite_2.png" id="5_bevqj"]
+[ext_resource type="Texture2D" uid="uid://bqsgjs0obn8dl" path="res://assets/l0_sprite_3.png" id="6_g5y4k"]
 [ext_resource type="AudioStream" uid="uid://dxni0wa0hv1su" path="res://assets/sound/fx/success.wav" id="7_1r2tj"]
+[ext_resource type="Texture2D" uid="uid://c0at5y1e0esan" path="res://assets/l0_sprite_4.png" id="7_wjv3j"]
+[ext_resource type="Texture2D" uid="uid://blbvp55e8cl74" path="res://assets/l0_sprite_5.png" id="8_lhmgk"]
+[ext_resource type="Texture2D" uid="uid://dhm32l63pgrul" path="res://assets/l0_sprite_6.png" id="9_4fdk2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ymt5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bevqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g5y4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wjv3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lhmgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4fdk2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymt5q"]
+bg_color = Color(1, 0, 0.2509804, 1)
 
 [node name="MinigameLaunch" type="Node2D" unique_id=378857455]
 
@@ -13,17 +48,26 @@
 stream = ExtResource("7_1r2tj")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1779041361]
-offset_left = 495.0
-offset_top = 549.0
-offset_right = 728.0
-offset_bottom = 732.0
+offset_left = 315.0
+offset_top = 653.0
+offset_right = 548.0
+offset_bottom = 836.0
 texture_normal = ExtResource("1_5udps")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1489976773]
-offset_left = 261.0
-offset_top = 308.0
-offset_right = 985.0
-offset_bottom = 335.0
+[node name="laptop_screen" type="AnimatedSprite2D" parent="." unique_id=1499067393]
+unique_name_in_owner = true
+position = Vector2(854.99994, 411)
+scale = Vector2(0.42083332, 0.42083332)
+sprite_frames = SubResource("SpriteFrames_gb0x2")
+frame = 1
+
+[node name="launch_progress" type="ProgressBar" parent="." unique_id=1489976773]
+z_index = 2
+offset_left = 715.0
+offset_top = 516.0
+offset_right = 990.0
+offset_bottom = 554.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ymt5q")
 show_percentage = false
 script = ExtResource("2_8ufbi")
 
@@ -72,6 +116,6 @@ text = "(click to go to menu)"
 [node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=1646645808]
 stream = ExtResource("4_63xpa")
 
-[connection signal="pressed" from="TextureButton" to="ProgressBar" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="launch_progress" method="_on_texture_button_pressed"]
 
 [editable path="LevelTimer"]
