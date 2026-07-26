@@ -1,4 +1,3 @@
-@tool
 extends Node2D
 
 class_name DigitalTimer2D
@@ -8,12 +7,7 @@ const MIN_UNIT_IN_SECONDS: int = 10
 
 signal timeout
 
-@export var show_minutes: bool = true:
-    set(value):
-        show_minutes = value
-        if Engine.is_editor_hint():
-            init_nodes()
-            update_minute_visibility()
+@export var show_minutes: bool = true
 
 var timer: Timer
 var visuals: Node2D

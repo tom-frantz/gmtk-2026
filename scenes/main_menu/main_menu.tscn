@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0f0u360hd6w8"]
 
-[ext_resource type="Texture2D" uid="uid://cvx7p4arx80q" path="res://icon.svg" id="1_ob46e"]
+[ext_resource type="Script" uid="uid://bjbx1v8subxaj" path="res://scenes/main_menu/main_menu.gd" id="1_qel0l"]
+[ext_resource type="Texture2D" uid="uid://cwhk8j6l7jovv" path="res://assets/exit_button.png" id="1_thkx5"]
 [ext_resource type="Script" uid="uid://c6fkgnpc8a70f" path="res://scenes/main_menu/exit.gd" id="2_uqeha"]
 [ext_resource type="Texture2D" uid="uid://crbq4qawmb2jd" path="res://assets/alarm_background.png" id="4_uqeha"]
 [ext_resource type="Texture2D" uid="uid://dht1ux374w5jy" path="res://assets/alarm_alarm_base.png" id="5_3ovsr"]
@@ -9,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://075581xprraj" path="res://assets/lamp_string.png" id="8_4xg86"]
 [ext_resource type="Script" uid="uid://b7cji6tkn5nvf" path="res://scenes/main_menu/lamp_string.gd" id="8_thkx5"]
 [ext_resource type="AudioStream" uid="uid://ceec4a7i8n1um" path="res://assets/sound/fx/combination lock tick4.wav" id="9_thkx5"]
+[ext_resource type="PackedScene" uid="uid://cbftkdqiqa54g" path="res://scenes/minigames/crumpled_ticket/move_up_hint.tscn" id="10_x2yjq"]
+[ext_resource type="AudioStream" uid="uid://bsy12goap8wtl" path="res://assets/sound/music/fresh oudoors.wav" id="11_lqpn7"]
+[ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="13_rrgl4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4suoi"]
 radius = 28.160255
@@ -27,6 +31,7 @@ height = 920
 fill = 1
 
 [node name="MainMenu" type="Node2D" unique_id=368676492]
+script = ExtResource("1_qel0l")
 
 [node name="exit" type="TextureButton" parent="." unique_id=356264333]
 z_index = 99
@@ -34,7 +39,7 @@ offset_left = 1152.0
 offset_top = 3.0
 offset_right = 1280.0
 offset_bottom = 131.0
-texture_normal = ExtResource("1_ob46e")
+texture_normal = ExtResource("1_thkx5")
 script = ExtResource("2_uqeha")
 
 [node name="background" type="Sprite2D" parent="." unique_id=186255025]
@@ -92,4 +97,32 @@ texture_scale = 6.0
 [node name="dark" type="CanvasModulate" parent="." unique_id=1224819554]
 color = Color(0.0627451, 0.0627451, 0.09411765, 1)
 
+[node name="PullDownHint" parent="." unique_id=802615480 instance=ExtResource("10_x2yjq")]
+z_index = -1
+position = Vector2(376.4, 482.725)
+rotation = 3.1415927
+scale = Vector2(3, 3)
+
+[node name="Sprite" parent="PullDownHint" index="0" unique_id=404002153]
+modulate = Color(1, 1, 1, 0.6117647)
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=1069022559]
+unique_name_in_owner = true
+stream = ExtResource("11_lqpn7")
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=572037391]
+offset_left = 411.0
+offset_top = 18.0
+offset_right = 1268.0
+offset_bottom = 902.0
+theme_override_fonts/normal_font = ExtResource("13_rrgl4")
+theme_override_font_sizes/normal_font_size = 128
+text = "	LATE
+			TO
+		THE
+	BIG
+ONE"
+
 [connection signal="area_entered" from="start_area" to="lamp_string" method="_on_start_area_area_entered"]
+
+[editable path="PullDownHint"]

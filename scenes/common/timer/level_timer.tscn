@@ -87,6 +87,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="WinOverlay" type="MeshInstance2D" parent="Win" unique_id=916540147]
+z_index = 10
 texture_filter = 1
 position = Vector2(648, 478.99994)
 scale = Vector2(1340, 1029.9999)

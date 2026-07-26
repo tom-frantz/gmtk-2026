@@ -2,17 +2,10 @@
 
 [ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_kgat5"]
 [ext_resource type="Script" uid="uid://djads264m1r0g" path="res://scenes/common/global_detector.gd" id="2_v67ud"]
+[ext_resource type="Texture2D" uid="uid://d367u3gjlw6jm" path="res://assets/alarm_book2.png" id="3_kv6a0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us37y"]
-size = Vector2(100, 140)
-
-[sub_resource type="BoxMesh" id="BoxMesh_us37y"]
-size = Vector3(100, 140, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_us37y"]
-line_spacing = 0.1
-font_size = 12
-font_color = Color(0, 0, 0, 1)
+size = Vector2(50, 207)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kv6a0"]
 
@@ -21,37 +14,8 @@ script = ExtResource("1_kgat5")
 metadata/_custom_type_script = "uid://beuy1i08e2uuk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1919489730]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_us37y")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1962841174]
-mesh = SubResource("BoxMesh_us37y")
-
-[node name="Control" type="Control" parent="." unique_id=1314349585]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -5.0
-offset_top = -7.0
-offset_right = 5.0
-offset_bottom = 7.0
-
-[node name="Label" type="Label" parent="Control" unique_id=1935180209]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -28.0
-offset_right = 28.5
-offset_bottom = 28.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "How to win 
-people and 
-influence 
-friends"
-label_settings = SubResource("LabelSettings_us37y")
 
 [node name="GlobalDetector" type="Area2D" parent="." unique_id=1694581553]
 material = SubResource("CanvasItemMaterial_kv6a0")
@@ -61,3 +25,6 @@ script = ExtResource("2_v67ud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GlobalDetector" unique_id=1946225075]
 shape = SubResource("RectangleShape2D_us37y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=837801028]
+texture = ExtResource("3_kv6a0")

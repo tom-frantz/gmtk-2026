@@ -2,22 +2,33 @@ extends ProgressBar
 
 signal win
 var has_won: bool = false
+var laptop_screen: AnimatedSprite2D
+@export var launch_decay: float = 5
+@export var button_value: float = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    %laptop_screen.play("default")
+    laptop_screen = %laptop_screen
+    laptop_screen.play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
     self.visible = true
-    if %laptop_screen.frame == 0:
+    if laptop_screen.frame == 0:
         self.visible = false
     if value < 100:
-        self.value -= 0.3
+        self.value -= launch_decay * delta
     else:
         if !has_won:
-            has_won = true
-            emit_signal("win")
+            %status.frame +=1
+            %progress_sfx.play()
+            if %status.frame == 3:
+                has_won = true
+                %background.play("launch_nuke")
+                await get_tree().create_timer(0.5).timeout
+                emit_signal("win")
+            else:
+                value = 0
 
 func _on_texture_button_pressed() -> void:
-    value +=12
+    value += button_value

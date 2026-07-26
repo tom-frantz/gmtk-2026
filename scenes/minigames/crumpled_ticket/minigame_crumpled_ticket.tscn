@@ -125,7 +125,7 @@ scale = Vector2(8, 8)
 unique_name_in_owner = true
 lose_timeout = 15.0
 transition_hand_angle = 15.0
-transition_text = "Ugh they've changed the combination again"
+transition_text = "Ugh they've changed the door combination again."
 next_minigame = ExtResource("9_qi0dl")
 background_music = ExtResource("10_qi0dl")
 

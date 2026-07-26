@@ -193,7 +193,9 @@ texture = ExtResource("8_kg4k4")
 [node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("19_kwyau")]
 lose_timeout = 7.5
 transition_hand_angle = 45.0
-transition_text = "He's trying to stop me! ... *sneak* ... *shove* ..."
+transition_text = "Ah!  A Guard!
+He's trying to stop me.
+... *shove* ..."
 next_minigame = ExtResource("20_bxuw3")
 background_music = ExtResource("17_etcy7")
 

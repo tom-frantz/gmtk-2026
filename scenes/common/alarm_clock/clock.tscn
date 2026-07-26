@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bpud5eo8b7dxn" path="res://scenes/common/alarm_clock/grabbable_alarm_clock.gd" id="1_evggi"]
 [ext_resource type="Script" uid="uid://djads264m1r0g" path="res://scenes/common/global_detector.gd" id="2_kn2na"]
+[ext_resource type="Texture2D" uid="uid://dht1ux374w5jy" path="res://assets/alarm_alarm_base.png" id="3_fdfcy"]
+[ext_resource type="Texture2D" uid="uid://b284mev6djmq4" path="res://assets/alarm_alarm_button.png" id="4_fdfcy"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7wvbd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hxnw"]
-size = Vector2(200, 100)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvlbg"]
-size = Vector2(156, 22)
+size = Vector2(69, 13)
 
 [node name="AlarmClock" type="RigidBody2D" unique_id=2083303648]
 collision_layer = 4
@@ -19,21 +18,12 @@ script = ExtResource("1_evggi")
 metadata/_custom_type_script = "uid://beuy1i08e2uuk"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1441095892]
+position = Vector2(0, -6)
+texture = ExtResource("3_fdfcy")
 
-[node name="Shape" type="Polygon2D" parent="." unique_id=863184281]
-color = Color(0.14509805, 0.29803923, 0.49803922, 1)
-polygon = PackedVector2Array(-100, -50, 100, -50, 100, 50, -100, 50)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=384230936]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1708240815]
 material = SubResource("CanvasItemMaterial_7wvbd")
-shape = SubResource("RectangleShape2D_2hxnw")
-
-[node name="Label" type="Label" parent="." unique_id=1354107949]
-offset_left = -52.0
-offset_top = -23.0
-offset_right = 38.0
-theme_override_font_sizes/font_size = 23
-text = "Alarm clock"
+polygon = PackedVector2Array(-99, 48, -110, 35, -110, 28, -64, -39, -35, -40, -35, -46, 36, -46, 36, -40, 65, -39, 109, 28, 109, 35, 101, 48)
 
 [node name="GlobalDetector" type="Area2D" parent="." unique_id=436525382]
 material = SubResource("CanvasItemMaterial_7wvbd")
@@ -41,22 +31,21 @@ collision_layer = 16777215
 collision_mask = 16777215
 script = ExtResource("2_kn2na")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GlobalDetector" unique_id=420354501]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="GlobalDetector" unique_id=467878859]
 material = SubResource("CanvasItemMaterial_7wvbd")
-shape = SubResource("RectangleShape2D_2hxnw")
+polygon = PackedVector2Array(-99, 48, -110, 35, -110, 28, -64, -39, -35, -40, -35, -46, 36, -46, 36, -40, 65, -39, 109, 28, 109, 35, 101, 48)
 
 [node name="AlarmButton" type="Area2D" parent="." unique_id=143491223]
 
-[node name="Shape" type="Polygon2D" parent="AlarmButton" unique_id=1153711444]
-position = Vector2(0, -65)
-color = Color(0.14509805, 0.29803923, 0.49803922, 1)
-polygon = PackedVector2Array(-80, -10, 80, -10, 80, 10, -80, 10)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlarmButton" unique_id=1896056682]
 material = SubResource("CanvasItemMaterial_7wvbd")
-position = Vector2(1, -66)
+position = Vector2(0.5, -58.5)
 shape = SubResource("RectangleShape2D_hvlbg")
 one_way_collision = true
 one_way_collision_direction = Vector2(0, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="AlarmButton" unique_id=1876600619]
+position = Vector2(0, -7)
+texture = ExtResource("4_fdfcy")
 
 [connection signal="body_entered" from="AlarmButton" to="." method="_on_alarm_button_body_entered"]
