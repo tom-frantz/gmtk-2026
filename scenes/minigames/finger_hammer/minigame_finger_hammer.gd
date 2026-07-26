@@ -1,16 +1,19 @@
 extends Node2D
 
+var has_won: bool = false
+var left_hand: HangingHand2D
+var right_hand: HangingHand2D
 
-# Called when the node enters the scene tree for the first time.
+signal win
+
 func _ready() -> void:
-    pass # Replace with function body.
+    has_won = false
+    left_hand = %LeftHand
+    right_hand = %RightHand
+    (%FadeAnimation as AnimationPlayer).play("fade")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    if %LeftHand.is_hand_smashed && %RightHand.is_hand_smashed:
-        win()
-    
-func win() -> void:
-    await get_tree().create_timer(2.0).timeout
-    get_tree().change_scene_to_file("res://scenes/minigames/launch/minigame_launch.tscn")
+func _on_hand_smashed() -> void:
+    if left_hand.is_hand_smashed && right_hand.is_hand_smashed:
+        if not has_won:
+            has_won = true
+            emit_signal("win")
