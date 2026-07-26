@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cbftkdqiqa54g"]
+
+[ext_resource type="Texture2D" uid="uid://bjj1r2nov8tpn" path="res://assets/scroll_up_hint.png" id="1_2ao0a"]
+[ext_resource type="Script" uid="uid://bnpqg4thf5ga2" path="res://scenes/minigames/crumpled_ticket/move_up_hint.gd" id="1_a4qr7"]
+
+[sub_resource type="Animation" id="Animation_2ao0a"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_a4qr7"]
+resource_name = "move_up"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(0, -0.24999914, 0.22959107, 1.6333333, -1.5, -32, -1.3666667, 3.5, 0, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6yuc"]
+_data = {
+&"RESET": SubResource("Animation_2ao0a"),
+&"move_up": SubResource("Animation_a4qr7")
+}
+
+[node name="MoveUpHint" type="Node2D" unique_id=802615480]
+script = ExtResource("1_a4qr7")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=404002153]
+unique_name_in_owner = true
+texture_filter = 1
+texture = ExtResource("1_2ao0a")
+
+[node name="Timer" type="Timer" parent="." unique_id=94616282]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=728696514]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_g6yuc")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
