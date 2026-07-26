@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dhm32l63pgrul" path="res://assets/l0_sprite_6.png" id="9_4fdk2"]
 [ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="10_mcash"]
 [ext_resource type="AudioStream" uid="uid://dj4w7fkj15g6x" path="res://assets/sound/music/the end of the world.wav" id="11_syoxw"]
-[ext_resource type="PackedScene" uid="uid://c0f0u360hd6w8" path="res://scenes/main_menu/main_menu.tscn" id="11_ymt5q"]
+[ext_resource type="PackedScene" uid="uid://cle0c4puvmq7y" path="res://scenes/the_end/the_end.tscn" id="11_ymt5q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
 animations = [{
@@ -86,6 +86,7 @@ text = "WINNER!"
 
 [node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("10_mcash")]
 lose_timeout = 20.0
+transition_hand_angle = 90.0
 transition_text = "Zero seconds to midnight!"
 next_minigame = ExtResource("11_ymt5q")
 background_music = ExtResource("11_syoxw")

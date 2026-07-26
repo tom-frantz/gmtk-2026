@@ -1,6 +1,7 @@
 extends ProgressBar
 
 signal win
+var has_won: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,9 @@ func _process(_delta: float) -> void:
     if value < 100:
         self.value -= 0.3
     else:
-        emit_signal("win")
+        if !has_won:
+            has_won = true
+            emit_signal("win")
 
 func _on_texture_button_pressed() -> void:
-    value +=6
+    value +=12

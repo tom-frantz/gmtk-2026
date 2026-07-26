@@ -18,7 +18,7 @@ func _ready():
 
 func _process(_delta):
     # only re-render every few frames
-    if Engine.get_process_frames() % 15 == 0 && spinning:
+    if Engine.get_process_frames() % 20 == 0 && spinning:
         render_digit()
 
 func render_digit() -> void:
