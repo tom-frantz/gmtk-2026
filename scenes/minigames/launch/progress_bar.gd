@@ -5,10 +5,13 @@ var win_audio: AudioStreamPlayer = $"../win_audio"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    pass # Replace with function body.
+    %laptop_screen.play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+    self.visible = true
+    if %laptop_screen.frame == 0:
+        self.visible = false
     if value < 100:
         self.value -= 0.3
     else:
