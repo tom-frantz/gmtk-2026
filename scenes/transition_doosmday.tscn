@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://7mdsrq0bhbgs" path="res://scenes/transition_doosmday.gd" id="1_qjebm"]
 [ext_resource type="Texture2D" uid="uid://dyaeoltkd2081" path="res://assets/doosmday_clock_hands.png" id="2_vsmdq"]
 [ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="3_vsmdq"]
-[ext_resource type="AudioStream" uid="uid://brg82s2gm7vep" path="res://assets/sound/fx/clock ticking1.wav" id="5_lb7q7"]
+[ext_resource type="AudioStream" uid="uid://dooa0bc8vno5m" path="res://assets/sound/fx/clock ticking1.wav" id="5_lb7q7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7tylt"]
 font = ExtResource("3_vsmdq")
@@ -160,7 +160,6 @@ root_node = NodePath("../FadeScreen")
 libraries/ = SubResource("AnimationLibrary_5qwkf")
 
 [node name="FadeScreen" type="MeshInstance2D" parent="." unique_id=1846536042]
-visible = false
 texture_filter = 1
 position = Vector2(641.00006, 481.49997)
 scale = Vector2(1296, 973)
