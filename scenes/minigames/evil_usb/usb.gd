@@ -24,9 +24,6 @@ var slot_mask: Sprite2D = %computah_mask
 var incorrect_audio: AudioStreamPlayer = %incorrect_audio
 
 @onready
-var win_audio: AudioStreamPlayer = %win_audio
-
-@onready
 var status: UsbStatus = UsbStatus.FREE
 
 @onready
@@ -38,10 +35,12 @@ var tween: Tween
 var win_orient: UsbOrient
 
 var initial_block: bool = true
+var has_won: bool = false
 
-# Called when the node enters the scene tree for the first time.
+signal win
+
 func _ready() -> void:
-    pass
+    has_won = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -57,18 +56,9 @@ func _process(_delta: float) -> void:
     render_usb()
 
 func check_won() -> void:
-    if status == UsbStatus.WON:
-        var win_banner: Label = %win_banner
-        win_banner.visible = true
-        var timer: Timer = get_node("/root/MinigameUsb/LevelTimer/Timer")
-        timer.paused = true
-        var background_music: AudioStreamPlayer = %background_music
-        background_music.stop()
-        if !win_audio.playing:
-            win_audio.play()
-        await get_tree().create_timer(2.0).timeout
-        get_tree().change_scene_to_file("res://scenes/minigames/finger_hammer/minigame_finger_hammer.tscn")
-
+    if status == UsbStatus.WON and not has_won:
+        has_won = true
+        emit_signal("win")
 
 func update_collisions() -> void:
     var free: int = 0b00000000_00000000_00000000_00000010
