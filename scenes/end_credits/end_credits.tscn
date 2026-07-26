@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://xeyeuxmirwng"]
+
+[ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="1_325g6"]
+[ext_resource type="Script" uid="uid://3rtj7oc5fnyi" path="res://scenes/end_credits/label.gd" id="2_240hb"]
+[ext_resource type="AudioStream" uid="uid://dj4w7fkj15g6x" path="res://assets/sound/music/the end of the world.wav" id="3_h82up"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5wron"]
+font = ExtResource("1_325g6")
+font_size = 48
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="EndCredits" type="Node2D" unique_id=930800828]
+
+[node name="credits" type="Label" parent="." unique_id=959595885]
+offset_left = 253.0
+offset_top = 590.0
+offset_right = 1024.0
+offset_bottom = 1765.0
+text = "Late to the Big One
+
+
+
+
+
+Programming
+Tom Frantz
+Luke Shuster
+Xavier Travers
+
+Art
+Sam Hoch
+Medhavi Desai
+Bradley Steele
+
+Music/SFX
+Matt Potts
+Xavier Travers"
+label_settings = SubResource("LabelSettings_5wron")
+horizontal_alignment = 1
+script = ExtResource("2_240hb")
+
+[node name="bgm" type="AudioStreamPlayer" parent="." unique_id=431853686]
+unique_name_in_owner = true
+stream = ExtResource("3_h82up")
