@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6n5ox0k5w1wu"
+path="res://.godot/imported/smashing fingers.wav-735f45d9aa81ac4f98ef9b1add80b5b0.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/smashing fingers.wav"
+dest_files=["res://.godot/imported/smashing fingers.wav-735f45d9aa81ac4f98ef9b1add80b5b0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

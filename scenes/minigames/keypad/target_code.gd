@@ -1,4 +1,6 @@
 extends Label
+@onready
+var bgm: AudioStreamPlayer = %background_music
 
 var target_code: Array[int] = [0, 0, 0, 0]
 var output_code: Array[int] = [-1, -1, -1, -1]
@@ -11,6 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+    if !bgm.playing:
+        bgm.play()
     # print(output_code)
     if output_code == target_code:
         win()

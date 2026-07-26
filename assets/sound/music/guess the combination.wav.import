@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bu7hjhsidtif8"
+path="res://.godot/imported/guess the combination.wav-2eec9df5365b336bccde6b5dc47d0518.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/guess the combination.wav"
+dest_files=["res://.godot/imported/guess the combination.wav-2eec9df5365b336bccde6b5dc47d0518.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
