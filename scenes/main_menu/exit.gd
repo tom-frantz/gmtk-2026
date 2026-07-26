@@ -3,11 +3,11 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    self.pressed.connect(_click)
+	self.pressed.connect(_click)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    pass
-    
+	pass
+	
 func _click() -> void:
-    get_tree().quit()
+	get_tree().quit()
