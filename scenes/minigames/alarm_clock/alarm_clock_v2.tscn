@@ -11,13 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://efyqukual3b" path="res://scenes/common/hand/hand2.tscn" id="8_mmqdm"]
 [ext_resource type="PackedScene" uid="uid://dhl0xmferygby" path="res://scenes/common/bedroom_items/book2.tscn" id="9_e7emu"]
 [ext_resource type="PackedScene" uid="uid://641f7qyvxmq6" path="res://scenes/common/black_fade/fade.tscn" id="9_l8c76"]
-[ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="12_8y2u0"]
-[ext_resource type="PackedScene" uid="uid://bu2ysg2oqbo6n" path="res://scenes/minigames/crumpled_ticket/minigame_crumpled_ticket.tscn" id="13_ebl0x"]
 [ext_resource type="PackedScene" uid="uid://d0tri8lfji3sb" path="res://scenes/common/bedroom_items/book3.tscn" id="10_l8c76"]
 [ext_resource type="PackedScene" uid="uid://d4e1tegpuqchy" path="res://scenes/common/bedroom_items/book4.tscn" id="12_5swjb"]
-[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="12_ebl0x"]
-[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="13_5faxw"]
+[ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="12_8y2u0"]
 [ext_resource type="PackedScene" uid="uid://dq3jh0teogruj" path="res://scenes/common/bedroom_items/book5.tscn" id="13_5swjb"]
+[ext_resource type="PackedScene" uid="uid://bu2ysg2oqbo6n" path="res://scenes/minigames/crumpled_ticket/minigame_crumpled_ticket.tscn" id="13_ebl0x"]
 [ext_resource type="AudioStream" uid="uid://cqf8u3pcac7wt" path="res://assets/sound/music/wake up.wav" id="14_i802a"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2hxnw"]
@@ -84,7 +82,6 @@ position = Vector2(1026, 639)
 rotation = -1.5707964
 
 [node name="FadeIn" parent="." unique_id=1555448231 instance=ExtResource("9_l8c76")]
-visible = false
 
 [node name="background_music" type="AudioStreamPlayer" parent="." unique_id=221275075]
 unique_name_in_owner = true
@@ -98,4 +95,3 @@ background_music = ExtResource("14_i802a")
 
 [connection signal="my_fuckin_ace_signal" from="AlarmClock" to="." method="_on_alarm_clock_my_fuckin_ace_signal"]
 [connection signal="my_fuckin_ace_signal" from="AlarmClock" to="Hand" method="_on_alarm_clock_my_fuckin_ace_signal"]
-[connection signal="my_fuckin_ace_signal" from="AlarmClock" to="LevelTimer" method="on_win" unbinds=1]
