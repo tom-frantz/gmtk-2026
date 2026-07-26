@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
             if %status.frame == 3:
                 has_won = true
                 %background.play("launch_nuke")
+                %launch_sfx.play()
                 await get_tree().create_timer(0.5).timeout
                 emit_signal("win")
             else:

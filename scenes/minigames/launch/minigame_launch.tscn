@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://chubpvjfchsyh" path="res://assets/launch_background__images/launch_background_10.png" id="27_0f48t"]
 [ext_resource type="Texture2D" uid="uid://d1wc2cio6akiv" path="res://assets/launch_background__images/launch_background_11.png" id="28_egy2n"]
 [ext_resource type="Texture2D" uid="uid://cwtybapftgdgo" path="res://assets/launch_background__images/launch_background_12.png" id="29_oko10"]
+[ext_resource type="AudioStream" uid="uid://calgfcvw3gpk0" path="res://assets/sound/fx/missile launch.wav" id="30_gyew4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
 animations = [{
@@ -194,6 +195,11 @@ frame_progress = 0.7662193
 [node name="progress_sfx" type="AudioStreamPlayer" parent="." unique_id=632151772]
 unique_name_in_owner = true
 stream = ExtResource("19_b6l6d")
+
+[node name="launch_sfx" type="AudioStreamPlayer" parent="." unique_id=1262419920]
+unique_name_in_owner = true
+stream = ExtResource("30_gyew4")
+volume_db = 3.0
 
 [connection signal="pressed" from="TextureButton" to="launch_progress" method="_on_texture_button_pressed"]
 [connection signal="win" from="launch_progress" to="LevelTimer" method="on_win"]
