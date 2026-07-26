@@ -2,9 +2,11 @@
 
 [ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="1_4he5q"]
 [ext_resource type="Script" uid="uid://bspfhp6bagput" path="res://scenes/minigames/keypad/target_code.gd" id="1_702ew"]
+[ext_resource type="Texture2D" uid="uid://tsvnavl4ticq" path="res://assets/door.png" id="1_t8owr"]
 [ext_resource type="Script" uid="uid://b6gc7ne04xl1p" path="res://scenes/minigames/keypad/keypad_input.gd" id="2_5nv2i"]
 [ext_resource type="Texture2D" uid="uid://dqxli8dhl1kkk" path="res://assets/keydoor_input.png" id="2_kc2wq"]
 [ext_resource type="Texture2D" uid="uid://trgkw78b1hav" path="res://assets/postit_note.png" id="3_73guc"]
+[ext_resource type="Texture2D" uid="uid://bqn1b4r1xhgem" path="res://assets/keydoor_input_scrollerst.png" id="7_cgrn1"]
 [ext_resource type="Texture2D" uid="uid://bwfu22tcwej3v" path="res://assets/keydoor_unfinnished.png" id="8_lkkve"]
 [ext_resource type="AudioStream" uid="uid://cwmil4soybi6l" path="res://assets/sound/fx/combination lock tick1.wav" id="11_t8owr"]
 [ext_resource type="AudioStream" uid="uid://c67dy0ymlf10b" path="res://assets/sound/fx/combination lock tick2.wav" id="12_cgrn1"]
@@ -14,6 +16,62 @@
 [ext_resource type="PackedScene" uid="uid://ba6adnn1mtrj7" path="res://scenes/minigames/evil_usb/minigame_usb.tscn" id="14_cgrn1"]
 [ext_resource type="AudioStream" uid="uid://bu7hjhsidtif8" path="res://assets/sound/music/guess the combination.wav" id="15_cgrn1"]
 
+[sub_resource type="GDScript" id="GDScript_2hxnw"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	position = $\"../keypad_input_1\".position + Vector2(19., 26.)
+"
+
+[sub_resource type="GDScript" id="GDScript_cgrn1"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	position = $\"../keypad_input_2\".position + Vector2(19., 26.)
+"
+
+[sub_resource type="GDScript" id="GDScript_r8lm3"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	position = $\"../keypad_input_3\".position + Vector2(19., 26.)
+"
+
+[sub_resource type="GDScript" id="GDScript_1s462"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	position = $\"../keypad_input_4\".position + Vector2(19., 26.)
+"
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kuy6b"]
 streams_count = 4
 stream_0/stream = ExtResource("11_t8owr")
@@ -22,6 +80,11 @@ stream_2/stream = ExtResource("13_1s462")
 stream_3/stream = ExtResource("14_46n7e")
 
 [node name="MinigameKeypad" type="Node2D" unique_id=230989082]
+
+[node name="Door" type="Sprite2D" parent="." unique_id=1617579325]
+z_index = -2
+position = Vector2(400, 480)
+texture = ExtResource("1_t8owr")
 
 [node name="target_code" type="Label" parent="." unique_id=1339195271]
 unique_name_in_owner = true
@@ -45,82 +108,114 @@ texture = ExtResource("3_73guc")
 
 [node name="keypad_input_1" type="TextureButton" parent="." unique_id=2069179718]
 z_index = -1
-offset_left = 270.0
-offset_top = 334.0
-offset_right = 327.0
-offset_bottom = 436.0
+offset_left = 228.0
+offset_top = 333.0
+offset_right = 285.0
+offset_bottom = 435.0
 texture_normal = ExtResource("2_kc2wq")
 
 [node name="keypad_input_1" type="Label" parent="keypad_input_1" unique_id=76820590]
 layout_mode = 0
 offset_left = 11.0
-offset_top = 8.0
+offset_top = 20.0
 offset_right = 41.99999
-offset_bottom = 77.0
+offset_bottom = 89.0
 theme_override_fonts/font = ExtResource("1_4he5q")
 theme_override_font_sizes/font_size = 50
 text = "1"
 script = ExtResource("2_5nv2i")
 
+[node name="Sprite2D" type="Sprite2D" parent="keypad_input_1" unique_id=1965204752]
+position = Vector2(29, 51)
+texture = ExtResource("7_cgrn1")
+script = SubResource("GDScript_2hxnw")
+
+[node name="Polygon2D" type="Polygon2D" parent="keypad_input_1" unique_id=846310638]
+polygon = PackedVector2Array(60, -13, 125, -13, 125, 115, 60, 115)
+
 [node name="keypad_input_2" type="TextureButton" parent="." unique_id=1443517244]
 z_index = -1
-offset_left = 386.0
+offset_left = 355.0
 offset_top = 333.0
-offset_right = 443.0
+offset_right = 412.0
 offset_bottom = 435.0
 texture_normal = ExtResource("2_kc2wq")
 
 [node name="keypad_input_2" type="Label" parent="keypad_input_2" unique_id=1844358983]
 layout_mode = 0
 offset_left = 11.0
-offset_top = 8.0
+offset_top = 20.0
 offset_right = 42.0
-offset_bottom = 77.0
+offset_bottom = 89.0
 theme_override_fonts/font = ExtResource("1_4he5q")
 theme_override_font_sizes/font_size = 50
 text = "2"
 script = ExtResource("2_5nv2i")
 
+[node name="Sprite2D" type="Sprite2D" parent="keypad_input_2" unique_id=873398414]
+position = Vector2(29, 51)
+texture = ExtResource("7_cgrn1")
+script = SubResource("GDScript_cgrn1")
+
+[node name="Polygon2D" type="Polygon2D" parent="keypad_input_2" unique_id=1363705892]
+polygon = PackedVector2Array(60, -13, 125, -13, 125, 115, 60, 115)
+
 [node name="keypad_input_3" type="TextureButton" parent="." unique_id=1998484694]
 z_index = -1
-offset_left = 520.0
-offset_top = 336.0
-offset_right = 577.0
-offset_bottom = 438.0
+offset_left = 483.0
+offset_top = 333.0
+offset_right = 540.0
+offset_bottom = 435.0
 texture_normal = ExtResource("2_kc2wq")
 
 [node name="keypad_input_3" type="Label" parent="keypad_input_3" unique_id=394205542]
 layout_mode = 0
 offset_left = 11.0
-offset_top = 8.0
+offset_top = 20.0
 offset_right = 42.0
-offset_bottom = 77.0
+offset_bottom = 89.0
 theme_override_fonts/font = ExtResource("1_4he5q")
 theme_override_font_sizes/font_size = 50
 text = "3"
 script = ExtResource("2_5nv2i")
 
+[node name="Sprite2D" type="Sprite2D" parent="keypad_input_3" unique_id=277315295]
+position = Vector2(29, 51)
+texture = ExtResource("7_cgrn1")
+script = SubResource("GDScript_r8lm3")
+
+[node name="Polygon2D" type="Polygon2D" parent="keypad_input_3" unique_id=1880826208]
+polygon = PackedVector2Array(60, -13, 125, -13, 125, 115, 60, 115)
+
 [node name="keypad_input_4" type="TextureButton" parent="." unique_id=2093141585]
 z_index = -1
-offset_left = 644.0
-offset_top = 335.0
-offset_right = 701.0
-offset_bottom = 437.0
+offset_left = 612.0
+offset_top = 333.0
+offset_right = 669.0
+offset_bottom = 435.0
 texture_normal = ExtResource("2_kc2wq")
 
 [node name="keypad_input_4" type="Label" parent="keypad_input_4" unique_id=277790865]
 layout_mode = 0
 offset_left = 11.0
-offset_top = 8.0
+offset_top = 20.0
 offset_right = 42.0
-offset_bottom = 77.0
+offset_bottom = 89.0
 theme_override_fonts/font = ExtResource("1_4he5q")
 theme_override_font_sizes/font_size = 50
 text = "4"
 script = ExtResource("2_5nv2i")
 
+[node name="Sprite2D" type="Sprite2D" parent="keypad_input_4" unique_id=605447842]
+position = Vector2(29, 51)
+texture = ExtResource("7_cgrn1")
+script = SubResource("GDScript_1s462")
+
+[node name="Polygon2D" type="Polygon2D" parent="keypad_input_4" unique_id=1342463696]
+polygon = PackedVector2Array(60, -13, 125, -13, 125, 115, 60, 115)
+
 [node name="background" type="Sprite2D" parent="." unique_id=1874773272]
-z_index = -2
+z_index = -3
 position = Vector2(640, 480)
 texture = ExtResource("8_lkkve")
 
