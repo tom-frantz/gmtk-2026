@@ -5,16 +5,14 @@
 [ext_resource type="Script" uid="uid://b6gc7ne04xl1p" path="res://scenes/minigames/keypad/keypad_input.gd" id="2_5nv2i"]
 [ext_resource type="Texture2D" uid="uid://dqxli8dhl1kkk" path="res://assets/keydoor_input.png" id="2_kc2wq"]
 [ext_resource type="Texture2D" uid="uid://bahiswroyi7ed" path="res://assets/pillow.png" id="3_013d1"]
-[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="4_gwdo1"]
-[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="5_3v8wq"]
-[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="6_kc2wq"]
-[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="7_3v8wq"]
 [ext_resource type="Texture2D" uid="uid://bwfu22tcwej3v" path="res://assets/keydoor_unfinnished.png" id="8_lkkve"]
-[ext_resource type="AudioStream" uid="uid://bplxqdbc7qayk" path="res://assets/sound/fx/combination lock tick1.wav" id="11_t8owr"]
-[ext_resource type="AudioStream" uid="uid://dwpbxt252x2ge" path="res://assets/sound/fx/combination lock tick2.wav" id="12_cgrn1"]
-[ext_resource type="AudioStream" uid="uid://c3bnx3wnh1l0r" path="res://assets/sound/fx/combination lock tick3.wav" id="13_1s462"]
-[ext_resource type="AudioStream" uid="uid://dgf3oqremby4o" path="res://assets/sound/fx/combination lock tick4.wav" id="14_46n7e"]
-[ext_resource type="AudioStream" uid="uid://bq8bsy0irqugi" path="res://assets/sound/music/guess the combination.wav" id="15_cgrn1"]
+[ext_resource type="AudioStream" uid="uid://cwmil4soybi6l" path="res://assets/sound/fx/combination lock tick1.wav" id="11_t8owr"]
+[ext_resource type="AudioStream" uid="uid://c67dy0ymlf10b" path="res://assets/sound/fx/combination lock tick2.wav" id="12_cgrn1"]
+[ext_resource type="AudioStream" uid="uid://h0tehprxrcqv" path="res://assets/sound/fx/combination lock tick3.wav" id="13_1s462"]
+[ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="13_t8owr"]
+[ext_resource type="AudioStream" uid="uid://ceec4a7i8n1um" path="res://assets/sound/fx/combination lock tick4.wav" id="14_46n7e"]
+[ext_resource type="PackedScene" uid="uid://ba6adnn1mtrj7" path="res://scenes/minigames/evil_usb/minigame_usb.tscn" id="14_cgrn1"]
+[ext_resource type="AudioStream" uid="uid://bu7hjhsidtif8" path="res://assets/sound/music/guess the combination.wav" id="15_cgrn1"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kuy6b"]
 streams_count = 4
@@ -121,56 +119,6 @@ theme_override_font_sizes/font_size = 50
 text = "4"
 script = ExtResource("2_5nv2i")
 
-[node name="LevelTimer" parent="." unique_id=1923668992 instance=ExtResource("4_gwdo1")]
-process_mode = 3
-position = Vector2(1050, 200)
-
-[node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
-wait_time = 35.0
-autostart = true
-script = ExtResource("5_3v8wq")
-
-[node name="fail_banner" type="Label" parent="LevelTimer/Timer" index="0" unique_id=1090927563]
-visible = false
-z_index = 100
-offset_left = 136.0
-offset_top = 194.0
-offset_right = 1192.0
-offset_bottom = 603.0
-theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
-theme_override_font_sizes/font_size = 300
-text = "LOSER!"
-
-[node name="Label" type="Label" parent="LevelTimer/Timer/fail_banner" unique_id=892362477]
-layout_mode = 0
-offset_left = 155.0
-offset_top = 373.0
-offset_right = 820.0
-offset_bottom = 466.0
-theme_override_font_sizes/font_size = 68
-text = "(click to go to menu)"
-
-[node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=22918695]
-unique_name_in_owner = true
-stream = ExtResource("6_kc2wq")
-
-[node name="win_banner" type="Label" parent="." unique_id=888915218]
-unique_name_in_owner = true
-visible = false
-z_index = 100
-z_as_relative = false
-offset_left = 6.0
-offset_top = 275.0
-offset_right = 1293.0
-offset_bottom = 684.0
-theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
-theme_override_font_sizes/font_size = 300
-text = "WINNER!"
-
-[node name="win_audio" type="AudioStreamPlayer" parent="." unique_id=228063531]
-unique_name_in_owner = true
-stream = ExtResource("7_3v8wq")
-
 [node name="background" type="Sprite2D" parent="." unique_id=1874773272]
 z_index = -2
 position = Vector2(640, 480)
@@ -180,13 +128,15 @@ texture = ExtResource("8_lkkve")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_kuy6b")
 
-[node name="background_music" type="AudioStreamPlayer" parent="." unique_id=1500708111]
-unique_name_in_owner = true
-stream = ExtResource("15_cgrn1")
+[node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("13_t8owr")]
+lose_timeout = 35.0
+transition_hand_angle = 30.0
+transition_text = "Gotta copy the code!"
+next_minigame = ExtResource("14_cgrn1")
+background_music = ExtResource("15_cgrn1")
 
+[connection signal="correct_combination" from="target_code" to="LevelTimer" method="on_win"]
 [connection signal="pressed" from="keypad_input_1" to="keypad_input_1/keypad_input_1" method="_on_keypad_input_1_pressed"]
 [connection signal="pressed" from="keypad_input_2" to="keypad_input_2/keypad_input_2" method="_on_keypad_input_2_pressed"]
 [connection signal="pressed" from="keypad_input_3" to="keypad_input_3/keypad_input_3" method="_on_keypad_input_3_pressed"]
 [connection signal="pressed" from="keypad_input_4" to="keypad_input_4/keypad_input_4" method="_on_keypad_input_4_pressed"]
-
-[editable path="LevelTimer"]
