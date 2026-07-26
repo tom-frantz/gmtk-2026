@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
     else:
         if !has_won:
             %status.frame +=1
+            %progress_sfx.play()
             if %status.frame == 3:
                 has_won = true
                 emit_signal("win")
