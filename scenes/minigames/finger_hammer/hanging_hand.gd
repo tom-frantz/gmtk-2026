@@ -1,10 +1,14 @@
 extends Node2D
 
+class_name HangingHand2D
+
 @export var is_right: bool = false
 @export var finger_timeouts: Array[float] = [2,2,2, 2]
 
 var is_hand_smashed: bool = false
 var fingers: Array[HangingFinger2D] 
+
+signal smashed
 
 func _ready() -> void:
     fingers = [%Index, %Middle, %Ring, %Pinky]
@@ -37,5 +41,4 @@ func finger_smashed(_finger: HangingFinger2D) -> void:
 
 func hand_smashed() -> void:
     is_hand_smashed = true
-    print("Hand Smashed")
-    #self.queue_free()
+    emit_signal("smashed")
