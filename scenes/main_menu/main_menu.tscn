@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://betb31jwvesdq" path="res://assets/lamp.png" id="7_5seab"]
 [ext_resource type="Texture2D" uid="uid://075581xprraj" path="res://assets/lamp_string.png" id="8_4xg86"]
 [ext_resource type="Script" uid="uid://b7cji6tkn5nvf" path="res://scenes/main_menu/lamp_string.gd" id="8_thkx5"]
-[ext_resource type="AudioStream" uid="uid://2m7qr8qslqdd" path="res://assets/sound/fx/lamp_click.mp3" id="9_thkx5"]
+[ext_resource type="AudioStream" uid="uid://ceec4a7i8n1um" path="res://assets/sound/fx/combination lock tick4.wav" id="9_thkx5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4suoi"]
 radius = 28.160255
@@ -72,6 +72,7 @@ shape = SubResource("CircleShape2D_4suoi")
 [node name="lamp_click" type="AudioStreamPlayer" parent="lamp_string" unique_id=530707820]
 unique_name_in_owner = true
 stream = ExtResource("9_thkx5")
+volume_db = 1.5
 
 [node name="start_area" type="Area2D" parent="." unique_id=1106001661]
 
