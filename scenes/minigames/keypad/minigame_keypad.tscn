@@ -1,95 +1,124 @@
 [gd_scene format=3 uid="uid://dwlopyjkkrhwa"]
 
+[ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="1_4he5q"]
 [ext_resource type="Script" uid="uid://bspfhp6bagput" path="res://scenes/minigames/keypad/target_code.gd" id="1_702ew"]
 [ext_resource type="Script" uid="uid://b6gc7ne04xl1p" path="res://scenes/minigames/keypad/keypad_input.gd" id="2_5nv2i"]
+[ext_resource type="Texture2D" uid="uid://dqxli8dhl1kkk" path="res://assets/keydoor_input.png" id="2_kc2wq"]
 [ext_resource type="Texture2D" uid="uid://bahiswroyi7ed" path="res://assets/pillow.png" id="3_013d1"]
 [ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="4_gwdo1"]
 [ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="5_3v8wq"]
 [ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="6_kc2wq"]
 [ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="7_3v8wq"]
+[ext_resource type="Texture2D" uid="uid://bwfu22tcwej3v" path="res://assets/keydoor_unfinnished.png" id="8_lkkve"]
+[ext_resource type="AudioStream" uid="uid://bplxqdbc7qayk" path="res://assets/sound/fx/combination lock tick1.wav" id="11_t8owr"]
+[ext_resource type="AudioStream" uid="uid://dwpbxt252x2ge" path="res://assets/sound/fx/combination lock tick2.wav" id="12_cgrn1"]
+[ext_resource type="AudioStream" uid="uid://c3bnx3wnh1l0r" path="res://assets/sound/fx/combination lock tick3.wav" id="13_1s462"]
+[ext_resource type="AudioStream" uid="uid://dgf3oqremby4o" path="res://assets/sound/fx/combination lock tick4.wav" id="14_46n7e"]
+[ext_resource type="AudioStream" uid="uid://bq8bsy0irqugi" path="res://assets/sound/music/guess the combination.wav" id="15_cgrn1"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kuy6b"]
+streams_count = 4
+stream_0/stream = ExtResource("11_t8owr")
+stream_1/stream = ExtResource("12_cgrn1")
+stream_2/stream = ExtResource("13_1s462")
+stream_3/stream = ExtResource("14_46n7e")
 
 [node name="MinigameKeypad" type="Node2D" unique_id=230989082]
 
 [node name="target_code" type="Label" parent="." unique_id=1339195271]
 unique_name_in_owner = true
-offset_left = 483.0
-offset_top = 199.0
-offset_right = 683.0
-offset_bottom = 278.0
-theme_override_font_sizes/font_size = 58
+offset_left = 298.0
+offset_top = 167.0
+offset_right = 685.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(1, 0.11764706, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4he5q")
+theme_override_font_sizes/font_size = 70
 text = "TARGET CODE"
+horizontal_alignment = 1
 script = ExtResource("1_702ew")
+
+[node name="targe_code_display" type="Sprite2D" parent="target_code" unique_id=1879170066]
+z_index = -1
+position = Vector2(191.25, 37.75)
+scale = Vector2(1.9635193, 0.57650274)
+texture = ExtResource("3_013d1")
 
 [node name="keypad_input_1" type="TextureButton" parent="." unique_id=2069179718]
 z_index = -1
-offset_left = 57.0
-offset_top = 365.0
-offset_right = 290.0
-offset_bottom = 548.0
-texture_normal = ExtResource("3_013d1")
+offset_left = 270.0
+offset_top = 334.0
+offset_right = 327.0
+offset_bottom = 436.0
+texture_normal = ExtResource("2_kc2wq")
 
 [node name="keypad_input_1" type="Label" parent="keypad_input_1" unique_id=76820590]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 45.0
-offset_right = 129.0
-offset_bottom = 114.0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 41.99999
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("1_4he5q")
 theme_override_font_sizes/font_size = 50
 text = "1"
 script = ExtResource("2_5nv2i")
 
 [node name="keypad_input_2" type="TextureButton" parent="." unique_id=1443517244]
 z_index = -1
-offset_left = 343.0
-offset_top = 374.0
-offset_right = 576.0
-offset_bottom = 557.0
-texture_normal = ExtResource("3_013d1")
+offset_left = 386.0
+offset_top = 333.0
+offset_right = 443.0
+offset_bottom = 435.0
+texture_normal = ExtResource("2_kc2wq")
 
 [node name="keypad_input_2" type="Label" parent="keypad_input_2" unique_id=1844358983]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 45.0
-offset_right = 129.0
-offset_bottom = 114.0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 42.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("1_4he5q")
 theme_override_font_sizes/font_size = 50
-text = "1"
+text = "2"
 script = ExtResource("2_5nv2i")
 
 [node name="keypad_input_3" type="TextureButton" parent="." unique_id=1998484694]
 z_index = -1
-offset_left = 605.0
-offset_top = 361.0
-offset_right = 838.0
-offset_bottom = 544.0
-texture_normal = ExtResource("3_013d1")
+offset_left = 520.0
+offset_top = 336.0
+offset_right = 577.0
+offset_bottom = 438.0
+texture_normal = ExtResource("2_kc2wq")
 
 [node name="keypad_input_3" type="Label" parent="keypad_input_3" unique_id=394205542]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 45.0
-offset_right = 129.0
-offset_bottom = 114.0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 42.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("1_4he5q")
 theme_override_font_sizes/font_size = 50
-text = "1"
+text = "3"
 script = ExtResource("2_5nv2i")
 
 [node name="keypad_input_4" type="TextureButton" parent="." unique_id=2093141585]
 z_index = -1
-offset_left = 929.0
-offset_top = 377.0
-offset_right = 1162.0
-offset_bottom = 560.0
-texture_normal = ExtResource("3_013d1")
+offset_left = 644.0
+offset_top = 335.0
+offset_right = 701.0
+offset_bottom = 437.0
+texture_normal = ExtResource("2_kc2wq")
 
 [node name="keypad_input_4" type="Label" parent="keypad_input_4" unique_id=277790865]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 45.0
-offset_right = 129.0
-offset_bottom = 114.0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 42.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("1_4he5q")
 theme_override_font_sizes/font_size = 50
-text = "1"
+text = "4"
 script = ExtResource("2_5nv2i")
 
 [node name="LevelTimer" parent="." unique_id=1923668992 instance=ExtResource("4_gwdo1")]
@@ -141,6 +170,19 @@ text = "WINNER!"
 [node name="win_audio" type="AudioStreamPlayer" parent="." unique_id=228063531]
 unique_name_in_owner = true
 stream = ExtResource("7_3v8wq")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1874773272]
+z_index = -2
+position = Vector2(640, 480)
+texture = ExtResource("8_lkkve")
+
+[node name="lock_click" type="AudioStreamPlayer" parent="." unique_id=1735227860]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_kuy6b")
+
+[node name="background_music" type="AudioStreamPlayer" parent="." unique_id=1500708111]
+unique_name_in_owner = true
+stream = ExtResource("15_cgrn1")
 
 [connection signal="pressed" from="keypad_input_1" to="keypad_input_1/keypad_input_1" method="_on_keypad_input_1_pressed"]
 [connection signal="pressed" from="keypad_input_2" to="keypad_input_2/keypad_input_2" method="_on_keypad_input_2_pressed"]

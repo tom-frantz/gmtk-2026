@@ -3,6 +3,9 @@ extends Label
 @onready
 var target_code: Label = %target_code
 
+@onready
+var click_sfx: AudioStreamPlayer = %lock_click
+
 var current_digit: int
 var tween: Tween
 var start_pos: Vector2
@@ -94,6 +97,7 @@ func _on_keypad_input_4_pressed() -> void:
         target_code.output_code[3] = -1
 
 func toggle_spin() -> void:
+    click_sfx.play()
     if spinning:
         self.position = start_pos
         spinning = false
