@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://c0f0u360hd6w8"]
 
-[ext_resource type="Script" uid="uid://bjbx1v8subxaj" path="res://scenes/main_menu/main_menu.gd" id="1_qel0l"]
 [ext_resource type="Texture2D" uid="uid://cwhk8j6l7jovv" path="res://assets/exit_button.png" id="1_thkx5"]
 [ext_resource type="Script" uid="uid://c6fkgnpc8a70f" path="res://scenes/main_menu/exit.gd" id="2_uqeha"]
 [ext_resource type="Texture2D" uid="uid://crbq4qawmb2jd" path="res://assets/alarm_background.png" id="4_uqeha"]
@@ -31,7 +30,6 @@ height = 920
 fill = 1
 
 [node name="MainMenu" type="Node2D" unique_id=368676492]
-script = ExtResource("1_qel0l")
 
 [node name="exit" type="TextureButton" parent="." unique_id=356264333]
 z_index = 99

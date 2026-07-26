@@ -1,5 +1,8 @@
 extends Area2D
 
+@onready
+var bgm = %music
+
 var lamp_on: bool = true
 var tween: Tween
 var rest_position: Vector2
@@ -13,6 +16,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+    if lamp_on && !bgm.playing:
+        bgm.play()
     if Input.is_action_just_released("left_click"):
         dragging = false
     if !tween:
@@ -50,6 +55,7 @@ func _on_start_area_area_entered(area: Area2D) -> void:
         lamp_on = false
         var click: AudioStreamPlayer = %lamp_click
         click.play()
+        %music.stop()
         %light.enabled = false
         await get_tree().create_timer(0.5).timeout
         start_game.call_deferred()

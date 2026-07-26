@@ -129,7 +129,7 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_kuy6b")
 
 [node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("13_t8owr")]
-lose_timeout = 35.0
+lose_timeout = 33.0
 transition_hand_angle = 30.0
 transition_text = "Gotta copy the code!
 These USB sticks are so finicky."

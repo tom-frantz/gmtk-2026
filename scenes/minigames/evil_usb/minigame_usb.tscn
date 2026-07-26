@@ -191,7 +191,7 @@ position = Vector2(640, 480)
 texture = ExtResource("8_kg4k4")
 
 [node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("19_kwyau")]
-lose_timeout = 7.5
+lose_timeout = 10.0
 transition_hand_angle = 45.0
 transition_text = "Ah!  A Guard!
 He's trying to stop me.

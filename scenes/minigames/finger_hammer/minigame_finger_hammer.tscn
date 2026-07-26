@@ -120,7 +120,7 @@ position = Vector2(729, 718)
 scale = Vector2(0.9, 0.9)
 
 [node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("6_tl7hf")]
-lose_timeout = 35.0
+lose_timeout = 32.0
 transition_hand_angle = 85.0
 transition_text = "No one gets in MY way! 
 My plan is almost complete!"
