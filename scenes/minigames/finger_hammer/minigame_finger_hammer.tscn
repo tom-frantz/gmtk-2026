@@ -5,11 +5,91 @@
 [ext_resource type="Texture2D" uid="uid://byy7sroakihg1" path="res://assets/finger_hammer_background.png" id="1_msbi8"]
 [ext_resource type="Texture2D" uid="uid://27tgp1878k0a" path="res://assets/finger_hammer_background_shelf.png" id="2_msbi8"]
 [ext_resource type="PackedScene" uid="uid://cnt83k4b2un1u" path="res://scenes/minigames/finger_hammer/hammer.tscn" id="2_wf0d3"]
+[ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="6_tl7hf"]
+[ext_resource type="PackedScene" uid="uid://bwj01so8oyysx" path="res://scenes/minigames/launch/minigame_launch.tscn" id="7_kcbur"]
+[ext_resource type="AudioStream" uid="uid://c6n5ox0k5w1wu" path="res://assets/sound/music/smashing fingers.wav" id="8_4w7nb"]
 
-[node name="Node2D" type="Node2D" unique_id=536377200]
+[sub_resource type="BoxMesh" id="BoxMesh_kcbur"]
+
+[sub_resource type="Gradient" id="Gradient_lb7q7"]
+colors = PackedColorArray(0, 0, 0, 1, 0.16862746, 0.16862746, 0.16862746, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0jjch"]
+noise_type = 2
+frequency = 0.2368
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4w7nb"]
+width = 175
+height = 135
+noise = SubResource("FastNoiseLite_0jjch")
+color_ramp = SubResource("Gradient_lb7q7")
+
+[sub_resource type="Animation" id="Animation_lb7q7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:noise:frequency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2368]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1gcxp"]
+resource_name = "fade"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:noise:frequency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.2368, 0.0001]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(2.7320805, 0.5946035),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.09019608)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ch35p"]
+_data = {
+&"RESET": SubResource("Animation_lb7q7"),
+&"fade": SubResource("Animation_1gcxp")
+}
+
+[node name="MinigameFingerHammer" type="Node2D" unique_id=536377200]
 script = ExtResource("1_j2gof")
 
-[node name="MinigameFingerHammer" type="Sprite2D" parent="." unique_id=1289208709]
+[node name="Background" type="Sprite2D" parent="." unique_id=1289208709]
 z_index = -10
 texture_filter = 1
 position = Vector2(639.0349, 483.22388)
@@ -36,3 +116,27 @@ finger_timeouts = Array[float]([2.0, 1.0, 1.0, 0.5])
 z_index = 10
 position = Vector2(729, 718)
 scale = Vector2(0.9, 0.9)
+
+[node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("6_tl7hf")]
+lose_timeout = 35.0
+transition_hand_angle = 85.0
+transition_text = "My plan is almost complete!"
+next_minigame = ExtResource("7_kcbur")
+background_music = ExtResource("8_4w7nb")
+
+[node name="FadeScreen" type="MeshInstance2D" parent="." unique_id=1990969076]
+z_index = 10
+texture_filter = 1
+position = Vector2(641.00006, 481.49997)
+scale = Vector2(1296, 973)
+mesh = SubResource("BoxMesh_kcbur")
+texture = SubResource("NoiseTexture2D_4w7nb")
+
+[node name="FadeAnimation" type="AnimationPlayer" parent="." unique_id=1197881073]
+unique_name_in_owner = true
+root_node = NodePath("../FadeScreen")
+libraries/ = SubResource("AnimationLibrary_ch35p")
+
+[connection signal="win" from="." to="LevelTimer" method="on_win"]
+[connection signal="smashed" from="LeftHand" to="." method="_on_hand_smashed"]
+[connection signal="smashed" from="RightHand" to="." method="_on_hand_smashed"]
