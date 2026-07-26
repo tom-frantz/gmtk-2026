@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://bbto8jr7u2wim"]
+
+[ext_resource type="Texture2D" uid="uid://8c2nb3twhbf" path="res://assets/doosmday_clock.png" id="1_33hp3"]
+[ext_resource type="Script" uid="uid://7mdsrq0bhbgs" path="res://scenes/transition_doosmday.gd" id="1_qjebm"]
+[ext_resource type="Texture2D" uid="uid://dyaeoltkd2081" path="res://assets/doosmday_clock_hands.png" id="2_vsmdq"]
+[ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="3_vsmdq"]
+[ext_resource type="AudioStream" uid="uid://brg82s2gm7vep" path="res://assets/sound/fx/clock ticking1.wav" id="5_lb7q7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7tylt"]
+font = ExtResource("3_vsmdq")
+font_size = 64
+
+[sub_resource type="Animation" id="Animation_lb7q7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:noise:frequency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2368]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1gcxp"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:noise:frequency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.2368, 0.0001]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.7320805, 0.5946035),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.09019608)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qwkf"]
+_data = {
+&"RESET": SubResource("Animation_lb7q7"),
+&"fade": SubResource("Animation_1gcxp")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_7tylt"]
+
+[sub_resource type="Gradient" id="Gradient_lb7q7"]
+colors = PackedColorArray(0, 0, 0, 1, 0.16862746, 0.16862746, 0.16862746, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0jjch"]
+noise_type = 2
+frequency = 0.2368
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r1ynv"]
+width = 175
+height = 135
+noise = SubResource("FastNoiseLite_0jjch")
+color_ramp = SubResource("Gradient_lb7q7")
+
+[node name="TransitionDoosmday" type="Node2D" unique_id=525501757]
+script = ExtResource("1_qjebm")
+max_type_time = 0.15
+
+[node name="DoomsdayFace" type="Sprite2D" parent="." unique_id=864444153]
+texture_filter = 1
+position = Vector2(618.00006, 370.00003)
+scale = Vector2(10, 10)
+texture = ExtResource("1_33hp3")
+
+[node name="DoomsdayShortHand" type="Sprite2D" parent="." unique_id=1974323349]
+texture_filter = 1
+position = Vector2(869, 373)
+scale = Vector2(10, 10)
+texture = ExtResource("2_vsmdq")
+hframes = 2
+frame = 1
+
+[node name="DoomsdayLongHand" type="Sprite2D" parent="." unique_id=1597222778]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(867, 628)
+scale = Vector2(10, 10)
+texture = ExtResource("2_vsmdq")
+offset = Vector2(0.19999695, -25.499996)
+hframes = 2
+
+[node name="ClockTicking" type="AudioStreamPlayer" parent="." unique_id=234597528]
+stream = ExtResource("5_lb7q7")
+volume_db = -5.0
+pitch_scale = 5.0
+autoplay = true
+
+[node name="Control" type="Control" parent="." unique_id=1251641931]
+layout_mode = 3
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="ContextLabel" type="Label" parent="Control" unique_id=496606042]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = 718.0
+offset_right = 1262.0
+offset_bottom = 943.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test text"
+label_settings = SubResource("LabelSettings_7tylt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TypeTimer" type="Timer" parent="." unique_id=1073468511]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="FadeAnimation" type="AnimationPlayer" parent="." unique_id=282113956]
+unique_name_in_owner = true
+root_node = NodePath("../FadeScreen")
+libraries/ = SubResource("AnimationLibrary_5qwkf")
+
+[node name="FadeScreen" type="MeshInstance2D" parent="." unique_id=1846536042]
+visible = false
+texture_filter = 1
+position = Vector2(641.00006, 481.49997)
+scale = Vector2(1296, 973)
+mesh = SubResource("BoxMesh_7tylt")
+texture = SubResource("NoiseTexture2D_r1ynv")
+
+[connection signal="timeout" from="TypeTimer" to="." method="type_next"]
+[connection signal="animation_finished" from="FadeAnimation" to="." method="_on_fade_animation_animation_finished"]
