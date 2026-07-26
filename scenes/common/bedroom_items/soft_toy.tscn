@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_bmyjq"]
 [ext_resource type="Script" uid="uid://djads264m1r0g" path="res://scenes/common/global_detector.gd" id="2_xpalu"]
+[ext_resource type="Texture2D" uid="uid://myuxex1cdexd" path="res://assets/franklin.png" id="3_rdm06"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rdm06"]
 
@@ -10,9 +11,10 @@ script = ExtResource("1_bmyjq")
 metadata/_custom_type_script = "uid://beuy1i08e2uuk"
 
 [node name="Collider" type="CollisionPolygon2D" parent="." unique_id=682270454]
-polygon = PackedVector2Array(-100, 63, -53, 68, -54, 33, 54, 32, 57, 72, 89, 72, 91, 34, 131, 31, 146, 23, 150, 2, 138, -10, 113, -10, 93, -10, 78, -45, 26, -75, -46, -79, -78, -59, -96, -35, -114, -4, -114, 8, -138, 22, -114, 18)
+polygon = PackedVector2Array(-141, 87, -129, 88, -119, 65, -91, 49, -80, 39, -64, 27, -48, 27, -47, 46, -20, 49, -28, 28, -12, 31, 49, 28, 63, 29, 64, 47, 57, 72, 60, 83, 67, 88, 74, 91, 82, 68, 91, 34, 106, 34, 104, 65, 123, 67, 129, 55, 127, 17, 139, 19, 147, 10, 146, -15, 140, -20, 123, -22, 92, -17, 88, -34, 78, -45, 59, -66, 47, -78, 5, -77, -36, -50, -55, -41, -58, -34, -80, -21, -74, -13, -85, 9, -104, 36, -133, 52, -146, 76)
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=958181576]
+visible = false
 color = Color(0.1764706, 0.72156864, 0.20392157, 1)
 polygon = PackedVector2Array(-100, 63, -53, 68, -54, 33, 54, 32, 57, 72, 89, 72, 91, 34, 131, 31, 146, 23, 150, 2, 138, -10, 113, -10, 93, -10, 78, -45, 26, -75, -46, -79, -78, -59, -96, -35, -114, -4, -114, 8, -138, 22, -114, 18)
 
@@ -23,4 +25,9 @@ collision_mask = 16777215
 script = ExtResource("2_xpalu")
 
 [node name="Collider" type="CollisionPolygon2D" parent="GlobalDetector" unique_id=23248899]
+visible = false
+position = Vector2(-26, 12)
 polygon = PackedVector2Array(-100, 63, -53, 68, -54, 33, 54, 32, 57, 72, 89, 72, 91, 34, 131, 31, 146, 23, 150, 2, 138, -10, 113, -10, 93, -10, 78, -45, 26, -75, -46, -79, -78, -59, -96, -35, -114, -4, -114, 8, -138, 22, -114, 18)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1186373709]
+texture = ExtResource("3_rdm06")

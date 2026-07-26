@@ -1,30 +1,34 @@
-[gd_scene format=3 uid="uid://bjjtq2vw6hbve"]
+[gd_scene format=3 uid="uid://dhl0xmferygby"]
 
-[ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_kgat5"]
-[ext_resource type="Script" uid="uid://djads264m1r0g" path="res://scenes/common/global_detector.gd" id="2_v67ud"]
-[ext_resource type="Texture2D" uid="uid://d367u3gjlw6jm" path="res://assets/alarm_book2.png" id="3_kv6a0"]
+[ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_dmqfc"]
+[ext_resource type="Script" uid="uid://djads264m1r0g" path="res://scenes/common/global_detector.gd" id="2_qr2ng"]
+[ext_resource type="Texture2D" uid="uid://cim3o2kcg41fv" path="res://assets/alarm_book1.png" id="3_5o07g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_us37y"]
-size = Vector2(50, 207)
+size = Vector2(67, 188)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kv6a0"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wr06"]
+size = Vector2(68, 189)
+
 [node name="Book" type="RigidBody2D" unique_id=211434881]
-script = ExtResource("1_kgat5")
+script = ExtResource("1_dmqfc")
 metadata/_custom_type_script = "uid://beuy1i08e2uuk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1919489730]
-position = Vector2(0, 0.5)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_us37y")
 
 [node name="GlobalDetector" type="Area2D" parent="." unique_id=1694581553]
 material = SubResource("CanvasItemMaterial_kv6a0")
 collision_layer = 16777215
 collision_mask = 16777215
-script = ExtResource("2_v67ud")
+script = ExtResource("2_qr2ng")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GlobalDetector" unique_id=1946225075]
-shape = SubResource("RectangleShape2D_us37y")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2wr06")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=837801028]
-texture = ExtResource("3_kv6a0")
+texture = ExtResource("3_5o07g")
