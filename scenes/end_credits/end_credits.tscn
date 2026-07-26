@@ -41,10 +41,11 @@ Music/SFX
 Matt Potts
 Xavier Travers
 
-With A Special Thanks
+With A Special Thanks To
 Milindi Kodikara - Voice Acting
 Chaamudi Kodikara
-\"I didn't do anything ... I guess I did\""
+\"I didn't do anything ... I guess I did\"
+Irene Silaen"
 label_settings = SubResource("LabelSettings_5wron")
 horizontal_alignment = 1
 script = ExtResource("2_240hb")
