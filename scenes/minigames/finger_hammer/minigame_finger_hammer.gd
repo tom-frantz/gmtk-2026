@@ -13,7 +13,8 @@ func _ready() -> void:
     (%FadeAnimation as AnimationPlayer).play("fade")
 
 func _on_hand_smashed() -> void:
-    if left_hand.is_hand_smashed && right_hand.is_hand_smashed:
-        if not has_won:
-            has_won = true
-            emit_signal("win")
+    if not left_hand or left_hand.is_hand_smashed:
+        if not right_hand or right_hand.is_hand_smashed:
+            if not has_won:
+                has_won = true
+                emit_signal("win")

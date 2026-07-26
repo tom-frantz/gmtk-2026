@@ -117,7 +117,7 @@ hframes = 2
 [node name="ClockTicking" type="AudioStreamPlayer" parent="." unique_id=234597528]
 stream = ExtResource("5_lb7q7")
 volume_db = -15.0
-pitch_scale = 5.0
+pitch_scale = 2.0
 autoplay = true
 
 [node name="Control" type="Control" parent="." unique_id=1251641931]

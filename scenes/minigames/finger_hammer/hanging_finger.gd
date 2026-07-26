@@ -70,3 +70,4 @@ func end_hover() -> void:
 func hand_smashed() -> void:
     timer_container.hide()    
     smashed_timer.timer.stop()
+    queue_free()
