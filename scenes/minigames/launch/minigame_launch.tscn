@@ -172,7 +172,7 @@ text = "WINNER!"
 [node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("10_mcash")]
 lose_timeout = 20.0
 transition_hand_angle = 90.0
-transition_text = "Zero seconds to midnight!"
+transition_text = "It is now 0 seconds to midnight"
 next_minigame = ExtResource("11_ymt5q")
 background_music = ExtResource("11_syoxw")
 
