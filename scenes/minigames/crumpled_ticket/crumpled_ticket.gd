@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
         var delta_x: float = mouse_last.y - mouse_current.y
         if delta_x > 0:
             dragged += delta_x
-        if dragged >= drag_distance:
+        if dragged >= drag_distance and ticket_sprite.frame != FULLY_UNCRUMPLED_FRAME:
             uncrumple()
 
     mouse_last = mouse_current
