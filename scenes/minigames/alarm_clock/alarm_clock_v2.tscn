@@ -89,7 +89,8 @@ stream = ExtResource("14_i802a")
 
 [node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("12_8y2u0")]
 lose_timeout = 12.0
-transition_text = "Almost hit snooze... I hope I don't miss the bus!"
+transition_text = "Almost hit snooze... 
+I hope I don't miss the bus!"
 next_minigame = ExtResource("13_ebl0x")
 background_music = ExtResource("14_i802a")
 

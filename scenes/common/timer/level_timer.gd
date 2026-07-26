@@ -5,7 +5,7 @@ class_name LevelTimer
 @export_range(0, 120, 0.1, "suffix:s", "prefer_slider") var lose_timeout: float
 @export_range(0, 90, 1, "degrees", "prefer_slider") var transition_hand_angle: float
 @export var transition_scene: PackedScene
-@export var transition_text: String
+@export_multiline var transition_text: String
 @export var next_minigame: PackedScene
 @export var lose_scene: PackedScene
 @export var background_music: AudioStream
