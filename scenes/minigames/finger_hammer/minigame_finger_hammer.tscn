@@ -97,7 +97,8 @@ scale = Vector2(0.9983829, 0.99838305)
 texture = ExtResource("1_msbi8")
 
 [node name="Bridge" type="Sprite2D" parent="." unique_id=2115578076]
-position = Vector2(635, 482)
+texture_filter = 1
+position = Vector2(635, 483)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_msbi8")
 
