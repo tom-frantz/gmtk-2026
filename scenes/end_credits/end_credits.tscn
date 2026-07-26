@@ -27,15 +27,24 @@ Programming
 Tom Frantz
 Luke Shuster
 Xavier Travers
+Matt Potts
 
 Art
 Sam Hoch
 Medhavi Desai
 Bradley Steele
+Xavier Travers
+Luke Shuster
+Tom Frantz
 
 Music/SFX
 Matt Potts
-Xavier Travers"
+Xavier Travers
+
+With A Special Thanks
+Milindi Kodikara - Voice Acting
+Chaamudi Kodikara
+\"I didn't do anything ... I guess I did\""
 label_settings = SubResource("LabelSettings_5wron")
 horizontal_alignment = 1
 script = ExtResource("2_240hb")
