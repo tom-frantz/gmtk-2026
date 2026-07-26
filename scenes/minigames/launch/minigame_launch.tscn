@@ -12,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="10_mcash"]
 [ext_resource type="AudioStream" uid="uid://dj4w7fkj15g6x" path="res://assets/sound/music/the end of the world.wav" id="11_syoxw"]
 [ext_resource type="PackedScene" uid="uid://cle0c4puvmq7y" path="res://scenes/the_end/the_end.tscn" id="11_ymt5q"]
+[ext_resource type="Texture2D" uid="uid://d38cdb6e17rpe" path="res://assets/launch_progress_0.png" id="13_wjv3j"]
+[ext_resource type="Texture2D" uid="uid://c5841yakebuhy" path="res://assets/launch_progress_1.png" id="14_lhmgk"]
+[ext_resource type="Texture2D" uid="uid://bak1a5st38r4m" path="res://assets/launch_progress_2.png" id="15_4fdk2"]
+[ext_resource type="Texture2D" uid="uid://enxfysgfvgad" path="res://assets/launch_progress_3.png" id="16_b6l6d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
 animations = [{
@@ -41,6 +45,26 @@ animations = [{
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymt5q"]
 bg_color = Color(1, 0, 0.2509804, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kuy6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_wjv3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lhmgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_4fdk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_b6l6d")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MinigameLaunch" type="Node2D" unique_id=378857455]
 
@@ -90,6 +114,11 @@ transition_hand_angle = 90.0
 transition_text = "Zero seconds to midnight!"
 next_minigame = ExtResource("11_ymt5q")
 background_music = ExtResource("11_syoxw")
+
+[node name="status" type="AnimatedSprite2D" parent="." unique_id=1247027136]
+unique_name_in_owner = true
+position = Vector2(279, 386)
+sprite_frames = SubResource("SpriteFrames_kuy6b")
 
 [connection signal="pressed" from="TextureButton" to="launch_progress" method="_on_texture_button_pressed"]
 [connection signal="win" from="launch_progress" to="LevelTimer" method="on_win"]
