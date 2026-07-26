@@ -124,6 +124,7 @@ scale = Vector2(8, 8)
 [node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("9_uokl8")]
 unique_name_in_owner = true
 lose_timeout = 15.0
+transition_hand_angle = 40.0
 transition_text = "Oh NO A GUARD!"
 next_minigame = ExtResource("10_dnbhw")
 background_music = ExtResource("9_3o7x3")

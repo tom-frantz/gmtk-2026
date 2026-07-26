@@ -110,6 +110,6 @@ vertical_alignment = 1
 unique_name_in_owner = true
 stream = ExtResource("4_d0nru")
 
-[connection signal="timeout" from="LoseTimer" to="." method="on_win"]
+[connection signal="timeout" from="LoseTimer" to="." method="on_lose"]
 [connection signal="finished" from="Lose/LoseAudio" to="." method="queue_lose_level"]
 [connection signal="finished" from="Win/WinAudio" to="." method="queue_next_level"]

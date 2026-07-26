@@ -23,8 +23,9 @@ func _ready() -> void:
     lose_audio = %LoseAudio
     win_screen = %Win
     win_audio = %WinAudio
-    background_music_player.stream = background_music
-    background_music_player.play()
+    if background_music:
+        background_music_player.stream = background_music
+        background_music_player.play()
     lose_timer.timer.start(lose_timeout)
     
 func on_win() -> void:
@@ -34,7 +35,8 @@ func on_win() -> void:
     win_audio.play()
 
 func on_lose() -> void:
-    background_music_player.stop()
+    if background_music:
+        background_music_player.stop()
     lose_timer.timer.stop()
     lose_screen.show()
     lose_audio.play()
