@@ -4,7 +4,7 @@ signal win
 var has_won: bool = false
 var laptop_screen: AnimatedSprite2D
 @export var launch_decay: float = 5
-@export var button_value: float = 12
+@export var button_value: float = 9
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
