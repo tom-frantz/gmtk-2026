@@ -2,10 +2,139 @@
 
 [ext_resource type="Script" uid="uid://78anoryubi7u" path="res://scenes/minigames/finger_hammer/hanging_hand.gd" id="1_dstoi"]
 [ext_resource type="PackedScene" uid="uid://f1fkqbxrtxi2" path="res://scenes/minigames/finger_hammer/hanging_finger.tscn" id="1_xjuyq"]
+[ext_resource type="Texture2D" uid="uid://hevq3jirl5f0" path="res://assets/finger_hammer_finger02.png" id="2_aeac6"]
 [ext_resource type="AudioStream" uid="uid://jarkyjt43sod" path="res://assets/sound/fx/yelpsexual.wav" id="3_ftd6l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7tylt"]
+
+[sub_resource type="Gradient" id="Gradient_6vmka"]
+offsets = PackedFloat32Array(0, 0.91549295, 1)
+colors = PackedColorArray(0.8960366, 0.7911887, 0.74365544, 1, 0.82801425, 0.6689442, 0.508098, 1, 0.75553954, 0.5386982, 0.25712228, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_aeac6"]
+noise_type = 4
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ftd6l"]
+width = 16
+height = 64
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_aeac6")
+color_ramp = SubResource("Gradient_6vmka")
+
+[sub_resource type="Animation" id="Animation_ftd6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0029290207]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 337.00003)]
+}
+
+[sub_resource type="Animation" id="Animation_6vmka"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9995612),
+"transitions": PackedFloat32Array(9.513665, 1),
+"update": 0,
+"values": [Vector2(2, 309), Vector2(5, 1219)]
+}
+
+[sub_resource type="Animation" id="Animation_aeac6"]
+resource_name = "swaying"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.60288495, 1.9991224, 2.9955354, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.0029290207, 0.08028515, -0.034906585, -0.05235988, 0.017453292]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6vmka"]
+_data = {
+&"RESET": SubResource("Animation_ftd6l"),
+&"fall": SubResource("Animation_6vmka"),
+&"swaying": SubResource("Animation_aeac6")
+}
 
 [node name="HangingHand" type="Node2D" unique_id=1067559394]
 script = ExtResource("1_dstoi")
+
+[node name="Arm" type="MeshInstance2D" parent="." unique_id=265903179]
+unique_name_in_owner = true
+z_index = -1
+texture_filter = 1
+position = Vector2(2, 337.00003)
+rotation = -0.0029290207
+scale = Vector2(214.00002, 586.5)
+mesh = SubResource("BoxMesh_7tylt")
+texture = SubResource("NoiseTexture2D_ftd6l")
+
+[node name="FingerHammerFinger02" type="Sprite2D" parent="Arm" unique_id=293043334]
+position = Vector2(-0.4165038, -0.43465033)
+rotation = 0.0010687333
+scale = Vector2(0.004672879, 0.0017050775)
+skew = 0.0069584846
+texture = ExtResource("2_aeac6")
+
+[node name="FingerHammerFinger03" type="Sprite2D" parent="Arm" unique_id=1094197825]
+position = Vector2(-0.15480906, -0.4360757)
+rotation = 0.0010687333
+scale = Vector2(0.004672879, 0.0017050775)
+skew = 0.0069584846
+texture = ExtResource("2_aeac6")
+
+[node name="FingerHammerFinger04" type="Sprite2D" parent="Arm" unique_id=312829857]
+position = Vector2(0.15827367, -0.4357411)
+rotation = 0.0010687333
+scale = Vector2(0.004672879, 0.0017050775)
+skew = 0.0069584846
+texture = ExtResource("2_aeac6")
+
+[node name="FingerHammerFinger05" type="Sprite2D" parent="Arm" unique_id=2054281442]
+position = Vector2(0.43400073, -0.43885648)
+rotation = 0.0010687333
+scale = Vector2(0.004672879, 0.0017050775)
+skew = 0.0069584846
+texture = ExtResource("2_aeac6")
+
+[node name="FingerHammerFinger06" type="Sprite2D" parent="Arm" unique_id=1209926794]
+position = Vector2(-0.50580853, -0.36995435)
+rotation = -0.13874696
+scale = Vector2(0.004406545, 0.002307694)
+skew = -0.6705099
+texture = ExtResource("2_aeac6")
 
 [node name="Pinky" parent="." unique_id=1510985001 instance=ExtResource("1_xjuyq")]
 unique_name_in_owner = true
@@ -33,4 +162,9 @@ unique_name_in_owner = true
 stream = ExtResource("3_ftd6l")
 pitch_scale = 0.75
 
+[node name="ArmAnimation" type="AnimationPlayer" parent="." unique_id=1364059163]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_6vmka")
+
 [connection signal="finished" from="HandSmashSFX" to="." method="hand_smashed"]
+[connection signal="animation_finished" from="ArmAnimation" to="." method="_on_arm_animation_animation_finished"]
