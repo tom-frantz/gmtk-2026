@@ -89,7 +89,7 @@ color_ramp = SubResource("Gradient_lb7q7")
 
 [node name="TransitionDoosmday" type="Node2D" unique_id=525501757]
 script = ExtResource("1_qjebm")
-max_type_time = 0.3
+max_type_time = 0.15
 
 [node name="DoomsdayFace" type="Sprite2D" parent="." unique_id=864444153]
 texture_filter = 1
