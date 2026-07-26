@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bspfhp6bagput" path="res://scenes/minigames/keypad/target_code.gd" id="1_702ew"]
 [ext_resource type="Script" uid="uid://b6gc7ne04xl1p" path="res://scenes/minigames/keypad/keypad_input.gd" id="2_5nv2i"]
 [ext_resource type="Texture2D" uid="uid://dqxli8dhl1kkk" path="res://assets/keydoor_input.png" id="2_kc2wq"]
-[ext_resource type="Texture2D" uid="uid://bahiswroyi7ed" path="res://assets/pillow.png" id="3_013d1"]
+[ext_resource type="Texture2D" uid="uid://trgkw78b1hav" path="res://assets/postit_note.png" id="3_73guc"]
 [ext_resource type="Texture2D" uid="uid://bwfu22tcwej3v" path="res://assets/keydoor_unfinnished.png" id="8_lkkve"]
 [ext_resource type="AudioStream" uid="uid://cwmil4soybi6l" path="res://assets/sound/fx/combination lock tick1.wav" id="11_t8owr"]
 [ext_resource type="AudioStream" uid="uid://c67dy0ymlf10b" path="res://assets/sound/fx/combination lock tick2.wav" id="12_cgrn1"]
@@ -25,11 +25,11 @@ stream_3/stream = ExtResource("14_46n7e")
 
 [node name="target_code" type="Label" parent="." unique_id=1339195271]
 unique_name_in_owner = true
-offset_left = 298.0
-offset_top = 167.0
-offset_right = 685.0
-offset_bottom = 246.0
-theme_override_colors/font_color = Color(1, 0.11764706, 1, 1)
+offset_left = 900.0
+offset_top = 200.0
+offset_right = 1321.0
+offset_bottom = 285.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4he5q")
 theme_override_font_sizes/font_size = 70
@@ -39,9 +39,9 @@ script = ExtResource("1_702ew")
 
 [node name="targe_code_display" type="Sprite2D" parent="target_code" unique_id=1879170066]
 z_index = -1
-position = Vector2(191.25, 37.75)
-scale = Vector2(1.9635193, 0.57650274)
-texture = ExtResource("3_013d1")
+position = Vector2(198, 67)
+scale = Vector2(1.8808594, 1.8808594)
+texture = ExtResource("3_73guc")
 
 [node name="keypad_input_1" type="TextureButton" parent="." unique_id=2069179718]
 z_index = -1

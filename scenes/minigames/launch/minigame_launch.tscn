@@ -2,9 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bahiswroyi7ed" path="res://assets/pillow.png" id="1_5udps"]
 [ext_resource type="Script" uid="uid://uj281it5lacn" path="res://scenes/minigames/launch/progress_bar.gd" id="2_8ufbi"]
-[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="3_4yjdq"]
-[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="4_1r2tj"]
-[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="4_63xpa"]
 [ext_resource type="Texture2D" uid="uid://b5q5m1ntte3xw" path="res://assets/l0_sprite_1.png" id="4_ymt5q"]
 [ext_resource type="Texture2D" uid="uid://b6mirjkvwbiy2" path="res://assets/l0_sprite_2.png" id="5_bevqj"]
 [ext_resource type="Texture2D" uid="uid://bqsgjs0obn8dl" path="res://assets/l0_sprite_3.png" id="6_g5y4k"]
@@ -12,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://c0at5y1e0esan" path="res://assets/l0_sprite_4.png" id="7_wjv3j"]
 [ext_resource type="Texture2D" uid="uid://blbvp55e8cl74" path="res://assets/l0_sprite_5.png" id="8_lhmgk"]
 [ext_resource type="Texture2D" uid="uid://dhm32l63pgrul" path="res://assets/l0_sprite_6.png" id="9_4fdk2"]
+[ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="10_mcash"]
+[ext_resource type="AudioStream" uid="uid://dj4w7fkj15g6x" path="res://assets/sound/music/the end of the world.wav" id="11_syoxw"]
+[ext_resource type="PackedScene" uid="uid://c0f0u360hd6w8" path="res://scenes/main_menu/main_menu.tscn" id="11_ymt5q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
 animations = [{
@@ -84,38 +84,11 @@ theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
 theme_override_font_sizes/font_size = 300
 text = "WINNER!"
 
-[node name="LevelTimer" parent="." unique_id=1923668992 instance=ExtResource("4_1r2tj")]
-process_mode = 3
-position = Vector2(987.385, 100)
-
-[node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
-wait_time = 9.5
-autostart = true
-script = ExtResource("3_4yjdq")
-
-[node name="fail_banner" type="Label" parent="LevelTimer/Timer" index="0" unique_id=1279388441]
-visible = false
-z_index = 100
-offset_left = 136.0
-offset_top = 194.0
-offset_right = 1192.0
-offset_bottom = 603.0
-theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
-theme_override_font_sizes/font_size = 300
-text = "LOSER!"
-
-[node name="Label" type="Label" parent="LevelTimer/Timer/fail_banner" unique_id=178710666]
-layout_mode = 0
-offset_left = 155.0
-offset_top = 373.0
-offset_right = 820.0
-offset_bottom = 466.0
-theme_override_font_sizes/font_size = 68
-text = "(click to go to menu)"
-
-[node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=1646645808]
-stream = ExtResource("4_63xpa")
+[node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("10_mcash")]
+lose_timeout = 20.0
+transition_text = "Zero seconds to midnight!"
+next_minigame = ExtResource("11_ymt5q")
+background_music = ExtResource("11_syoxw")
 
 [connection signal="pressed" from="TextureButton" to="launch_progress" method="_on_texture_button_pressed"]
-
-[editable path="LevelTimer"]
+[connection signal="win" from="launch_progress" to="LevelTimer" method="on_win"]
