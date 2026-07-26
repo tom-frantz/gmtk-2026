@@ -95,3 +95,4 @@ background_music = ExtResource("14_i802a")
 
 [connection signal="my_fuckin_ace_signal" from="AlarmClock" to="." method="_on_alarm_clock_my_fuckin_ace_signal"]
 [connection signal="my_fuckin_ace_signal" from="AlarmClock" to="Hand" method="_on_alarm_clock_my_fuckin_ace_signal"]
+[connection signal="my_fuckin_ace_signal" from="AlarmClock" to="LevelTimer" method="on_win" unbinds=1]
