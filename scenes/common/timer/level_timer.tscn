@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://ntopxyuq6n0t"]
+
+[ext_resource type="Script" uid="uid://bsia7slidhlwg" path="res://scenes/common/timer/level_timer.gd" id="1_d0nru"]
+[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="1_hfmdj"]
+[ext_resource type="PackedScene" uid="uid://c0f0u360hd6w8" path="res://scenes/main_menu/main_menu.tscn" id="2_cl7hc"]
+[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="2_hfmdj"]
+[ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="2_wdakx"]
+[ext_resource type="PackedScene" uid="uid://bbto8jr7u2wim" path="res://scenes/transition_doosmday.tscn" id="2_ytpxg"]
+[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="4_d0nru"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7tylt"]
+
+[sub_resource type="Gradient" id="Gradient_adfg2"]
+offsets = PackedFloat32Array(0, 0.42647058, 1)
+colors = PackedColorArray(0, 0, 0, 0.28235295, 0.14117648, 0.14117648, 0.14117648, 0.34117648, 0.62742615, 0.54272217, 0.25998873, 0.34117648)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0jjch"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r1ynv"]
+width = 64
+height = 32
+noise = SubResource("FastNoiseLite_0jjch")
+color_ramp = SubResource("Gradient_adfg2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1ynv"]
+font = ExtResource("2_wdakx")
+font_size = 256
+outline_size = 32
+outline_color = Color(0.37254903, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wdakx"]
+font = ExtResource("2_wdakx")
+font_size = 256
+outline_size = 32
+outline_color = Color(0.5433887, 0.46886098, 0.07871305, 1)
+
+[node name="LevelTimer" type="Node2D" unique_id=1524867858]
+script = ExtResource("1_d0nru")
+transition_scene = ExtResource("2_ytpxg")
+lose_scene = ExtResource("2_cl7hc")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1004445145]
+unique_name_in_owner = true
+
+[node name="LoseTimer" parent="." unique_id=1923668992 instance=ExtResource("2_hfmdj")]
+unique_name_in_owner = true
+position = Vector2(123, 74)
+
+[node name="Lose" type="Node2D" parent="." unique_id=825756351]
+unique_name_in_owner = true
+visible = false
+
+[node name="LoseOverlay" type="MeshInstance2D" parent="Lose" unique_id=236675039]
+texture_filter = 1
+position = Vector2(648, 478.99994)
+scale = Vector2(1340, 1029.9999)
+mesh = SubResource("BoxMesh_7tylt")
+texture = SubResource("NoiseTexture2D_r1ynv")
+
+[node name="LoseBanner" type="Label" parent="Lose" unique_id=1758104928]
+z_index = 100
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 3.0517578e-05
+offset_right = 1281.0
+offset_bottom = 959.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
+theme_override_font_sizes/font_size = 300
+text = "LOSER!"
+label_settings = SubResource("LabelSettings_r1ynv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseAudio" type="AudioStreamPlayer" parent="Lose" unique_id=2067542213]
+unique_name_in_owner = true
+stream = ExtResource("1_hfmdj")
+
+[node name="Win" type="Node2D" parent="." unique_id=836935896]
+unique_name_in_owner = true
+visible = false
+
+[node name="WinOverlay" type="MeshInstance2D" parent="Win" unique_id=916540147]
+texture_filter = 1
+position = Vector2(648, 478.99994)
+scale = Vector2(1340, 1029.9999)
+mesh = SubResource("BoxMesh_7tylt")
+texture = SubResource("NoiseTexture2D_r1ynv")
+
+[node name="WinBanner" type="Label" parent="Win" unique_id=1341904160]
+z_index = 100
+z_as_relative = false
+offset_top = 3.0
+offset_right = 1284.0
+offset_bottom = 962.0
+theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
+theme_override_font_sizes/font_size = 300
+text = "WINNER!"
+label_settings = SubResource("LabelSettings_wdakx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinAudio" type="AudioStreamPlayer" parent="Win" unique_id=1945704819]
+unique_name_in_owner = true
+stream = ExtResource("4_d0nru")
+
+[connection signal="timeout" from="LoseTimer" to="." method="on_win"]
+[connection signal="finished" from="Lose/LoseAudio" to="." method="queue_lose_level"]
+[connection signal="finished" from="Win/WinAudio" to="." method="queue_next_level"]
