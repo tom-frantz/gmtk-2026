@@ -1,16 +1,13 @@
 [gd_scene format=3 uid="uid://bu2ysg2oqbo6n"]
 
-[ext_resource type="Script" uid="uid://ygnnutno1elj" path="res://scenes/minigames/crumpled_ticket/minigame_crumpled_ticket.gd" id="1_8u4w2"]
 [ext_resource type="PackedScene" uid="uid://ixxk6kfb35xk" path="res://scenes/minigames/crumpled_ticket/crumpled_ticket.tscn" id="1_744sh"]
 [ext_resource type="Texture2D" uid="uid://hevq3jirl5f0" path="res://assets/finger_hammer_finger02.png" id="1_yhmhs"]
 [ext_resource type="Texture2D" uid="uid://b3uemvr3fun0n" path="res://assets/crumpled_ticket_background.png" id="2_mtd4c"]
 [ext_resource type="Texture2D" uid="uid://b10ge32ceayao" path="res://assets/finger_hammer_finger01.png" id="3_wou8l"]
 [ext_resource type="PackedScene" uid="uid://cbftkdqiqa54g" path="res://scenes/minigames/crumpled_ticket/move_up_hint.tscn" id="4_wou8l"]
-[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="5_0l6b4"]
-[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="7_3o7x3"]
-[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="8_pymaf"]
 [ext_resource type="AudioStream" uid="uid://k18nqwv3wfdh" path="res://assets/sound/music/late for the bus.wav" id="9_3o7x3"]
-[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="10_u7sap"]
+[ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="9_uokl8"]
+[ext_resource type="PackedScene" uid="uid://dq7lh25bpwk60" path="res://scenes/minigames/finger_hammer/minigame_finger_hammer.tscn" id="10_dnbhw"]
 [ext_resource type="Texture2D" uid="uid://cnfu80rkpy6h2" path="res://assets/thought_bubble.png" id="11_0i0rq"]
 [ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="11_pymaf"]
 [ext_resource type="AudioStream" uid="uid://c1q6u336lgi3q" path="res://assets/sound/fx/crinkle_1.wav" id="13_uokl8"]
@@ -32,7 +29,6 @@ stream_2/stream = ExtResource("15_mtd4c")
 stream_3/stream = ExtResource("16_dnbhw")
 
 [node name="MinigameCrumpledTicket" type="Node2D" unique_id=750537635]
-script = ExtResource("1_8u4w2")
 
 [node name="bg" type="Sprite2D" parent="." unique_id=711662324]
 modulate = Color(0.26293245, 0.26293245, 0.26293245, 1)
@@ -125,51 +121,12 @@ position = Vector2(795, 753.00006)
 rotation = -0.10471976
 scale = Vector2(8, 8)
 
-[node name="LevelTimer" parent="." unique_id=1923668992 instance=ExtResource("5_0l6b4")]
+[node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("9_uokl8")]
 unique_name_in_owner = true
-position = Vector2(163, 93)
-
-[node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
-wait_time = 15.0
-one_shot = true
-autostart = true
-script = ExtResource("7_3o7x3")
-
-[node name="fail_banner" type="Label" parent="LevelTimer/Timer" index="0" unique_id=928418912]
-visible = false
-z_index = 100
-offset_left = 136.0
-offset_top = 194.0
-offset_right = 1192.0
-offset_bottom = 603.0
-theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
-theme_override_font_sizes/font_size = 300
-text = "LOSER!"
-
-[node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=470832685]
-unique_name_in_owner = true
-stream = ExtResource("8_pymaf")
-
-[node name="win_banner" type="Label" parent="." unique_id=1741623242]
-unique_name_in_owner = true
-visible = false
-z_index = 100
-z_as_relative = false
-offset_left = 6.0
-offset_top = 275.0
-offset_right = 1293.0
-offset_bottom = 684.0
-theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
-theme_override_font_sizes/font_size = 300
-text = "WINNER!"
-
-[node name="background_music" type="AudioStreamPlayer" parent="." unique_id=62762688]
-unique_name_in_owner = true
-stream = ExtResource("9_3o7x3")
-
-[node name="win_audio" type="AudioStreamPlayer" parent="." unique_id=1255576016]
-unique_name_in_owner = true
-stream = ExtResource("10_u7sap")
+lose_timeout = 15.0
+transition_text = "Oh NO A GUARD!"
+next_minigame = ExtResource("10_dnbhw")
+background_music = ExtResource("9_3o7x3")
 
 [node name="CrinkleSound" type="AudioStreamPlayer" parent="." unique_id=1746694283]
 unique_name_in_owner = true
@@ -177,6 +134,4 @@ stream = SubResource("AudioStreamRandomizer_7tylt")
 volume_db = -4.0
 pitch_scale = 3.0
 
-[connection signal="fully_uncrumpled" from="CrumpledTicket" to="." method="_on_crumpled_ticket_fully_uncrumpled"]
-
-[editable path="LevelTimer"]
+[connection signal="fully_uncrumpled" from="CrumpledTicket" to="LevelTimer" method="on_win"]
