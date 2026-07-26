@@ -9,8 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bjjtq2vw6hbve" path="res://scenes/common/book.tscn" id="6_i802a"]
 [ext_resource type="PackedScene" uid="uid://dg6i4mlw8jcg4" path="res://scenes/common/bedroom_items/soft_toy.tscn" id="7_e7emu"]
 [ext_resource type="PackedScene" uid="uid://efyqukual3b" path="res://scenes/common/hand/hand2.tscn" id="8_mmqdm"]
+[ext_resource type="PackedScene" uid="uid://dhl0xmferygby" path="res://scenes/common/bedroom_items/book2.tscn" id="9_e7emu"]
 [ext_resource type="PackedScene" uid="uid://641f7qyvxmq6" path="res://scenes/common/black_fade/fade.tscn" id="9_l8c76"]
+[ext_resource type="PackedScene" uid="uid://d0tri8lfji3sb" path="res://scenes/common/bedroom_items/book3.tscn" id="10_l8c76"]
+[ext_resource type="PackedScene" uid="uid://d4e1tegpuqchy" path="res://scenes/common/bedroom_items/book4.tscn" id="12_5swjb"]
 [ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="12_8y2u0"]
+[ext_resource type="PackedScene" uid="uid://dq3jh0teogruj" path="res://scenes/common/bedroom_items/book5.tscn" id="13_5swjb"]
 [ext_resource type="PackedScene" uid="uid://bu2ysg2oqbo6n" path="res://scenes/minigames/crumpled_ticket/minigame_crumpled_ticket.tscn" id="13_ebl0x"]
 [ext_resource type="AudioStream" uid="uid://cqf8u3pcac7wt" path="res://assets/sound/music/wake up.wav" id="14_i802a"]
 
@@ -33,37 +37,49 @@ shape = SubResource("WorldBoundaryShape2D_2hxnw")
 debug_color = Color(0, 0.6, 0.69803923, 0.7137255)
 
 [node name="AlarmClock" parent="." unique_id=2083303648 instance=ExtResource("2_mmqdm")]
-position = Vector2(818, 619)
+position = Vector2(781, 620)
 
 [node name="Lamp" parent="." unique_id=708644396 instance=ExtResource("3_8y2u0")]
-position = Vector2(477, 581)
+position = Vector2(503, 580)
 collision_layer = 4
 collision_mask = 4
 
 [node name="Potplant" parent="." unique_id=941695830 instance=ExtResource("4_ebl0x")]
-position = Vector2(635, 605)
+position = Vector2(643, 601)
 collision_layer = 2
 collision_mask = 2
+mass = 2.117
 
 [node name="DrinkBottle" parent="." unique_id=252755264 instance=ExtResource("5_5faxw")]
 position = Vector2(839, 587)
 collision_layer = 2
 collision_mask = 2
-
-[node name="Book" parent="." unique_id=211434881 instance=ExtResource("6_i802a")]
-position = Vector2(427, 609)
+mass = 3.956
 
 [node name="SoftToy" parent="." unique_id=383912693 instance=ExtResource("7_e7emu")]
-position = Vector2(824, 601)
+position = Vector2(789, 582)
+mass = 1.755
 
-[node name="Book3" parent="." unique_id=360374397 instance=ExtResource("6_i802a")]
-position = Vector2(531, 609)
+[node name="Book" parent="." unique_id=211434881 instance=ExtResource("6_i802a")]
+position = Vector2(444, 571)
 
-[node name="Book4" parent="." unique_id=409632918 instance=ExtResource("6_i802a")]
-position = Vector2(665, 604)
-rotation = 0.49392816
+[node name="Book2" parent="." unique_id=1435485491 instance=ExtResource("9_e7emu")]
+position = Vector2(510, 571)
+mass = 0.57
+
+[node name="Book3" parent="." unique_id=1055214930 instance=ExtResource("10_l8c76")]
+position = Vector2(627, 577)
+rotation = 0.60039324
 
 [node name="Hand" parent="." unique_id=1812154284 instance=ExtResource("8_mmqdm")]
+
+[node name="Book4" parent="." unique_id=512584728 instance=ExtResource("12_5swjb")]
+position = Vector2(1016, 567)
+rotation = -1.5707964
+
+[node name="Book5" parent="." unique_id=905304115 instance=ExtResource("13_5swjb")]
+position = Vector2(1026, 639)
+rotation = -1.5707964
 
 [node name="FadeIn" parent="." unique_id=1555448231 instance=ExtResource("9_l8c76")]
 

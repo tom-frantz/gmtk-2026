@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://beuy1i08e2uuk" path="res://scripts/grabbable.gd" id="1_sh54x"]
 [ext_resource type="Script" uid="uid://djads264m1r0g" path="res://scenes/common/global_detector.gd" id="2_o6oqe"]
+[ext_resource type="Texture2D" uid="uid://c3xmmiduugmqp" path="res://assets/bottle.png" id="3_dtrd2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dtrd2"]
 
@@ -9,13 +10,9 @@
 script = ExtResource("1_sh54x")
 metadata/_custom_type_script = "uid://beuy1i08e2uuk"
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1805049460]
-position = Vector2(29, 5)
-polygon = PackedVector2Array(-57, 81, -58, -95, -38, -111, -38, -133, -24, -133, -20, -112, 0, -96, 2, 81)
-
 [node name="Polygon2D2" type="CollisionPolygon2D" parent="." unique_id=1652756962]
 position = Vector2(29, 5)
-polygon = PackedVector2Array(-57, 81, -58, -95, -38, -111, -38, -133, -24, -133, -20, -112, 0, -96, 2, 81)
+polygon = PackedVector2Array(-101, 84, -104, -116, -51, -155, -49, -180, -10, -177, -8, -156, 47, -113, 45, 82)
 
 [node name="GlobalDetector" type="Area2D" parent="." unique_id=121814324]
 material = SubResource("CanvasItemMaterial_dtrd2")
@@ -23,6 +20,10 @@ collision_layer = 16777215
 collision_mask = 16777215
 script = ExtResource("2_o6oqe")
 
-[node name="Polygon2D2" type="CollisionPolygon2D" parent="GlobalDetector" unique_id=319047308]
+[node name="Polygon2D3" type="CollisionPolygon2D" parent="GlobalDetector" unique_id=1741607732]
 position = Vector2(29, 5)
-polygon = PackedVector2Array(-57, 81, -58, -95, -38, -111, -38, -133, -24, -133, -20, -112, 0, -96, 2, 81)
+polygon = PackedVector2Array(-101, 84, -104, -116, -51, -155, -49, -180, -10, -177, -8, -156, 47, -113, 45, 82)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1257068381]
+position = Vector2(0, -62)
+texture = ExtResource("3_dtrd2")
