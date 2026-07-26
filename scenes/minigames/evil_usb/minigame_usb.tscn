@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://ba6adnn1mtrj7"]
 
-[ext_resource type="Script" uid="uid://coabvdwmtfgnm" path="res://scenes/minigames/evil_usb/minigame_usb.gd" id="1_iafxi"]
 [ext_resource type="Script" uid="uid://d4j3mwydt5sxd" path="res://scenes/minigames/evil_usb/usb.gd" id="2_bioy6"]
 [ext_resource type="AudioStream" uid="uid://bjhlol41y8xp8" path="res://assets/sound/fx/incorrect.wav" id="3_etcy7"]
 [ext_resource type="Texture2D" uid="uid://c12lfii0c06vh" path="res://assets/usb01.png" id="4_kwyau"]
 [ext_resource type="Texture2D" uid="uid://charj018e68l3" path="res://assets/usb03.png" id="5_bxuw3"]
 [ext_resource type="Texture2D" uid="uid://c1rw3qc8wfcl2" path="res://assets/usb02.png" id="6_qh7jt"]
-[ext_resource type="AudioStream" uid="uid://c1v77h4rgrwmw" path="res://assets/sound/fx/win_minigame.wav" id="7_kuiiv"]
 [ext_resource type="Script" uid="uid://cwlt6lpaia7xk" path="res://scenes/minigames/evil_usb/usb_slot.gd" id="8_bxuw3"]
 [ext_resource type="Texture2D" uid="uid://c2g22a16e78qu" path="res://assets/usb_background.png" id="8_kg4k4"]
 [ext_resource type="Texture2D" uid="uid://bbyipnugqnccy" path="res://assets/usb_port_h_base01.png" id="9_bxuw3"]
@@ -17,10 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://dqgow3lsxd6t8" path="res://assets/usb_port_h_top01.png" id="14_k407p"]
 [ext_resource type="Texture2D" uid="uid://cuc1sa1uq80ca" path="res://assets/usb_port_h_top02.png" id="14_kuiiv"]
 [ext_resource type="Texture2D" uid="uid://bo1w0x2rmct4b" path="res://assets/usb_port_v_top01.png" id="15_kg4k4"]
-[ext_resource type="PackedScene" uid="uid://d3qorbs0l4srn" path="res://scenes/common/timer/timer.tscn" id="16_1obh5"]
-[ext_resource type="Script" uid="uid://dgut0ds5bd0q5" path="res://scripts/minigame_timer.gd" id="17_bioy6"]
 [ext_resource type="AudioStream" uid="uid://k18nqwv3wfdh" path="res://assets/sound/music/late for the bus.wav" id="17_etcy7"]
-[ext_resource type="AudioStream" uid="uid://jqhdadky6uci" path="res://assets/sound/fx/fail.wav" id="17_kwyau"]
+[ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="19_kwyau"]
+[ext_resource type="PackedScene" uid="uid://dq7lh25bpwk60" path="res://scenes/minigames/finger_hammer/minigame_finger_hammer.tscn" id="20_bxuw3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kuy6b"]
 animations = [{
@@ -98,7 +95,6 @@ size = Vector2(14, 69.5)
 size = Vector2(14, 11.5)
 
 [node name="MinigameUsb" type="Node2D" unique_id=1410700175]
-script = ExtResource("1_iafxi")
 
 [node name="usb" type="RigidBody2D" parent="." unique_id=939992453]
 unique_name_in_owner = true
@@ -122,10 +118,6 @@ animation = &"usb"
 z_index = 10
 position = Vector2(0.5, -88.88501)
 shape = SubResource("RectangleShape2D_kuy6b")
-
-[node name="win_audio" type="AudioStreamPlayer" parent="usb" unique_id=2101610096]
-unique_name_in_owner = true
-stream = ExtResource("7_kuiiv")
 
 [node name="usb_slot" type="Node2D" parent="." unique_id=851984207]
 script = ExtResource("8_bxuw3")
@@ -198,59 +190,15 @@ z_index = -10
 position = Vector2(640, 480)
 texture = ExtResource("8_kg4k4")
 
-[node name="LevelTimer" parent="." unique_id=1923668992 instance=ExtResource("16_1obh5")]
-process_mode = 3
-position = Vector2(1000, 427)
+[node name="LevelTimer" parent="." unique_id=1524867858 instance=ExtResource("19_kwyau")]
+lose_timeout = 7.5
+transition_hand_angle = 45.0
+transition_text = "He's trying to stop me! ... *sneak* ... *shove* ..."
+next_minigame = ExtResource("20_bxuw3")
+background_music = ExtResource("17_etcy7")
 
-[node name="Timer" parent="LevelTimer" index="0" unique_id=1572085082]
-wait_time = 7.5
-autostart = true
-script = ExtResource("17_bioy6")
-
-[node name="fail_banner" type="Label" parent="LevelTimer/Timer" index="0" unique_id=169344778]
-visible = false
-z_index = 100
-offset_left = 136.0
-offset_top = 194.0
-offset_right = 1192.0
-offset_bottom = 603.0
-theme_override_colors/font_color = Color(1, 0, 0.047058824, 1)
-theme_override_font_sizes/font_size = 300
-text = "LOSER!"
-
-[node name="Label" type="Label" parent="LevelTimer/Timer/fail_banner" unique_id=1576799668]
-layout_mode = 0
-offset_left = 155.0
-offset_top = 373.0
-offset_right = 820.0
-offset_bottom = 466.0
-theme_override_font_sizes/font_size = 68
-text = "(click to go to menu)"
-
-[node name="lose_audio" type="AudioStreamPlayer" parent="LevelTimer/Timer" index="1" unique_id=184270103]
-unique_name_in_owner = true
-stream = ExtResource("17_kwyau")
-
-[node name="win_banner" type="Label" parent="." unique_id=1912632441]
-unique_name_in_owner = true
-visible = false
-z_index = 100
-z_as_relative = false
-offset_left = 6.0
-offset_top = 275.0
-offset_right = 1293.0
-offset_bottom = 684.0
-theme_override_colors/font_color = Color(1, 1, 0.25490198, 1)
-theme_override_font_sizes/font_size = 300
-text = "WINNER!"
-
-[node name="background_music" type="AudioStreamPlayer" parent="." unique_id=1444448266]
-unique_name_in_owner = true
-stream = ExtResource("17_etcy7")
-
+[connection signal="win" from="usb" to="LevelTimer" method="on_win"]
 [connection signal="area_entered" from="usb_slot/slot_body/slot" to="usb" method="_on_slot_area_entered" flags=18]
 [connection signal="body_entered" from="usb_slot/slot_body/slot" to="usb" method="_on_slot_body_entered"]
 [connection signal="body_exited" from="usb_slot/slot_body/slot_entered_collision" to="usb" method="_on_slot_entered_collision_body_exited"]
 [connection signal="body_entered" from="usb_slot/slot_body/slot_entered_collision2" to="usb" method="_on_slot_entered_collision_body_entered"]
-
-[editable path="LevelTimer"]
