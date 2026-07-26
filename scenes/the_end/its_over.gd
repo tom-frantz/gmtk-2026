@@ -4,6 +4,7 @@ extends AnimatedSprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     self.play("boom")
+    %boom_audio.play()
     animation_finished.connect(_animation_finished)
 
 

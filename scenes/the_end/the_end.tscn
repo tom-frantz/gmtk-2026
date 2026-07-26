@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://w36gm41o8vqn" path="res://assets/sprite_world_end_asset28.png" id="29_3edi1"]
 [ext_resource type="Script" uid="uid://ij13dn2s0xq0" path="res://scenes/the_end/its_over.gd" id="30_qlqre"]
 [ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="31_02p0s"]
+[ext_resource type="AudioStream" uid="uid://du0nqvsvt4o0f" path="res://assets/sound/fx/boom.wav" id="32_3wct6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kuy6b"]
 animations = [{
@@ -155,3 +156,7 @@ theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("31_02p0s")
 theme_override_font_sizes/font_size = 300
 text = "THE END"
+
+[node name="boom_audio" type="AudioStreamPlayer" parent="." unique_id=765251898]
+unique_name_in_owner = true
+stream = ExtResource("32_3wct6")

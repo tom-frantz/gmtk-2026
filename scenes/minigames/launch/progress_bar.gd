@@ -4,7 +4,7 @@ signal win
 var has_won: bool = false
 var laptop_screen: AnimatedSprite2D
 @export var launch_decay: float = 5
-@export var button_value: float = 9
+@export var button_value: float = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
             %progress_sfx.play()
             if %status.frame == 3:
                 has_won = true
+                %background.play("launch_nuke")
+                await get_tree().create_timer(0.5).timeout
                 emit_signal("win")
             else:
                 value = 0

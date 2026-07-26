@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b5q5m1ntte3xw" path="res://assets/l0_sprite_1.png" id="4_ymt5q"]
 [ext_resource type="Texture2D" uid="uid://b6mirjkvwbiy2" path="res://assets/l0_sprite_2.png" id="5_bevqj"]
 [ext_resource type="Texture2D" uid="uid://bqsgjs0obn8dl" path="res://assets/l0_sprite_3.png" id="6_g5y4k"]
-[ext_resource type="AudioStream" uid="uid://dxni0wa0hv1su" path="res://assets/sound/fx/success.wav" id="7_1r2tj"]
 [ext_resource type="Texture2D" uid="uid://c0at5y1e0esan" path="res://assets/l0_sprite_4.png" id="7_wjv3j"]
 [ext_resource type="Texture2D" uid="uid://blbvp55e8cl74" path="res://assets/l0_sprite_5.png" id="8_lhmgk"]
 [ext_resource type="Texture2D" uid="uid://dhm32l63pgrul" path="res://assets/l0_sprite_6.png" id="9_4fdk2"]
@@ -17,8 +16,19 @@
 [ext_resource type="Texture2D" uid="uid://c5841yakebuhy" path="res://assets/launch_progress_1.png" id="14_lhmgk"]
 [ext_resource type="Texture2D" uid="uid://bak1a5st38r4m" path="res://assets/launch_progress_2.png" id="15_4fdk2"]
 [ext_resource type="Texture2D" uid="uid://enxfysgfvgad" path="res://assets/launch_progress_3.png" id="16_b6l6d"]
-[ext_resource type="Texture2D" uid="uid://di8jbj3nkym3n" path="res://assets/launch_background1.png" id="17_lhmgk"]
+[ext_resource type="Texture2D" uid="uid://brmmy8uxgmrjl" path="res://assets/launch_background__images/launch_background_01.png" id="18_gyew4"]
 [ext_resource type="AudioStream" uid="uid://befg3csec8eih" path="res://assets/sound/fx/ding.wav" id="19_b6l6d"]
+[ext_resource type="Texture2D" uid="uid://ctyad6d18dqu1" path="res://assets/launch_background__images/launch_background_02.png" id="19_y4383"]
+[ext_resource type="Texture2D" uid="uid://bj57iriegknc5" path="res://assets/launch_background__images/launch_background_03.png" id="20_oy2bh"]
+[ext_resource type="Texture2D" uid="uid://qp12atk538th" path="res://assets/launch_background__images/launch_background_04.png" id="21_ldji3"]
+[ext_resource type="Texture2D" uid="uid://40cxfeaj76o" path="res://assets/launch_background__images/launch_background_05.png" id="22_0vol7"]
+[ext_resource type="Texture2D" uid="uid://bnkvxjp06833h" path="res://assets/launch_background__images/launch_background_06.png" id="23_ulrd2"]
+[ext_resource type="Texture2D" uid="uid://barbdv50bxr1e" path="res://assets/launch_background__images/launch_background_07.png" id="24_c4auh"]
+[ext_resource type="Texture2D" uid="uid://dlk4yh8pk40jy" path="res://assets/launch_background__images/launch_background_08.png" id="25_7qp5b"]
+[ext_resource type="Texture2D" uid="uid://dbfe2xva542yq" path="res://assets/launch_background__images/launch_background_09.png" id="26_40ayh"]
+[ext_resource type="Texture2D" uid="uid://chubpvjfchsyh" path="res://assets/launch_background__images/launch_background_10.png" id="27_0f48t"]
+[ext_resource type="Texture2D" uid="uid://d1wc2cio6akiv" path="res://assets/launch_background__images/launch_background_11.png" id="28_egy2n"]
+[ext_resource type="Texture2D" uid="uid://cwtybapftgdgo" path="res://assets/launch_background__images/launch_background_12.png" id="29_oko10"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gb0x2"]
 animations = [{
@@ -69,10 +79,59 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MinigameLaunch" type="Node2D" unique_id=378857455]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ob04f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_gyew4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_gyew4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_y4383")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_oy2bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ldji3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_0vol7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ulrd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_c4auh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_7qp5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_40ayh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0f48t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_egy2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_oko10")
+}],
+"loop": 0,
+"name": &"launch_nuke",
+"speed": 5.0
+}]
 
-[node name="win_audio" type="AudioStreamPlayer" parent="." unique_id=1897251185]
-stream = ExtResource("7_1r2tj")
+[node name="MinigameLaunch" type="Node2D" unique_id=378857455]
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1779041361]
 offset_right = 1280.0
@@ -124,10 +183,13 @@ scale = Vector2(0.85741997, 0.813694)
 skew = 0.08726646
 sprite_frames = SubResource("SpriteFrames_kuy6b")
 
-[node name="background" type="Sprite2D" parent="." unique_id=1451181462]
+[node name="background" type="AnimatedSprite2D" parent="." unique_id=432922893]
+unique_name_in_owner = true
 z_index = -3
 position = Vector2(640, 480)
-texture = ExtResource("17_lhmgk")
+sprite_frames = SubResource("SpriteFrames_ob04f")
+animation = &"launch_nuke"
+frame_progress = 0.7662193
 
 [node name="progress_sfx" type="AudioStreamPlayer" parent="." unique_id=632151772]
 unique_name_in_owner = true
