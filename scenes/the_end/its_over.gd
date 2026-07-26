@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 func _animation_finished() -> void:
     var the_end_label: Label = %game_over_label
     the_end_label.visible = true
-    get_tree().change_scene_to_file("res://scenes/end_credits.tscn")
+    await get_tree().create_timer(2).timeout
+    get_tree().change_scene_to_file("res://scenes/end_credits/end_credits.tscn")
