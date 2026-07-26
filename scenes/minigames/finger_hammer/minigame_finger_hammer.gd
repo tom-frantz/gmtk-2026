@@ -17,4 +17,6 @@ func _on_hand_smashed() -> void:
         if not right_hand or right_hand.is_hand_smashed:
             if not has_won:
                 has_won = true
+                await get_tree().create_timer(1).timeout
+                %splash_sfx.play()
                 emit_signal("win")

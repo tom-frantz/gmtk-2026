@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://b7cji6tkn5nvf" path="res://scenes/main_menu/lamp_string.gd" id="8_thkx5"]
 [ext_resource type="AudioStream" uid="uid://ceec4a7i8n1um" path="res://assets/sound/fx/combination lock tick4.wav" id="9_thkx5"]
 [ext_resource type="PackedScene" uid="uid://cbftkdqiqa54g" path="res://scenes/minigames/crumpled_ticket/move_up_hint.tscn" id="10_x2yjq"]
-[ext_resource type="AudioStream" uid="uid://bsy12goap8wtl" path="res://assets/sound/music/fresh oudoors.wav" id="11_lqpn7"]
+[ext_resource type="AudioStream" uid="uid://cudxncx4hgeys" path="res://assets/sound/music/fresh oudoors2.wav" id="12_rrgl4"]
 [ext_resource type="FontFile" uid="uid://df481jg3bvt8e" path="res://assets/font/PixelifySans.ttf" id="13_rrgl4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4suoi"]
@@ -108,7 +108,7 @@ modulate = Color(1, 1, 1, 0.6117647)
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=1069022559]
 unique_name_in_owner = true
-stream = ExtResource("11_lqpn7")
+stream = ExtResource("12_rrgl4")
 
 [node name="Label" type="RichTextLabel" parent="." unique_id=572037391]
 offset_left = 411.0

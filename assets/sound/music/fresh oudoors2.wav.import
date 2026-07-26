@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cudxncx4hgeys"
+path="res://.godot/imported/fresh oudoors2.wav-2df6da167de22f7d34c760bb4462f807.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/fresh oudoors2.wav"
+dest_files=["res://.godot/imported/fresh oudoors2.wav-2df6da167de22f7d34c760bb4462f807.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

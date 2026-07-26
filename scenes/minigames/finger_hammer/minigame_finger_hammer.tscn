@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ntopxyuq6n0t" path="res://scenes/common/timer/level_timer.tscn" id="6_tl7hf"]
 [ext_resource type="PackedScene" uid="uid://bwj01so8oyysx" path="res://scenes/minigames/launch/minigame_launch.tscn" id="7_kcbur"]
 [ext_resource type="AudioStream" uid="uid://c6n5ox0k5w1wu" path="res://assets/sound/music/smashing fingers.wav" id="8_4w7nb"]
+[ext_resource type="AudioStream" uid="uid://dnna47si3qj8a" path="res://assets/sound/fx/splash.wav" id="9_4w7nb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kcbur"]
 
@@ -138,6 +139,11 @@ texture = SubResource("NoiseTexture2D_4w7nb")
 unique_name_in_owner = true
 root_node = NodePath("../FadeScreen")
 libraries/ = SubResource("AnimationLibrary_ch35p")
+
+[node name="splash_sfx" type="AudioStreamPlayer" parent="." unique_id=556670851]
+unique_name_in_owner = true
+stream = ExtResource("9_4w7nb")
+volume_db = 5.0
 
 [connection signal="win" from="." to="LevelTimer" method="on_win"]
 [connection signal="smashed" from="LeftHand" to="." method="_on_hand_smashed"]
